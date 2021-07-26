@@ -2,8 +2,8 @@
 const faker = require('faker')
 module.exports = {
   up: (queryInterface, Sequelize) => {
-   
-      
+
+
     return queryInterface.bulkInsert('Users', [
       {
         fullName:  'ADMIN',
@@ -19,18 +19,12 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
-     
+
         ], {});
 
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete('Users', null, {truncate: true, cascade: true, restartIdentity: true});
   }
 };

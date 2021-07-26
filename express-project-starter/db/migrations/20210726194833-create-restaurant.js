@@ -26,6 +26,9 @@ module.exports = {
       numberOfReviews: {
         type: Sequelize.INTEGER
       },
+      imgURL: {
+        type: Sequelize.TEXT
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
