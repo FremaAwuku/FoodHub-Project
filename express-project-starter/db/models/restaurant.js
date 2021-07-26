@@ -7,8 +7,9 @@ module.exports = (sequelize, DataTypes) => {
     rating: DataTypes.INTEGER,
     numberOfReviews: DataTypes.INTEGER
   }, {});
-  Restaurant.associate = function(models) {
-    Restaurant.hasMany(models.Review, {foreignKey: 'restaurantId'})
+  Restaurant.associate = function (models) {
+    Restaurant.hasMany(models.Review, { foreignKey: 'restaurantId' })
+    Restaurant.hasMany(models.UserResterauntList, {foreignKey: 'restaurantId'})
   };
   return Restaurant;
 };
