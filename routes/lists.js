@@ -6,9 +6,12 @@ const db = require('../db/models');
 
 
 
-userRouter.get('/:id(\\d)/list', csrfProtection, asyncHandler(async (req, res) => {
-    userId = parseInt(req.params.userId, 10)
-    const userList = await db.UserRestaurantList.findAll({where: userId})
+userRouter.get('/:id(\\d+)/list', csrfProtection, asyncHandler(async (req, res) => {
+    userId = parseInt(req.params.id, 10)
+    const userList = await db.UserRestaurantList.findAll({
+        where: {userId},
+        include: [db.Restaurant,  db.User]
+    })
     res.render('user-list', {
         title: "Personal Restaurant List",
         userList,
@@ -34,3 +37,6 @@ userRouter.post('/list', csrfProtection, asyncHandler(async (req, res) => {
      
   }
 }))
+
+
+module.exports = userRouter
