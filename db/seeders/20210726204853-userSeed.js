@@ -6,14 +6,16 @@ module.exports = {
 
     return queryInterface.bulkInsert('Users', [
       {
-        fullName:  'ADMIN',
+        firstName: "ADMIN",  
+        lastName: "ADMIN",
         email: 'BAB@foodHub.io',
         hashedPassword: 'adminPassword',
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        fullName:  faker.name.firstName() +' '+ faker.name.lastName() ,
+        firstName: faker.name.firstName(),  
+        lastName: faker.name.lastName(),
         email: faker.internet.email(),
         hashedPassword: 'password',
         createdAt: new Date(),
