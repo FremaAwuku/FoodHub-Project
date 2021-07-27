@@ -1,0 +1,13 @@
+extends layout.pug
+block content
+    table
+        thead
+            tr
+                th Resteraunt
+                th Has Visited
+                th User
+        tbody
+           tr
+                td=userList.hasVisited
+                td=userList.Restaurant.name
+                td=userList.User.email 
