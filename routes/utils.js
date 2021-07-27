@@ -40,6 +40,7 @@ const userValidators = [
           if(password !== confirmPassword){
               throw new Error('Passwords must be the same')
           }
+          return true
       })
       .withMessage('ConfirmPassword does not match Password'),
 ];
