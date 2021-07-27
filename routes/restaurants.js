@@ -10,6 +10,7 @@ router.get("/", asyncHandler(async(req,res)=>{
 const restaurants = await db.Restaurant.findAll()
 
 res.render('restaurants',{
+    title:"Restaurants",
     restaurants
 })
 
