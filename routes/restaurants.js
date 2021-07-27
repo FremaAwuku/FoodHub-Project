@@ -9,6 +9,11 @@ const { loginUser } = require('../auth')
 router.get("/", asyncHandler(async(req,res)=>{
 const restaurants = await db.Restaurant.findAll()
 
-res.render()
+res.render('restaurants',{
+    restaurants
+})
+
 }))
+
+
 module.exports=router
