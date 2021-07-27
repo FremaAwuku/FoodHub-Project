@@ -107,7 +107,6 @@ userRouter.post('/login', csrfProtection, loginValidators, asyncHandler(async (r
 
 userRouter.post('/logout', (req, res) => {
   logoutUser(req, res)
-  res.redirect('/')
 })
 
 
