@@ -8,13 +8,22 @@ const { loginUser } = require('../auth')
 
 router.get("/", asyncHandler(async(req,res)=>{
 const restaurants = await db.Restaurant.findAll()
-
+// res.send(restaurants)
 res.render('restaurants',{
     title:"Restaurants",
     restaurants
 })
 
 }))
+router.get("/:restaurantId(\\d+)", asyncHandler(async(req,res)=>{
+
+    const id = req.params.id
+
+    const restaurant = await db.Restaurant.findByPk(id)
+     res.send(restaurant)
+     
+
+    }))
 
 //TODO made ONLY accesible by the admin
 router.get("/new", asyncHandler(async(req,res)=>{
