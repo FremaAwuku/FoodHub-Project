@@ -45,14 +45,47 @@ app.use(function (req, res, next) {
 });
 
 // error handler
-app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+// Catch unhandled requests and forward to error handler.
+app.use((req, res, next) => {
+  const err = new Error('The requested page couldn\'t be found.');
+  err.status = 404;
+  next(err);
+});
 
-  // render the error page
+// Custom error handlers.
+
+// Error handler to log errors.
+app.use((err, req, res, next) => {
+  if (environment === 'production' || environment === 'test') {
+    // TODO Log the error to the database.
+  } else {
+    console.error(err);
+  }
+  next(err);
+});
+
+// Error handler for 404 errors.
+app.use((err, req, res, next) => {
+  if (err.status === 404) {
+    res.status(404);
+    res.render('page-not-found', {
+      title: 'Page Not Found',
+    });
+  } else {
+    next(err);
+  }
+});
+
+// Generic error handler.
+app.use((err, req, res, next) => {
   res.status(err.status || 500);
-  res.render('error');
+  const isProduction = environment === "production";
+  res.json({
+    title: err.title || "Server Error",
+    message: err.message,
+    errors: err.errors,
+    stack: isProduction ? null : err.stack,
+  });
 });
 
 module.exports = app;

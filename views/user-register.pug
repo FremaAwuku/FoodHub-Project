@@ -1,5 +1,8 @@
 extends layout.pug 
 block content 
+    if errors 
+        each error in errors
+            p=error
     form(action="/users/register" method="post")
         input(type="hidden" name="_csrf" value=csrfToken)
         label(for="firstName") First Name

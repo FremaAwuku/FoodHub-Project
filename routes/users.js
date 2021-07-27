@@ -41,18 +41,20 @@ userRouter.post('/register', csrfProtection, userValidators, asyncHandler( async
     await user.save();
     loginUser(req, res, user);
     // TODO CHANGE REDIRECT TO INDIV USER LIST PAGE
+    console.log("we are hitting the if")
     res.redirect('/');
+    
 } else {
-    const errorArray = new Array(validatorErrors)[0].errors
-        .map(error => error.msg)
+    const errorArray = validatorErrors.array()
+      .map(error => error.msg)
+    console.log("we are hitting the else")
     res.render('user-register', {
         title: "Register",
         user: user,
         errors: errorArray,
         csrfToken: req.csrfToken()
     });
-}
-  res.send('respond with a resource');
-
+     
+  }
 }));
 module.exports = userRouter;
