@@ -20,7 +20,7 @@ restaurantRouter.get('/:id(\\d+)/reviews', asyncHandler(async(req, res) => {
 
 //GET form to add review for a specific restaurant
 restaurantRouter.get('/:id(\\d+)/reviews/new', asyncHandler(async(req, res) => {
-    
+
 }))
 
-module.exports = reviewRouter;
+module.exports = restaurantRouter;

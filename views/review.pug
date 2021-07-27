@@ -1,6 +1,12 @@
 extends layout.pug
 
 block content
-    h3=restaurantReviews.rating
-    div
-        p=restaurantReviews.text
+    table
+        thead
+            tr
+                th Rating
+                th Review
+        tbody
+            tr
+                td=`${restaurantReviews.rating}`
+                td=`${restaurantReviews.text}`
