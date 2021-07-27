@@ -16,5 +16,16 @@ res.render('restaurants',{
 
 }))
 
+//TODO made ONLY accesible by the admin
+router.get("/new", asyncHandler(async(req,res)=>{
+    const restaurants = await db.Restaurant.findAll()
+
+    res.render('create-new-restaurant',{
+        title:"Restaurants",
+        restaurants
+    })
+
+    }))
+
 
 module.exports=router
