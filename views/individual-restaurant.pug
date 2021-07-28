@@ -1,0 +1,18 @@
+extends layout.pug
+block content
+    .restaurant-header-div
+        h3(id="restaurant-header")= restaurant.name
+    .restaurant-img-div
+        img(src=`${restaurant.imgURL}`)
+    .restaurant-details-div
+        h4(id="restaurant-address")= restaurant.address
+        .star-rating-div
+            h5(id="replace-with-stars")= restaurant.rating
+        .num-of-reviews-div
+            h6(id="num-of-reviews")= `Number of reviews: ${restaurant.numberOfReviews}`
+        .top-reviews-div
+            .review-box
+            each review in restaurant.Reviews
+             p(id="review-body") #{review.text}
+             form(action="/restaurants/reviews/new" method="get")
+                button() Add New Review

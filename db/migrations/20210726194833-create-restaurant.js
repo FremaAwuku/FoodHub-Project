@@ -18,6 +18,7 @@ module.exports = {
         unique: true
       },
       cuisine: {
+        allowNull: false,
         type: Sequelize.STRING(30)
       },
       rating: {
@@ -27,6 +28,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       imgURL: {
+        allowNull: false,
         type: Sequelize.TEXT
       },
       createdAt: {

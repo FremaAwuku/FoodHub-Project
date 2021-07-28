@@ -1,0 +1,18 @@
+extends layout.pug
+
+block content
+    if errors
+        each error in errors
+            p=error
+    form(action=`/restaurants/${restaurantId}/reviews` method='post')
+        input(type="hidden", value=csrfToken, name='_csrf')
+        label(for="rating") Rating
+        select(type="select" name=review.rating)
+            option(value=1)="1 Star"
+            option(value=2)="2 Stars"
+            option(value=3)="3 Stars"
+            option(value=4)="4 Stars"
+            option(value=5)="5 Stars"
+        label(for='text') Review
+        textarea(name="text" value=review.text)
+        button(type='submit') Submit
