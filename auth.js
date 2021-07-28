@@ -5,8 +5,13 @@ const loginUser = (req, res, user) => {
     req.session.auth = {
         userId: user.id,
     };
+    res.locals.user = true
+    res.locals.user = user.id
     console.log(req.session)
     console.log(req.session.auth)
+    req.session.save(() => {
+        res.redirect('/')
+    });
 };
 
 const restoreUser = async (req, res, next) => {
@@ -38,14 +43,17 @@ const restoreUser = async (req, res, next) => {
 
 const logoutUser = (req, res) => {
     delete req.session.auth;
-    console.log(req.session.auth)
-    req.session.save( () => { res.redirect('/') })
+    res.locals.user = false
+    res.locals.userId = -1
+
+    console.log('OOOOOOO', req.session.auth)
+    req.session.save( () => { res.redirect('/users/login') })
 
 };
 
 const requireAuth = (req, res, next) => {
     if (!res.locals.authenticated) {
-        return res.redirect('/user/login');
+        return res.redirect('/users/login');
     }
     return next();
 };

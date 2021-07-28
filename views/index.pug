@@ -9,10 +9,11 @@ append head
 block content
   h1= title
   p Welcome to your Project Skeleton
+  if locals.user 
+    button(type='submit' class='logout-button')
+      a(href='/users/logout') Logout
   div(class='py-4')
-    button(type='submit') Login
+  button(type='submit' class='register-button')
+    a(href='/users/register') Register
+  button(type='submit' class='login-button')
     a(href='/users/login') Login
-    button(type='submit' class='btn-btn-primary') Register
-    a(href='/user/register') Register
-    button(type='submit' class='btn-btn-primary') Logout
-    a(href='/users/logout') Logout

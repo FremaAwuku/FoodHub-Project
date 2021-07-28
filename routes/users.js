@@ -83,13 +83,12 @@ userRouter.post('/login', csrfProtection, loginValidators, asyncHandler(async (r
   if (validatorErrors.isEmpty()) {
     const user = await db.User.findOne({ where: { email } })
     
-    if (user !== null) {
+    if (user) {
       const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString())
 
       if (passwordMatch) {
         //TODO log in the user
         loginUser(req, res, user)
-        res.redirect('/')
       }
     }
     errors.push('Login failed please try to login again')
@@ -105,7 +104,7 @@ userRouter.post('/login', csrfProtection, loginValidators, asyncHandler(async (r
 }))
 
 
-userRouter.post('/logout', (req, res) => {
+userRouter.get('/logout', (req, res) => {
   logoutUser(req, res)
 })
 
