@@ -49,12 +49,9 @@ restaurantRouter.get('/reviews/:id(\\d+)/edit', csrfProtection, asyncHandler(asy
 
 
 //GET form to add review for a specific restaurant
-//is requireAuth needed?
-restaurantRouter.get('/:id(\\d+)/reviews/new', csrfProtection, requireAuth, asyncHandler(async(req, res) => {
-    const restaurantId = parseInt(req.params.id, 10);
-    const review = await db.Review.findOne(
-
-    );
+restaurantRouter.get('/:id(\\d+)/reviews/new', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
+    const restaurantId = req.params.id;
+    const review = db.Review.build();
     res.render('review-add', {
         title: 'Add Review',
         restaurantId,
@@ -65,7 +62,7 @@ restaurantRouter.get('/:id(\\d+)/reviews/new', csrfProtection, requireAuth, asyn
 
 //POST for EDITING review
 restaurantRouter.post('/:id(\\d+)/reviews', csrfProtection, requireAuth, asyncHandler(async(req, res, next) => {
-    
+
 }))
 
 //POST to add review for a specific restaurant
