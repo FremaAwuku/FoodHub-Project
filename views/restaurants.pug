@@ -5,7 +5,19 @@ block content
     h2(id="main-page-tagline") Get your Deets on some Eats
     div.outer-container
         .restaurant-div
+        if restaurants.cuisine === "Italian"
+        .cuisine-div
+            h2(id="cuisine-header") Italian
         .restaurant-header-div
             h3(id="restaurant-header")= restaurants.name
         .restaurant-img-div
             img(src=`${restaurants.imgURL}`)
+        .restaurant-details-div
+            h4(id="restaurant-address")
+            .star-rating-div
+                h5(id="replace-with-stars")= restaurants.rating
+            .num-of-reviews-div
+                h6(id="num-of-reviews")= `Number of reviews: ${restaurants.numberOfReviews}`
+    block content
+     form(action="/restaurants/new" method="get")
+                button() Add New Restaurant

@@ -1,0 +1,9 @@
+include utils.pug
+
+form(action="/restaurants/new" method="post")
+    input(type="hidden" name="_csurf" value=csrfToken)
+    +field('Name',"name")
+    +field('Address',"address")
+    +field('Cuisine',"cuisine")
+    +field('Add Image URL',"imgURL","", "textarea")
+    button() Submit New Restaurant
