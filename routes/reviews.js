@@ -30,19 +30,31 @@ restaurantRouter.get('/:id(\\d+)/reviews', asyncHandler(async (req, res) => {
 }));
 
 // route for editing a specific review
+//compare auth.session with the userId already in the review
 restaurantRouter.get('/reviews/:id(\\d+)/edit', csrfProtection, asyncHandler(async(req, res, next) => {
     const reviewId = parseInt(req.params.id, 10);
     const review = await db.Review.findByPk(reviewId);
-    res.render('review-edit', {
-
-    });
+    // pull user id from the review
+    //if user that made the post is the user editing
+    if(review.userId === req.session.auth.userId) {
+        res.render('review-edit', {
+        title: 'Edit Review',
+        review,
+        csrfToken: req.csrfToken()
+            }
+        );
+    }
+    //is an else needed? if the button only appears when the user is the one that wrote the review?
 }));
 
 
 //GET form to add review for a specific restaurant
-restaurantRouter.get('/:id(\\d+)/reviews/new', csrfProtection, asyncHandler(async(req, res) => {
+//is requireAuth needed?
+restaurantRouter.get('/:id(\\d+)/reviews/new', csrfProtection, requireAuth, asyncHandler(async(req, res) => {
     const restaurantId = parseInt(req.params.id, 10);
-    const review = db.Review.build();
+    const review = await db.Review.findOne(
+
+    );
     res.render('review-add', {
         title: 'Add Review',
         restaurantId,
@@ -50,6 +62,11 @@ restaurantRouter.get('/:id(\\d+)/reviews/new', csrfProtection, asyncHandler(asyn
         csrfToken: req.csrfToken(),
     });
 }));
+
+//POST for EDITING review
+restaurantRouter.post('/:id(\\d+)/reviews', csrfProtection, requireAuth, asyncHandler(async(req, res, next) => {
+    
+}))
 
 //POST to add review for a specific restaurant
 restaurantRouter.post('/:id(\\d+)/reviews', csrfProtection, requireAuth, reviewValidators, asyncHandler(async(req,res,next) => {
