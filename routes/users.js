@@ -18,7 +18,7 @@ userRouter.get('/register', csrfProtection, asyncHandler(async(req, res) => {
 }));
 
 /* POST user registration. */
-userRouter.post('/register', csrfProtection, userValidators, asyncHandler( async(req, res) => {
+userRouter.post('/register', csrfProtection, userValidators, asyncHandler(async(req, res) => {
   const {
     firstName,
     lastName,
@@ -43,7 +43,7 @@ userRouter.post('/register', csrfProtection, userValidators, asyncHandler( async
     // TODO CHANGE REDIRECT TO INDIV USER LIST PAGE
     console.log("we are hitting the if")
     res.redirect('/');
-    
+
 } else {
     const errorArray = validatorErrors.array()
       .map(error => error.msg)
@@ -76,13 +76,13 @@ check('password')
 
 userRouter.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, res) => {
   const { email, password } = req.body
-  
+
   let errors = []
   const validatorErrors = validationResult(req)
 
   if (validatorErrors.isEmpty()) {
     const user = await db.User.findOne({ where: { email } })
-    
+
     if (user !== null) {
       const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString())
 

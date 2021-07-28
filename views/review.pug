@@ -7,6 +7,7 @@ block content
                 th Rating
                 th Review
         tbody
-            tr
-                td=`${restaurantReviews.rating}`
-                td=`${restaurantReviews.text}`
+            each review in restaurantReviews
+                tr
+                    td=review.rating
+                    td=review.text
