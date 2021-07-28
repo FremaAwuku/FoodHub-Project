@@ -7,6 +7,7 @@ const { sequelize } = require('./db/models');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const { environment, sessionSecret } = require('./config');
+const { restoreUser } = require('./auth')
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/users');
 const reviewRouter = require('./routes/reviews')
@@ -22,7 +23,7 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser(sessionSecret));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // set up session middleware
@@ -39,7 +40,7 @@ app.use(
 
 // create Session table if it doesn't already exist
 store.sync();
-
+app.use(restoreUser)
 app.use('/', indexRouter);
 app.use('/users', userRouter);
 app.use('/restaurants', restaurantRouter)
