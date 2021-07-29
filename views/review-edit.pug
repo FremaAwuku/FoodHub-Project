@@ -4,7 +4,7 @@ block content
     if errors
         each error in errors
             p=error
-    form(action=`/restaurants/reviews/${reviewId}` method='post')
+    form(action=`/reviews/${reviewId}` method='post')
         input(type="hidden", value=csrfToken, name='_csrf')
         label(for="rating") Rating
         select(type="select" name=review.rating)

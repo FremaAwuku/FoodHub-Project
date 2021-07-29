@@ -2,6 +2,7 @@ const db = require("../db/models");
 const { asyncHandler, csrfProtection } = require("./utils");
 const cookieParser = require('cookie-parser');
 const restaurantRouter = require("./restaurants.js");
+const router = require("./index")
 const { check, validationResult } = require("express-validator");
 const {requireAuth} = require("../auth")
 
@@ -30,7 +31,7 @@ restaurantRouter.get('/:id(\\d+)/reviews', asyncHandler(async (req, res) => {
 }));
 
 // GET EDIT-FORM
-restaurantRouter.get('/reviews/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(async(req, res, next) => {
+router.get('/reviews/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(async(req, res, next) => {
     const reviewId = req.params.id;
     const review = await db.Review.findByPk(reviewId);
     console.log(req.session.auth.userId);
@@ -49,7 +50,7 @@ restaurantRouter.get('/reviews/:id(\\d+)/edit', csrfProtection, requireAuth, asy
 }));
 
 // POST EDIT-FORM
-restaurantRouter.post('/reviews/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async(req, res) => {
+router.post('/reviews/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async(req, res) => {
     const reviewId = req.params.id;
     const reviewToUpdate = await db.Review.findByPk(reviewId);
     const userId = reviewToUpdate.userId;
@@ -71,7 +72,7 @@ restaurantRouter.post('/reviews/:id(\\d+)', csrfProtection, requireAuth, asyncHa
 
     if (validatorErrors.isEmpty()) {
         await reviewToUpdate.update();
-        res.redirect(`/r/${reviewId}`);
+        res.redirect(`/reviews/${reviewId}`);
       } else {
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render('review-edit', {
