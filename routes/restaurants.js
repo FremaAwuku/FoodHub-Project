@@ -174,5 +174,12 @@ router.post("/:id(\\d+)/edit", csrfProtection,restaurantValidators2,asyncHandler
     }
 }));
 
+router.post("/:id(\\d+)/delete", asyncHandler(async (req,res)=>{
+    const restaurantId = req.params.id;
+    const restaurant = await db.Restaurant.findByPk(restaurantId);
+    await restaurant.destroy();
+    res.redirect(`/restaurants/${restaurantId}`);
+}))
+
 
 module.exports=router
