@@ -31,14 +31,14 @@ router.get('/:id(\\d+)/add', csrfProtection, asyncHandler(async (req, res) => {
     })
 }))
 
-router.post('/:id(\\d+)/list/add', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
+router.post('/:id(\\d+)/add', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
     const restaurantId = req.params.id
     const userId = req.session.auth.userId
 
     const {
         hasVisited
     } = req.body
-
+ 
     await UserRestaurantList.create({
         hasVisited, restaurantId, userId
     })
