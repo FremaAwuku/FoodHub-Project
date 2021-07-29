@@ -199,7 +199,7 @@ router.post("/", asyncHandler(async(req, res) => {
    })
     res.render('search-results', {
         title: 'Restaurants',
-        restaurant: restaurants
+        restaurants
     })
 }))
 

@@ -34,34 +34,27 @@ router.get('/:id(\\d+)/edit', csrfProtection, asyncHandler(async (req, res) => {
 }))
 
 router.post('/:id(\\d+)/edit', csrfProtection, asyncHandler(async (req, res) => {
-    restaurantId = req.params.id
-    userId = req.session.auth.id
+    const restaurantId =  req.params.id
+    const userId = req.session.auth.id
     const list = await db.UserRestaurantList.findAll({
         where: { userId, restaurantId },
     })
 
     const {
-        userId,
-        restaurantId,
         hasVisited
     } = req.body
 
-    const entry = {
-        userId,
-        restaurantId,
-        hasVisited
-    }
 
     const validatorErrors = validationResult(req)
 
     if (validatorErrors.isEmpty()) {
-        await list.update(entry)
+        await list[0].update(entry)
         res.redirect(`/lists/${userId}`)
     } else {
         const errors = validatorErrors.array().map((error) => error.msg)
         res.render('edit-entry-list', {
             title: 'Edit List Entry',
-            entry,
+            entry: req.body,
             errors,
             csrfToken: req.csrfToken()
         })
@@ -83,10 +76,13 @@ router.post('/:id(\\d+)/add', csrfProtection, requireAuth, asyncHandler(async (r
     const restaurantId = req.params.id
     const userId = req.session.auth.userId
 
-    const {
+    let {
         hasVisited
     } = req.body
- 
+    if (hasVisited === undefined) {
+        hasVisited = false
+    }
+        
     await db.UserRestaurantList.create({
         hasVisited, restaurantId, userId
     })

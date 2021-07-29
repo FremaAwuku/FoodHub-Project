@@ -1,10 +1,7 @@
 extends layout.pug
 
 block content
-    table
-        thead
-            tr
-                th Restaurant
-        tbody
-            tr 
-              td=restaurant.Restaurant.name
+  
+    each restaurant in restaurants 
+      a(href=`/restaurants/${restaurant.id}`)
+        p=restaurant.name
