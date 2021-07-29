@@ -15,6 +15,6 @@ block content
             option(value="American") American
             option(value="Jamaican") Jamaican
         +field('Edit Image URL',"imgURL",restaurant.imgURL , "textarea" )
-        button() Edit #{restaurant.name}
-    form(action=`/restaurants/${restaurantId}/delete`)
-        button () Delete #{restaurant.name}
+        button Edit #{restaurant.name}
+    form(action=`/restaurants/${restaurantId}/delete` method="post")
+        button  Delete #{restaurant.name}
