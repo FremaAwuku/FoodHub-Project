@@ -17,7 +17,7 @@ html
             input(type='text' name='search' class='search-bar' placeholder='Search For a Restaurant')
             button(type='submit' class='search-btn') Search
         if locals.user 
-          span(class='navbar-text px-4') Welcome #{newUser.firstName}!
+          span(class='navbar-text px-4') Welcome!
             li(class='user-logout'): a(href='/users/logout') Logout
             li(class='user-list'): a(href=`/users/${userId}/list`) User List
         div.container-fluid

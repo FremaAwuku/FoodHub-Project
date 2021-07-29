@@ -1,3 +1,10 @@
-extends layout
+extends layout.pug
 
-block content 
+block content
+    table
+        thead
+            tr
+                th Restaurant
+        tbody
+            tr 
+              td=restaurant.Restaurant.name
