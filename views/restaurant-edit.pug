@@ -9,10 +9,12 @@ block content
         +field('Edit Restaurant',"name", restaurant.name)
         +field('Edit Address',"address", restaurant.address)
         select(type="select" name="cuisine")
-            option(value=1) 1 Star
-            option(value=2) 2 Stars
-            option(value=3) 3 Stars
-            option(value=4) 4 Stars
-            option(value=5) 5 Stars
+            option(value="Italian") Italian
+            option(value="Mexican") Mexican
+            option(value="Indian") Indian
+            option(value="American") American
+            option(value="Jamaican") Jamaican
         +field('Edit Image URL',"imgURL",restaurant.imgURL , "textarea" )
         button() Edit #{restaurant.name}
+    form(action=`/restaurants/${restaurantId}/delete`)
+        button () Delete #{restaurant.name}
