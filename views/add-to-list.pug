@@ -1,0 +1,8 @@
+extends layout.pug 
+block content 
+
+    form(action=`/${restaurantId}/list/add` method="post")
+        label(for="hasVisited") Have you been here before?
+        input(type="checkbox" name="hasVisited" checked)
+        button(type = "submit") Add to List.
+        
