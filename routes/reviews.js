@@ -18,7 +18,7 @@ const reviewValidators = [
 
 //GET REVIEWS
 restaurantRouter.get('/:id(\\d+)/reviews', asyncHandler(async (req, res) => {
-    //takes the id for the URL and turns it from a string into an int
+    //takes the id from the URL
     const restaurantId = req.params.id
     //find all reviews that have restaurantId as their restaurant_id
     const restaurantReviews = await db.Review.findAll({
@@ -139,8 +139,25 @@ restaurantRouter.post('/:id(\\d+)/reviews', csrfProtection, requireAuth, reviewV
       }
 }));
 
-//DELETE
-router.get('/reviews/:id(\\d+)')
+//GET form to DELETE specific review
+router.get('/reviews/:id(\\d+)/delete', csrfProtection, asyncHandler(async(req,res) => {
+    const reviewId = req.params.id;
+    const review = await db.Review.findByPk(reviewId);
+    res.render('review-delete', {
+        title: 'Delete Review',
+        review,
+        csrfToken: req.csrfToken(),
+    });
+}));
 
+//POST to DELETE review
+//TODO increment # of reviews
+router.post('/reviews/(:id(\\d+))', csrfProtection, asyncHandler(async(req,res) => {
+    const reviewId = req.params.id;
+    const review = await db.Review.findByPk(reviewId);
+    await review.destroy();
+    //TODO where should this redirect
+    res.redirect('/')
+}))
 
-module.exports = restaurantRouter;
+module.exports = router;
