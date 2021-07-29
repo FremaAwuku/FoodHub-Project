@@ -7,7 +7,7 @@ const { csrfProtection, asyncHandler } = require('./utils');
 const db = require('../db/models');
 const {requireAuth} = require("../auth")
 
-
+//Gets specific users list
 router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
     const userId = req.params.id
     const userList = await db.UserRestaurantList.findAll({
@@ -22,6 +22,54 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
     })
 }))
 
+router.get('/:id(\\d+)/edit', csrfProtection, asyncHandler(async (req, res) => {
+    restaurantId = req.params.id
+    userId = req.session.auth.userId
+
+    res.render('edit-entry-list', {
+        title: 'Edit User Entry',
+        csrfToken: req.csrfToken()
+    })
+
+}))
+
+router.post('/:id(\\d+)/edit', csrfProtection, asyncHandler(async (req, res) => {
+    restaurantId = req.params.id
+    userId = req.session.auth.id
+    const list = await db.UserRestaurantList.findAll({
+        where: { userId, restaurantId },
+    })
+
+    const {
+        userId,
+        restaurantId,
+        hasVisited
+    } = req.body
+
+    const entry = {
+        userId,
+        restaurantId,
+        hasVisited
+    }
+
+    const validatorErrors = validationResult(req)
+
+    if (validatorErrors.isEmpty()) {
+        await list.update(entry)
+        res.redirect(`/lists/${userId}`)
+    } else {
+        const errors = validatorErrors.array().map((error) => error.msg)
+        res.render('edit-entry-list', {
+            title: 'Edit List Entry',
+            entry,
+            errors,
+            csrfToken: req.csrfToken()
+        })
+    }
+
+}))
+
+// Gets add to list form for a specific restaurant 
 router.get('/:id(\\d+)/add', csrfProtection, asyncHandler(async (req, res) => {
     const restaurantId = req.params.id
       res.render('add-to-list', {
@@ -30,7 +78,7 @@ router.get('/:id(\\d+)/add', csrfProtection, asyncHandler(async (req, res) => {
         csrfToken: req.csrfToken()
     })
 }))
-
+// Adds thats that resaurant to the list with the userId and restaurantId 
 router.post('/:id(\\d+)/add', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
     const restaurantId = req.params.id
     const userId = req.session.auth.userId
@@ -39,11 +87,14 @@ router.post('/:id(\\d+)/add', csrfProtection, requireAuth, asyncHandler(async (r
         hasVisited
     } = req.body
  
-    await UserRestaurantList.create({
+    await db.UserRestaurantList.create({
         hasVisited, restaurantId, userId
     })
-    res.redirect(`/users/${userId}/list`)
+    res.redirect(`/lists/${userId}`)
 }))
+
+
+
 
 
 module.exports = router
