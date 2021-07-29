@@ -1,9 +1,13 @@
+extends layout.pug
 include utils.pug
-
-form(action="/restaurants/new" method="post")
-    input(type="hidden" name="_csurf" value=csrfToken)
-    +field('Name',"name")
-    +field('Address',"address")
-    +field('Cuisine',"cuisine")
-    +field('Add Image URL',"imgURL","", "textarea")
-    button() Submit New Restaurant
+block content
+    if errors
+        each error in errors
+            p=error
+    form(action="/restaurants/new" method="post")
+        input(type="hidden" name="_csrf" value=csrfToken)
+        +field('Restaurant Name:',"name", restaurant.name)
+        +field('Address:',"address", restaurant.address)
+        +field('Cuisine Type:',"cuisine", restaurant.cuisine)
+        +field('Add Image URL:',"imgURL",restaurant.imgURL , "textarea" )
+        button() Submit New Restaurant

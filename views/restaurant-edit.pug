@@ -1,0 +1,13 @@
+extends layout.pug
+include utils.pug
+block content
+    if errors
+        each error in errors
+            p=error
+    form(action=`/restaurants/${restaurantId}/edit` method="post")
+        input(type="hidden" name="_csrf" value=csrfToken)
+        +field('Edit Restaurant',"name", restaurant.name)
+        +field('Edit Address',"address", restaurant.address)
+        +field('Edit Cuisine',"cuisine", restaurant.cuisine)
+        +field('Edit Image URL',"imgURL",restaurant.imgURL , "textarea" )
+        button() Edit #{restaurant.name}
