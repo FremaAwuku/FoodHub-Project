@@ -34,8 +34,10 @@ router.get('/:id(\\d+)/edit', csrfProtection, asyncHandler(async (req, res) => {
 }))
 
 router.post('/:id(\\d+)/edit', csrfProtection, asyncHandler(async (req, res) => {
+
     const restaurantId = req.params.id
     const userId = req.session.auth.userId
+
     const list = await db.UserRestaurantList.findAll({
         where: { userId, restaurantId }
     })
@@ -48,7 +50,9 @@ router.post('/:id(\\d+)/edit', csrfProtection, asyncHandler(async (req, res) => 
     const validatorErrors = validationResult(req)
 
     if (validatorErrors.isEmpty()) {
+
         await list[0].update({hasVisited})
+
         res.redirect(`/lists/${userId}`)
     } else {
         const errors = validatorErrors.array().map((error) => error.msg)
@@ -84,7 +88,7 @@ router.post('/:id(\\d+)/add', requireAuth, asyncHandler(async (req, res) => {
     if (hasVisited === undefined) {
         hasVisited = false
     }
-    console.log("this is the req.body", req.body.hasVisited)
+
     await db.UserRestaurantList.create({
         hasVisited, restaurantId, userId
     })
