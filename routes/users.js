@@ -8,11 +8,11 @@ const { loginUser, logoutUser } = require('../auth')
 
 /* GET user registration page. */
 userRouter.get('/register', csrfProtection, asyncHandler(async(req, res) => {
-  const user = await db.User.build()
+  const newUser = await db.User.build()
 
   res.render('user-register', {
     title: "Register New User",
-    user,
+    newUser,
     csrfToken: req.csrfToken()
   });
 }));
@@ -27,7 +27,7 @@ userRouter.post('/register', csrfProtection, userValidators, asyncHandler(async(
     confirmPassword
   } = req.body
 
-  const user = await db.User.build({
+  const newUser = await db.User.build({
     firstName,
     lastName,
     email,
@@ -39,7 +39,7 @@ userRouter.post('/register', csrfProtection, userValidators, asyncHandler(async(
     const hashedPassword = await bcrypt.hash(password, 12)
     user.hashedPassword = hashedPassword;
     await user.save();
-    loginUser(req, res, user);
+    loginUser(req, res, newUser);
     // TODO CHANGE REDIRECT TO INDIV USER LIST PAGE
     console.log("we are hitting the if")
     res.redirect('/');
@@ -50,7 +50,7 @@ userRouter.post('/register', csrfProtection, userValidators, asyncHandler(async(
     console.log("we are hitting the else")
     res.render('user-register', {
         title: "Register",
-        user: user,
+        user: newUser,
         errors: errorArray,
         csrfToken: req.csrfToken()
     });

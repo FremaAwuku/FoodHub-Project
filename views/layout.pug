@@ -5,7 +5,22 @@ html
         title= title
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
-    nav#navbar-default
-      div.container-fluid
+    nav(class='navbar')
+      a(class='navbar-brand' href='/') Food Hub
+        ul(class='navbar-nav')
+          li(class='nav-item'): a(class='nav-link' href='/restaurants') Restaurants
+          li(class='nav-item'): a(class='nav-link' href='/users/login') Login
+          li(class='nav-item'): a(class='nav-link' href='/users/register') Register
+        span(class='search-bar-span')
+          form.search-form(action="/restaurants" method='post')
+            label(for='search')
+            input(type='text' name='search' class='search-bar' placeholder='Search For a Restaurant')
+            button(type='submit' class='search-btn') Search
+        if locals.user 
+          span(class='navbar-text px-4') Welcome #{newUser.firstName}!
+            li(class='user-logout'): a(href='/users/logout') Logout
+            li(class='user-list'): a(href=`/users/${userId}/list`) User List
+        div.container-fluid
         p= title
     block content
+    

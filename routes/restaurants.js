@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator')
 const bcrypt = require('bcryptjs')
+const { Op } = require('sequelize')
 const { csrfProtection, asyncHandler } = require('./utils');
 const db = require('../db/models');
 const { loginUser } = require('../auth')
@@ -181,5 +182,19 @@ router.post("/:id(\\d+)/delete", asyncHandler(async (req,res)=>{
     res.redirect(`/restaurants/${restaurantId}`);
 }))
 
+
+router.post("/", asyncHandler(async(req, res) => {
+    const {search} = req.body;
+    console.log(search)
+   const restaurant = await db.Restaurant.findAll({
+       where: {
+           name: {
+               [Op.iLike]: `%${search}%`
+       
+       }
+       }
+   })
+   res.render('search-results')
+}))
 
 module.exports=router
