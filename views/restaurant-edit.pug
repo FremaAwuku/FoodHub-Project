@@ -8,6 +8,11 @@ block content
         input(type="hidden" name="_csrf" value=csrfToken)
         +field('Edit Restaurant',"name", restaurant.name)
         +field('Edit Address',"address", restaurant.address)
-        +field('Edit Cuisine',"cuisine", restaurant.cuisine)
+        select(type="select" name="cuisine")
+            option(value=1) 1 Star
+            option(value=2) 2 Stars
+            option(value=3) 3 Stars
+            option(value=4) 4 Stars
+            option(value=5) 5 Stars
         +field('Edit Image URL',"imgURL",restaurant.imgURL , "textarea" )
         button() Edit #{restaurant.name}
