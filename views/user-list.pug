@@ -5,10 +5,8 @@ block content
             tr
                 th Resteraunt
                 th Has Visited
-                th User
         tbody
             each list in userList
                 tr
-                    td=list.hasVisited
                     td=list.Restaurant.name
-                    td=list.User.email 
+                    td= list.hasVisited
