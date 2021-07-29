@@ -14,5 +14,9 @@ block content
             .review-box
             each review in restaurant.Reviews
              p(id="review-body") #{review.text}
-             form(action="/restaurants/reviews/new" method="get")
+            form(action=`/restaurants/${restaurantId}/edit` method="get")
+                button() Edit Restaurant
+            form(action=`/restaurants/${restaurantId}/reviews/new` method="get")
                 button() Add New Review
+            form(action=`/restaurants/${restaurantId}/list/add` method="get")
+                button() Add To List

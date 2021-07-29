@@ -7,13 +7,21 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
-  h1= title
   p Welcome to your Project Skeleton
   if locals.user 
     button(type='submit' class='logout-button')
       a(href='/users/logout') Logout
+    button(type='submit' class='user-list-button')
+      a(href=`/users/${userId}/list`) User List
   div(class='py-4')
   button(type='submit' class='register-button')
     a(href='/users/register') Register
   button(type='submit' class='login-button')
     a(href='/users/login') Login
+  div(class='py-4')
+    input.search(
+      type='text'
+      name='search'
+      class='search-bar'
+      placeholder='Search For a Restaurant'
+    )
