@@ -6,6 +6,7 @@ const { csrfProtection, asyncHandler } = require('./utils');
 const db = require('../db/models');
 const { loginUser } = require('../auth')
 
+//GET all restaurant
 router.get("/", asyncHandler(async(req,res)=>{
 const restaurants = await db.Restaurant.findOne()
 // res.send(restaurants)
@@ -15,6 +16,7 @@ res.render('restaurants',{
 })
 
 }))
+//GET individual restaurant
 router.get("/:id(\\d+)", asyncHandler(async(req,res)=>{
 
     const restaurantId = req.params.id
@@ -41,7 +43,7 @@ router.get("/:id(\\d+)", asyncHandler(async(req,res)=>{
           .isLength({ max: 100 })
           .withMessage('Address must not be more than 100 characters long')
           .custom( value =>{
-              return Restaurant.findOne({where: {address:value}})
+              return db.Restaurant.findOne({where: {address:value}})
               .then(()=>{
                   return Promise.reject('Address Already Taken, Please Provide Suite Number')
               })
@@ -55,6 +57,8 @@ router.get("/:id(\\d+)", asyncHandler(async(req,res)=>{
           .exists({ checkFalsy: true })
           .withMessage('Please Submit Image'),
       ];
+
+
 //TODO made ONLY accessible by the admin
 router.get("/new", csrfProtection ,asyncHandler(async(req,res)=>{
     const restaurant = await db.Restaurant.build()
@@ -112,8 +116,28 @@ router.get("/:id(\\d+)/edit",csrfProtection, asyncHandler(async(req,res)=>{
   })
 
 }))
+const restaurantValidators2 = [
+    check('name')
+      .exists({ checkFalsy: true })
+      .withMessage('Please provide a input for Restaurant Name')
+      .isLength({ max: 100 })
+      .withMessage('Restaurant Name must not be more than 100 characters long'),
+    check('address')
+      .exists({ checkFalsy: true })
+      .withMessage('Please provide a value for Address')
+      .isLength({ max: 100 })
+      .withMessage('Address must not be more than 100 characters long'),
+    check('cuisine')
+      .exists({ checkFalsy: true })
+      .withMessage('Please provide a value for cuisine')
+      .isLength({max:30})
+      .withMessage('Cuisine Type must not be more than 30 characters long'),
+    check('imgURL')
+      .exists({ checkFalsy: true })
+      .withMessage('Please Submit Image'),
+  ];
 
-router.post("/:id(\\d+)/edit", csrfProtection,restaurantValidators,asyncHandler(async(req,res)=>{
+router.post("/:id(\\d+)/edit", csrfProtection,restaurantValidators2,asyncHandler(async(req,res)=>{
 
     const restaurantId = req.params.id
 
@@ -137,7 +161,7 @@ router.post("/:id(\\d+)/edit", csrfProtection,restaurantValidators,asyncHandler(
 
     if(validatorErrors.isEmpty()){
         await restaurantInDB.update(restaurant)
-        res.redirect(`/restaurant/${restaurantId}`)
+        res.redirect(`/restaurants/${restaurantId}`)
     }else{
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render('restaurant-edit',{
