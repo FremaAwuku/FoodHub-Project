@@ -1,8 +1,8 @@
 extends layout.pug 
 block content 
 
-    form(action=`/lists/${restaurantId}/add` method="post")
+    form(action=`/lists/${restaurantId}/edit` method="post")
         input(type="hidden" name="_csrf" value=csrfToken)
         label(for="hasVisited") Have you been here before?
         input(type="checkbox" name="hasVisited" checked)
-        button(type = "submit") Add to List.
+        button(type="submit") Edit List Entry
