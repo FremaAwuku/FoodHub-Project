@@ -2,9 +2,10 @@ doctype html
 html
   head
       block head
+        title= title
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
-    nav#navbar-default  
+    nav#navbar-default
       div.container-fluid
-        h1= title
+        p= title
     block content

@@ -19,7 +19,7 @@ const reviewValidators = [
 //GET REVIEWS
 restaurantRouter.get('/:id(\\d+)/reviews', asyncHandler(async (req, res) => {
     //takes the id for the URL and turns it from a string into an int
-    const restaurantId = parseInt(req.params.id, 10);
+    const restaurantId = req.params.id
     //find all reviews that have restaurantId as their restaurant_id
     const restaurantReviews = await db.Review.findAll({
         where: {
@@ -31,6 +31,7 @@ restaurantRouter.get('/:id(\\d+)/reviews', asyncHandler(async (req, res) => {
 }));
 
 // GET EDIT-FORM
+//NOTE: different router
 router.get('/reviews/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(async(req, res, next) => {
     const reviewId = req.params.id;
     const review = await db.Review.findByPk(reviewId);
@@ -50,6 +51,7 @@ router.get('/reviews/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(
 }));
 
 // POST EDIT-FORM
+//NOTE: different router
 router.post('/reviews/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async(req, res) => {
     const reviewId = req.params.id;
     const reviewToUpdate = await db.Review.findByPk(reviewId);
@@ -71,7 +73,7 @@ router.post('/reviews/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(asyn
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
-        await reviewToUpdate.update();
+        await reviewToUpdate.update(review);
         res.redirect(`/reviews/${reviewId}`);
       } else {
         const errors = validatorErrors.array().map((error) => error.msg);
@@ -130,6 +132,9 @@ restaurantRouter.post('/:id(\\d+)/reviews', csrfProtection, requireAuth, reviewV
         });
       }
 }));
+
+//DELETE
+router.get('/reviews/:id(\\d+)')
 
 
 module.exports = restaurantRouter;
