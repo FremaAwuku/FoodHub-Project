@@ -10,6 +10,7 @@ module.exports = {
         lastName: "ADMIN",
         email: 'BAB@foodHub.io',
         hashedPassword: 'adminPassword',
+        isAdmin: true,
         createdAt: new Date(),
         updatedAt: new Date()
       },
