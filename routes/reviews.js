@@ -32,6 +32,7 @@ restaurantRouter.get('/:id(\\d+)/reviews', asyncHandler(async (req, res) => {
 
 // GET EDIT-FORM
 //NOTE: different router
+//TO DO DISPLAY THE ORIGINAL REVIEW
 router.get('/reviews/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(async(req, res, next) => {
     const reviewId = req.params.id;
     const review = await db.Review.findByPk(reviewId);
@@ -74,7 +75,7 @@ router.post('/reviews/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(asyn
 
     if (validatorErrors.isEmpty()) {
         await reviewToUpdate.update(review);
-        res.redirect(`/reviews/${reviewId}`);
+        res.redirect(`/restaurants/${restaurantId}`);
       } else {
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render('review-edit', {
@@ -101,7 +102,11 @@ restaurantRouter.get('/:id(\\d+)/reviews/new', csrfProtection, requireAuth, asyn
 //POST ADD-FORM
 restaurantRouter.post('/:id(\\d+)/reviews', csrfProtection, requireAuth, reviewValidators, asyncHandler(async(req,res,next) => {
     // pulling restaurant id from url
-    const restaurantId = parseInt(req.params.id, 10);
+    const restaurantId = req.params.id;
+
+    //grab restrant by id
+    const restaurant = await db.Restaurant.findByPk(restaurantId);
+
     //grabbing user id from session
     const userId = req.session.auth.userId;
     const {
@@ -120,8 +125,9 @@ restaurantRouter.post('/:id(\\d+)/reviews', csrfProtection, requireAuth, reviewV
 
     if (validatorErrors.isEmpty()) {
         await review.save();
-        //TODO - WHERE TO REDIRECT AFTER POSTING REVIEW???
-        res.redirect('/');
+        //increment number of reviews
+        await restaurant.increment('numberOfReviews', {by:1});
+        res.redirect(`/restaurants/${restaurantId}`);
       } else {
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render('review-add', {
