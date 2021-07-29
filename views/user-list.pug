@@ -9,4 +9,5 @@ block content
             each list in userList
                 tr
                     td=list.Restaurant.name
-                    td= list.hasVisited
+                    td=list.hasVisited
+                    a(name="edit-redirect-list" href=`/lists/${list.Restaurant.id}/edit`) Edit

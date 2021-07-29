@@ -1,24 +1,23 @@
 const db = require("../db/models");
 const { asyncHandler, csrfProtection } = require("./utils");
-const cookieParser = require('cookie-parser');
 const restaurantRouter = require("./restaurants.js");
 const router = require("./index")
 const { check, validationResult } = require("express-validator");
-const {requireAuth} = require("../auth")
+const { requireAuth } = require("../auth")
 
 const reviewValidators = [
     //TODO WRITE REVIEWVALIDATORS
     check('rating')
-        .exists({checkFalsey: true})
+        .exists({ checkFalsey: true })
         .withMessage('Please select a rating'),
     check('text')
-        .exists({checkFalsey: true})
+        .exists({ checkFalsey: true })
         .withMessage('Please include a review')
 ]
 
 //GET REVIEWS
 restaurantRouter.get('/:id(\\d+)/reviews', asyncHandler(async (req, res) => {
-    //takes the id for the URL and turns it from a string into an int
+    //takes the id from the URL
     const restaurantId = req.params.id
     //find all reviews that have restaurantId as their restaurant_id
     const restaurantReviews = await db.Review.findAll({
@@ -32,28 +31,26 @@ restaurantRouter.get('/:id(\\d+)/reviews', asyncHandler(async (req, res) => {
 
 // GET EDIT-FORM
 //NOTE: different router
-//TO DO DISPLAY THE ORIGINAL REVIEW
-router.get('/reviews/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(async(req, res, next) => {
+router.get('/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(async (req, res, next) => {
     const reviewId = req.params.id;
     const review = await db.Review.findByPk(reviewId);
     console.log(req.session.auth.userId);
     // pull user id from the review
     //if user that made the post is the user editing
-    if(review.userId === req.session.auth.userId) {
+    if (review.userId === req.session.auth.userId) {
         res.render('review-edit', {
-        title: 'Edit Review',
-        review,
-        reviewId,
-        csrfToken: req.csrfToken()
-            }
+            title: 'Edit Review',
+            review,
+            reviewId,
+            csrfToken: req.csrfToken()
+        }
         );
     }
-    //is an else needed? if the button only appears when the user is the one that wrote the review?
 }));
 
 // POST EDIT-FORM
 //NOTE: different router
-router.post('/reviews/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async(req, res) => {
+router.post('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
     const reviewId = req.params.id;
     const reviewToUpdate = await db.Review.findByPk(reviewId);
     const userId = reviewToUpdate.userId;
@@ -76,15 +73,15 @@ router.post('/reviews/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(asyn
     if (validatorErrors.isEmpty()) {
         await reviewToUpdate.update(review);
         res.redirect(`/restaurants/${restaurantId}`);
-      } else {
+    } else {
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render('review-edit', {
-          title: 'Edit Review',
-          review,
-          errors,
-          csrfToken: req.csrfToken(),
+            title: 'Edit Review',
+            review,
+            errors,
+            csrfToken: req.csrfToken(),
         });
-      }
+    }
 }));
 
 //GET ADD-FORM
@@ -100,7 +97,7 @@ restaurantRouter.get('/:id(\\d+)/reviews/new', csrfProtection, requireAuth, asyn
 }));
 
 //POST ADD-FORM
-restaurantRouter.post('/:id(\\d+)/reviews', csrfProtection, requireAuth, reviewValidators, asyncHandler(async(req,res,next) => {
+restaurantRouter.post('/:id(\\d+)/reviews', csrfProtection, requireAuth, reviewValidators, asyncHandler(async (req, res, next) => {
     // pulling restaurant id from url
     const restaurantId = req.params.id;
 
@@ -126,21 +123,42 @@ restaurantRouter.post('/:id(\\d+)/reviews', csrfProtection, requireAuth, reviewV
     if (validatorErrors.isEmpty()) {
         await review.save();
         //increment number of reviews
-        await restaurant.increment('numberOfReviews', {by:1});
+        await restaurant.increment('numberOfReviews', { by: 1 });
         res.redirect(`/restaurants/${restaurantId}`);
-      } else {
+    } else {
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render('review-add', {
-          title: 'Add Review',
-          review,
-          errors,
-          csrfToken: req.csrfToken(),
+            title: 'Add Review',
+            review,
+            errors,
+            csrfToken: req.csrfToken(),
         });
-      }
+    }
 }));
 
-//DELETE
-router.get('/reviews/:id(\\d+)')
+//GET form to DELETE specific review
+router.get('/:id(\\d+)/delete', asyncHandler(async (req, res) => {
+    const reviewId = req.params.id;
+    const review = await db.Review.findByPk(reviewId);
+    const restaurant = await db.Restaurant.findByPk(review.restaurantId)
+    res.render('review-delete', {
+        title: 'Delete Review',
+        review,
+        reviewId,
+        restaurant,
+    });
+}));
 
+//POST to DELETE review
+//TODO increment # of reviews
+router.post('/:id(\\d+)/delete', asyncHandler(async (req, res) => {
+    const reviewId = req.params.id;
+    const review = await db.Review.findByPk(reviewId);
+    const restaurant = await db.Restaurant.findByPk(review.restaurantId)
+    await restaurant.decrement('numberOfReviews', { by: 1 })
+    await review.destroy();
+    //TODO where should this redirect
+    res.redirect('/')
+}));
 
-module.exports = restaurantRouter;
+module.exports = router;
