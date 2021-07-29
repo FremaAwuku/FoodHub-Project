@@ -8,8 +8,8 @@ const { loginUser } = require('../auth')
 
 //GET all restaurant
 router.get("/", asyncHandler(async(req,res)=>{
-const restaurants = await db.Restaurant.findOne()
-// res.send(restaurants)
+const restaurants = await db.Restaurant.findAll()
+
 res.render('restaurants',{
     title:"Restaurants",
     restaurants
@@ -44,9 +44,11 @@ router.get("/:id(\\d+)", asyncHandler(async(req,res)=>{
           .withMessage('Address must not be more than 100 characters long')
           .custom( value =>{
               return db.Restaurant.findOne({where: {address:value}})
-              .then(()=>{
+              .then((value)=>{
+                  if(value){
                   return Promise.reject('Address Already Taken, Please Provide Suite Number')
-              })
+                }
+              });
           }),
         check('cuisine')
           .exists({ checkFalsy: true })
@@ -90,7 +92,7 @@ router.post("/new", csrfProtection,restaurantValidators, asyncHandler(async(req,
     if(validationErrors.isEmpty()){
         // await restaurant.save(()=>res.redirect('/'));
         await restaurant.save()
-        res.redirect('/')
+        res.redirect('/restaurants')
     }else{
         const errors = validationErrors.array().map((error)=> error.msg);
 
@@ -151,6 +153,7 @@ router.post("/:id(\\d+)/edit", csrfProtection,restaurantValidators2,asyncHandler
     }=req.body
 
     const restaurant={
+        //userId: res.locals.user.id
         name,
         address,
         cuisine,
@@ -178,7 +181,7 @@ router.post("/:id(\\d+)/delete", asyncHandler(async (req,res)=>{
     const restaurantId = req.params.id;
     const restaurant = await db.Restaurant.findByPk(restaurantId);
     await restaurant.destroy();
-    res.redirect(`/restaurants/${restaurantId}`);
+    res.redirect(`/restaurants`);
 }))
 
 
