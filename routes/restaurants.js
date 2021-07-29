@@ -189,7 +189,7 @@ router.post("/:id(\\d+)/delete", asyncHandler(async (req,res)=>{
 router.post("/", asyncHandler(async(req, res) => {
     const {search} = req.body;
     console.log(search)
-   const restaurant = await db.Restaurant.findAll({
+   const restaurants = await db.Restaurant.findAll({
        where: {
            name: {
                [Op.iLike]: `%${search}%`
@@ -197,7 +197,10 @@ router.post("/", asyncHandler(async(req, res) => {
        }
        }
    })
-   res.render('search-results')
+    res.render('search-results', {
+        title: 'Restaurants',
+        restaurant: restaurants
+    })
 }))
 
 module.exports=router

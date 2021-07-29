@@ -37,8 +37,8 @@ userRouter.post('/register', csrfProtection, userValidators, asyncHandler(async(
 
   if(validatorErrors.isEmpty()){
     const hashedPassword = await bcrypt.hash(password, 12)
-    user.hashedPassword = hashedPassword;
-    await user.save();
+    newUser.hashedPassword = hashedPassword;
+    await newUser.save();
     loginUser(req, res, newUser);
     // TODO CHANGE REDIRECT TO INDIV USER LIST PAGE
     console.log("we are hitting the if")
