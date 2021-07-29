@@ -4,4 +4,8 @@ block content
     div
         p Delete this review?
     div
-        form(action=`/reviews/${reviewId}`)
+        p Rating: #{review.rating}
+        p Review: #{review.text}
+    form(action=`/reviews/${reviewId}/delete`, method='post')
+        button(type='submit') Delete Review
+
