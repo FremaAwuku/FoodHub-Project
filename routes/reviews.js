@@ -1,6 +1,5 @@
 const db = require("../db/models");
 const { asyncHandler, csrfProtection } = require("./utils");
-const cookieParser = require('cookie-parser');
 const restaurantRouter = require("./restaurants.js");
 const router = require("./index")
 const { check, validationResult } = require("express-validator");
@@ -32,7 +31,6 @@ restaurantRouter.get('/:id(\\d+)/reviews', asyncHandler(async (req, res) => {
 
 // GET EDIT-FORM
 //NOTE: different router
-//TO DO DISPLAY THE ORIGINAL REVIEW
 router.get('/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(async (req, res, next) => {
     const reviewId = req.params.id;
     const review = await db.Review.findByPk(reviewId);
@@ -48,7 +46,6 @@ router.get('/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(async (r
         }
         );
     }
-    //is an else needed? if the button only appears when the user is the one that wrote the review?
 }));
 
 // POST EDIT-FORM
