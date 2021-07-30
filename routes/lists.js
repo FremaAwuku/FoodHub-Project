@@ -28,6 +28,7 @@ router.get('/:id(\\d+)/edit', csrfProtection, asyncHandler(async (req, res) => {
 
     res.render('edit-entry-list', {
         title: 'Edit User Entry',
+        restaurantId,
         csrfToken: req.csrfToken()
     })
 
@@ -81,6 +82,12 @@ router.get('/:id(\\d+)/add', csrfProtection, asyncHandler(async (req, res) => {
 router.post('/:id(\\d+)/add', requireAuth, asyncHandler(async (req, res) => {
     const restaurantId = req.params.id
     const userId = req.session.auth.userId
+    const listEntry = await db.UserRestaurantList.findOne({
+        where: { userId, restaurantId }
+    })
+    if (listEntry) {
+        await listEntry.destroy()
+    }
 
     let {
         hasVisited
