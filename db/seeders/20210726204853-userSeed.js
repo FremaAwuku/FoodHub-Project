@@ -15,6 +15,15 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        firstName: "DEMO",  
+        lastName: "USER",
+        email: 'demo@demo.com',
+        hashedPassword: 'demoPassword',
+        isAdmin: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
         firstName: faker.name.firstName(),  
         lastName: faker.name.lastName(),
         email: faker.internet.email(),
