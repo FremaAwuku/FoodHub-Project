@@ -17,6 +17,7 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
 
     res.render('user-list', {
         title: "Personal Restaurant List",
+        userId,
         userList,
         csrfToken: req.csrfToken()
     })
