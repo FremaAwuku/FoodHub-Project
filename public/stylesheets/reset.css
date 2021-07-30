@@ -19,30 +19,53 @@ body, nav, header {
   margin: 0;
   padding: 0;
   outline: 0;
-  font-weight: normal;  
+  font-weight: normal;
 }
 
 h1 {
   font-size: 2rem;
 }
 
+li > a {
+  color: rgb(28,60,60);
+  font-size: 8px;
+}
 
+/*
+search: hide search bar change to icon
+*/
+
+/*the form buttons*/
+form > button {
+  color: white
+}
+
+.search-btn {
+    font-size: 8px;
+    color: white;
+    background-color: rgb(224,92,44);
+
+}
+
+form > input {
+  font-size: 8px;
+}
 
 .navbar {
-  background-color: teal;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .search-form{
-  justify-content: right
+  justify-content: right;
 }
 
 .nav-links{
   list-style: none;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 14px 
+  font-size: 14px
 }
 
 .user-logout,
@@ -56,3 +79,10 @@ h1 {
   display: inline-block;
   padding: 0px 20px;
 }
+
+form > input {
+  border-radius: 3px;
+  border-width: .01rem;
+  font-size: 10px;
+}
+

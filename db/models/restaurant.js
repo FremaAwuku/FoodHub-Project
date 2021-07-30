@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
 
   }, {});
   Restaurant.associate = function (models) {
-    Restaurant.hasMany(models.Review, { foreignKey: 'restaurantId' })
-    Restaurant.hasMany(models.UserRestaurantList, {foreignKey: 'restaurantId'})
+    Restaurant.hasMany(models.Review, { foreignKey: 'restaurantId', onDelete: 'CASCADE', hooks:true })
+    Restaurant.hasMany(models.UserRestaurantList, {foreignKey: 'restaurantId', onDelete: 'CASCADE', hooks:true})
   };
   return Restaurant;
 };

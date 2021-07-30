@@ -1,0 +1,39 @@
+html, body, div {
+
+}
+
+.restaurant-img-div {
+    width: 100%;
+    height: 30rem;
+
+
+}
+
+img {
+    object-fit:fill;
+}
+
+.top-reviews-div {
+    /*need creamier white*/
+    background-color: white;
+    height: 50rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*add image div*/
+
+.button-div {
+
+}
+
+form > button {
+    border-radius: 3px;
+    border-width: 0;
+    font-size: 6px;
+    padding: .5rem;
+    color: white;
+    background-color: rgb(224,92,44);
+}
+

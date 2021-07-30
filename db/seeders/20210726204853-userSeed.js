@@ -11,6 +11,7 @@ const users = [...Array(10)].map((user) => (
     updatedAt: new Date()
   }
 ))
+
 const demoUser  =     [{
     firstName: 'DEMO',
     lastName: 'USER',
@@ -31,8 +32,10 @@ const demoUser  =     [{
       }
 ]
   const data = users.concat(demoUser)
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
+
 
 
     return queryInterface.bulkInsert('Users', data, {});

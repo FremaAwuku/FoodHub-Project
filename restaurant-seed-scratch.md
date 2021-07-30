@@ -1,19 +1,10 @@
-'use strict';
-const faker = require('faker');
-
-
-
-
-module.exports = {
-  up: (queryInterface, Sequelize) => {
-
-      return queryInterface.bulkInsert('Restaurants', [ {
+{
         name: "Papadillo's",
         address: faker.address.streetAddress(),
         cuisine: " Italian",
         rating: 0,
-        numberOfReviews:0,
-        imgURL:"https://lh3.googleusercontent.com/proxy/sseVqMmYNWePEcCpLO7FynyOEnCGgVH8NrWIm_sdyBCBMyy9pHoYANfPSqGF4dSo1ymemNmajBtTTD8MfNn53IFdq_6z88FoKApWCQ28VwPef2LGRhK8KbfMIIAPNDKYjhC560K-ug" ,
+        numberOfReviews:,
+        imgURL:https://lh3.googleusercontent.com/proxy/sseVqMmYNWePEcCpLO7FynyOEnCGgVH8NrWIm_sdyBCBMyy9pHoYANfPSqGF4dSo1ymemNmajBtTTD8MfNn53IFdq_6z88FoKApWCQ28VwPef2LGRhK8KbfMIIAPNDKYjhC560K-ug ,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -23,7 +14,7 @@ module.exports = {
         cuisine: " Italian",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://www.sheknows.com/wp-content/uploads/2018/08/798103515ba4ca5201a9.jpeg?w=300",
+        imgURL:https://www.sheknows.com/wp-content/uploads/2018/08/798103515ba4ca5201a9.jpeg?w=300,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -33,7 +24,7 @@ module.exports = {
         cuisine: " Italian",
         rating: 0,
         numberOfReviews:0 ,
-        imgURL:"https://www.italian-feelings.com/wp-content/uploads/2016/03/cibo-italiano-estero2-940x625.jpg",
+        imgURL:https://www.italian-feelings.com/wp-content/uploads/2016/03/cibo-italiano-estero2-940x625.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -43,7 +34,7 @@ module.exports = {
         cuisine: " Italian",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://i.pinimg.com/originals/f6/ac/6b/f6ac6bca6d67b9557a9d9bede5f9a3c0.jpg",
+        imgURL:https://i.pinimg.com/originals/f6/ac/6b/f6ac6bca6d67b9557a9d9bede5f9a3c0.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -53,7 +44,7 @@ module.exports = {
         cuisine: " Italian",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://www.sheknows.com/wp-content/uploads/2018/08/798103515ba4ca5201a9.jpeg?w=300",
+        imgURL:https://www.sheknows.com/wp-content/uploads/2018/08/798103515ba4ca5201a9.jpeg?w=300,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -63,7 +54,7 @@ module.exports = {
         cuisine: "Indian",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://sukhis.com/wp-content/uploads/2017/06/Appetizers.jpg",
+        imgURL:https://sukhis.com/wp-content/uploads/2017/06/Appetizers.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -73,7 +64,7 @@ module.exports = {
         cuisine: "Indian",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://tampamagazines.com/wp-content/uploads/2020/12/Spice-Kitchen_6578-copy.jpg",
+        imgURL:https://tampamagazines.com/wp-content/uploads/2020/12/Spice-Kitchen_6578-copy.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -83,7 +74,7 @@ module.exports = {
         cuisine: "Indian",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://insidenirvana.com/wp-content/uploads/2015/06/inside2.jpg",
+        imgURL:https://insidenirvana.com/wp-content/uploads/2015/06/inside2.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -93,7 +84,7 @@ module.exports = {
         cuisine: "Indian",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://thumbor.thedailymeal.com/Jz30JU_ra2iW4tvAt6YBOSI1FOk=/870x565/filters:focal(595x384:596x385)/https://www.thedailymeal.com/sites/default/files/2018/08/24/0.jpg",
+        imgURL:https://thumbor.thedailymeal.com/Jz30JU_ra2iW4tvAt6YBOSI1FOk=/870x565/filters:focal(595x384:596x385)/https://www.thedailymeal.com/sites/default/files/2018/08/24/0.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -103,7 +94,7 @@ module.exports = {
         cuisine: "Indian",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://www.sentinelassam.com/wp-content/uploads/2020/04/diwali-sweets_620x350_71477722448.jpg",
+        imgURL:https://www.sentinelassam.com/wp-content/uploads/2020/04/diwali-sweets_620x350_71477722448.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -113,7 +104,7 @@ module.exports = {
         cuisine: "Mexican",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://cdn.postindependent.com/wp-content/uploads/sites/6/2020/01/frida-gpi-011120-1-1024x683.jpg",
+        imgURL:https://cdn.postindependent.com/wp-content/uploads/sites/6/2020/01/frida-gpi-011120-1-1024x683.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -123,7 +114,7 @@ module.exports = {
         cuisine: "Mexican",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://2l7g9kgsh281akevs49v281d-wpengine.netdna-ssl.com/wp-content/uploads/2021/01/129392876_3849139691783633_408054825014186052_o-1128x670.jpeg",
+        imgURL:https://2l7g9kgsh281akevs49v281d-wpengine.netdna-ssl.com/wp-content/uploads/2021/01/129392876_3849139691783633_408054825014186052_o-1128x670.jpeg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -133,7 +124,7 @@ module.exports = {
         cuisine: "Mexican",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://assets.bonappetit.com/photos/5e3e3d1ac665190009efd5e2/3:2/w_1878,h_1252,c_limit/Beet-Tostada-with-Fried-Egg.jpg",
+        imgURL:https://assets.bonappetit.com/photos/5e3e3d1ac665190009efd5e2/3:2/w_1878,h_1252,c_limit/Beet-Tostada-with-Fried-Egg.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -143,7 +134,7 @@ module.exports = {
         cuisine: "Mexican",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://img.traveltriangle.com/blog/wp-content/uploads/2018/11/cover-for-mexican-desserts.jpg",
+        imgURL:https://img.traveltriangle.com/blog/wp-content/uploads/2018/11/cover-for-mexican-desserts.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -153,7 +144,7 @@ module.exports = {
         cuisine: "Mexican",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://lh3.googleusercontent.com/proxy/nbCxIfr4lv7uo9gFBSyc1BdpRRtTy3d2VQCXZyGGBNN-cqtZSri9nW85i6vaGAo3PG2PsZP1DNsjaPfzNcOdaKSDX9kblymMt5MOEslO2ImEKPJMLL7fXZs9TjRr3_uZkyA",
+        imgURL:https://lh3.googleusercontent.com/proxy/nbCxIfr4lv7uo9gFBSyc1BdpRRtTy3d2VQCXZyGGBNN-cqtZSri9nW85i6vaGAo3PG2PsZP1DNsjaPfzNcOdaKSDX9kblymMt5MOEslO2ImEKPJMLL7fXZs9TjRr3_uZkyA,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -163,7 +154,7 @@ module.exports = {
         cuisine: "American",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://d1e3z2jco40k3v.cloudfront.net/-/media/mccormick-us/recipes/old-bay/b/2000/backyard-burgers.jpg?rev=1d66a7d15c324cdfa930e9d88e897010&vd=20200628T200653Z&hash=014FF8E922C77C6FA3CE60E6E19E1DF7",
+        imgURL:https://d1e3z2jco40k3v.cloudfront.net/-/media/mccormick-us/recipes/old-bay/b/2000/backyard-burgers.jpg?rev=1d66a7d15c324cdfa930e9d88e897010&vd=20200628T200653Z&hash=014FF8E922C77C6FA3CE60E6E19E1DF7,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -173,7 +164,7 @@ module.exports = {
         cuisine: "American",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://cdn.vox-cdn.com/thumbor/9kbPhnyVQLDU78VfJiBv3AJ0f0g=/0x0:1080x1080/1200x900/filters:focal(474x440:646x612)/cdn.vox-cdn.com/uploads/chorus_image/image/55558593/117162038_1188918198133321_938275152913273982_n.72.jpg",
+        imgURL:https://cdn.vox-cdn.com/thumbor/9kbPhnyVQLDU78VfJiBv3AJ0f0g=/0x0:1080x1080/1200x900/filters:focal(474x440:646x612)/cdn.vox-cdn.com/uploads/chorus_image/image/55558593/117162038_1188918198133321_938275152913273982_n.72.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -183,7 +174,7 @@ module.exports = {
         cuisine: "American",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://www.irishtimes.com/polopoly_fs/1.3553516.1530699903!/image/image.jpg_gen/derivatives/ratio_1x1_w1200/image.jpg",
+        imgURL:https://www.irishtimes.com/polopoly_fs/1.3553516.1530699903!/image/image.jpg_gen/derivatives/ratio_1x1_w1200/image.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -193,7 +184,7 @@ module.exports = {
         cuisine: "American",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://cdn4.creativecirclemedia.com/riverdalepress/original/20191025-152456-CommunityDiners-3.jpg",
+        imgURL:https://cdn4.creativecirclemedia.com/riverdalepress/original/20191025-152456-CommunityDiners-3.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -203,7 +194,7 @@ module.exports = {
         cuisine: "American",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://assets3.thrillist.com/v1/image/1241813/414x310/crop;jpeg_quality=65.jpg",
+        imgURL:https://assets3.thrillist.com/v1/image/1241813/414x310/crop;jpeg_quality=65.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -213,7 +204,7 @@ module.exports = {
         cuisine: "Jamaican",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://i.pinimg.com/originals/93/f3/86/93f386f1b92ea063f246881146722007.jpg",
+        imgURL:https://i.pinimg.com/originals/93/f3/86/93f386f1b92ea063f246881146722007.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -223,7 +214,7 @@ module.exports = {
         cuisine: "Jamaican",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://www.gannett-cdn.com/presto/2018/09/11/PNDN/9c97d154-1c42-478a-b6d1-66dbeb33c8e3-ISLAND_VYBZ_01_LEDE.jpg",
+        imgURL:https://www.gannett-cdn.com/presto/2018/09/11/PNDN/9c97d154-1c42-478a-b6d1-66dbeb33c8e3-ISLAND_VYBZ_01_LEDE.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -233,7 +224,7 @@ module.exports = {
         cuisine: "Jamaican",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://anitahendrieka.com/wp-content/uploads/2019/05/jerk-chicken-jamaica-1440x960.jpg",
+        imgURL:https://anitahendrieka.com/wp-content/uploads/2019/05/jerk-chicken-jamaica-1440x960.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -243,7 +234,7 @@ module.exports = {
         cuisine: "Jamaican",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://fivespicejc.com/wp-content/uploads/2019/01/JUICES.jpg",
+        imgURL:https://fivespicejc.com/wp-content/uploads/2019/01/JUICES.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -253,14 +244,7 @@ module.exports = {
         cuisine: "Jamaican",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://res.cloudinary.com/hksqkdlah/image/upload/SFS_JamaicanBeefPatties-125_hpwoeg.jpg",
+        imgURL:https://res.cloudinary.com/hksqkdlah/image/upload/SFS_JamaicanBeefPatties-125_hpwoeg.jpg,
         createdAt: new Date(),
         updatedAt: new Date()
       },
-], {});
-  },
-
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Restaurants', null, {truncate: true, cascade: true, restartIdentity: true});
-  }
-};
