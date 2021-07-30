@@ -1,18 +1,5 @@
 const db = require('./db/models')
 
-const loginAdmin = (req, res, admin) => {
-
-    req.session.auth = {
-        adminId: admin.id,
-    };
-    res.locals.admin = true
-    res.locals.admin = admin.id
-    console.log(req.session)
-    console.log(req.session.auth)
-    req.session.save(() => {
-        res.redirect('/')
-    });
-};
 
 const loginUser = (req, res, user) => {
 
@@ -66,21 +53,24 @@ const logoutUser = (req, res) => {
 
 };
 
-const requireAuth = (req, res, next) => {
+const requireAuth =  (req, res, next) => {
     if (!res.locals.authenticated) {
         return res.redirect('/users/login');
     }
     return next();
 };
-const requireAdminAuth = (req, res, next) => {
-    if (!res.locals.authenticated) {
-        return res.redirect('/users/login');
+const requireAdminAuth = async (req, res, next) => {
+    const { userId } = req.session.auth;
+    const user = await db.User.findByPk(userId);
+
+    if (!user.isAdmin) {
+        return res.redirect('/')
     }
     return next();
 };
 
 module.exports = {
-    loginAdmin,
+    requireAdminAuth,
     loginUser,
     restoreUser,
     logoutUser,

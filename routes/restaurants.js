@@ -5,16 +5,29 @@ const bcrypt = require('bcryptjs')
 const { Op } = require('sequelize')
 const { csrfProtection, asyncHandler } = require('./utils');
 const db = require('../db/models');
-const { loginUser } = require('../auth')
+const { requireAuth,requireAdminAuth  } = require('../auth')
 
 //GET all restaurant
 router.get("/", asyncHandler(async(req,res)=>{
 const restaurants = await db.Restaurant.findAll()
 
+ const admin = await db.User.findAll({
+     where:{
+    isAdmin:{
+        [Op.is]: true
+ }},
+    limit:1})
+
+
+
 res.render('restaurants',{
     title:"Restaurants",
-    restaurants
+    reqSess: req.session.auth,
+    admin,
+    restaurants,
+
 })
+
 
 }))
 //GET individual restaurant
@@ -63,7 +76,7 @@ router.get("/:id(\\d+)", asyncHandler(async(req,res)=>{
 
 
 //TODO made ONLY accessible by the admin
-router.get("/new", csrfProtection ,asyncHandler(async(req,res)=>{
+router.get("/new",requireAuth, requireAdminAuth,csrfProtection ,asyncHandler(async(req,res)=>{
     const restaurant = await db.Restaurant.build()
     res.render('create-new-restaurant',{
         title:"Create A New Restaurant",
@@ -73,7 +86,7 @@ router.get("/new", csrfProtection ,asyncHandler(async(req,res)=>{
     }))
 
 
-router.post("/new", csrfProtection,restaurantValidators, asyncHandler(async(req,res)=>{
+router.post("/new",requireAuth,requireAdminAuth, csrfProtection,restaurantValidators, asyncHandler(async(req,res)=>{
     const{
         name,
         address,
@@ -106,7 +119,7 @@ router.post("/new", csrfProtection,restaurantValidators, asyncHandler(async(req,
     }
 }));
 
-router.get("/:id(\\d+)/edit",csrfProtection, asyncHandler(async(req,res)=>{
+router.get("/:id(\\d+)/edit",requireAuth,requireAdminAuth, csrfProtection, asyncHandler(async(req,res)=>{
     const restaurantId = req.params.id
 
     const restaurant = await db.Restaurant.findByPk(restaurantId)
@@ -140,7 +153,7 @@ const restaurantValidators2 = [
       .withMessage('Please Submit Image'),
   ];
 
-router.post("/:id(\\d+)/edit", csrfProtection,restaurantValidators2,asyncHandler(async(req,res)=>{
+router.post("/:id(\\d+)/edit",requireAuth,requireAdminAuth, csrfProtection,restaurantValidators2,asyncHandler(async(req,res)=>{
 
     const restaurantId = req.params.id
 
@@ -193,7 +206,7 @@ router.post("/", asyncHandler(async(req, res) => {
        where: {
            name: {
                [Op.iLike]: `%${search}%`
-       
+
        }
        }
    })
