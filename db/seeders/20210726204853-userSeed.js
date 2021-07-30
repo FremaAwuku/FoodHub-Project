@@ -17,6 +17,7 @@ module.exports = {
 
     return queryInterface.bulkInsert('Users', users, {});
 
+
   },
 
   down: (queryInterface, Sequelize) => {
