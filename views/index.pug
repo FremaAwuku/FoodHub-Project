@@ -7,4 +7,6 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
-  p Welcome to your Project Skeleton
+
+    each restaurant in restaurants
+      p=restaurant.name
