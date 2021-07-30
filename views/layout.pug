@@ -7,7 +7,7 @@ html
   body
     header
       nav(class='navbar')
-        if locals.user 
+        if locals.user
           span(class='navbar-text px-4') Welcome #{user.firstName}!
             li(class='user-logout'): a(href='/users/logout') Logout
             li(class='user-list'): a(href=`/lists/${userId}`) User List
@@ -24,4 +24,4 @@ html
         div.container-fluid
   p= title
     block content
-    
+
