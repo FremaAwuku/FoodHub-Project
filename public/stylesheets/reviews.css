@@ -1,0 +1,51 @@
+html, body, div {
+    /*change opacity of bg color*/
+    background-color: rgb(248,244,244);
+}
+
+body {
+    height: 50em;
+    color: rgb(28,60,60);
+}
+
+.form {
+ display: grid;
+ grid-template-rows: 1em 1fr;
+ grid-row-gap: 2em;
+ grid-template-columns: 1fr;
+}
+
+.rating-div {
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+select {
+    justify-self: center;
+    align-self: center;
+    border-radius: 5px;
+}
+
+.text-div {
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+textarea {
+    justify-self: center;
+    width: 70%;
+    border-radius: 5px;
+}
+
+button {
+    border-radius: 3px;
+    border-width: 0;
+    font-size: 6px;
+    padding: .5rem;
+    color: white;
+    background-color: rgb(224,92,44);
+}
+
+a {
+    text-decoration: none;
+}
