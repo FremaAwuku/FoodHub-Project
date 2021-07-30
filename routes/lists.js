@@ -102,8 +102,35 @@ router.post('/:id(\\d+)/add', requireAuth, asyncHandler(async (req, res) => {
     res.redirect(`/lists/${userId}`)
 }))
 
+router.get('/:id(\\d+)/delete', csrfProtection, asyncHandler(async (req, res) => {
+    const restaurantId = req.params.id
+    res.render('delete-list-entry', {
+        title: 'Delete List Entry',
+        restaurantId,
+        csrfToken: req.csrfToken()
+    })
+}))
 
+router.post('/:id(\\d+)/delete', requireAuth, asyncHandler(async (req, res) => {
+    console.log('in post route')
+    const restaurantId = req.params.id
+    const userId = req.session.auth.userId
+    const listEntry = await db.UserRestaurantList.findOne({
+        where: {userId, restaurantId}
+    })
+    let {
+        deleteEntry
+    } = req.body
 
+    if (deleteEntry) {
+        await listEntry.destroy()
+    } else if (deleteEntry === undefined) {
+        deleteEntry = false 
+    }
+
+    res.redirect(`/lists/${userId}`)
+
+}))
 
 
 module.exports = router
