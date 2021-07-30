@@ -1,0 +1,19 @@
+extends layout.pug
+block content 
+    form(action=`/lists/${restaurantId}/delete` method="post")
+        input(type="hidden" name="_csrf" value=csrfToken)
+        label(for="deleteEntry") Are you sure you want to delete? 
+        input(id="deleteEntry" type="checkbox" name="deleteEntry" onclick="handleClick()")
+        button(type="submit") Submit 
+        script.
+            const handleClick = () => {
+                const hasVisited = document.getElementById("deleteEntry")
+                if (hasVisited.checked) {
+                    hasVisited.removeAttribute("checked")
+                    hasVisited.value = false
+                } else {
+                    hasVisited.setAttribute("checked", true)
+                    hasVisited.value = true
+                }
+                console.log(hasVisited)
+            }

@@ -1,11 +1,4 @@
-'use strict';
-const faker = require('faker');
-
-module.exports = {
-  up: (queryInterface, Sequelize) => {
-
-      return queryInterface.bulkInsert('Reviews', [
-        {
+    {
           rating:5 ,
           text:faker.lorem.paragraph(),
           userId:2 ,
@@ -41,7 +34,7 @@ module.exports = {
           rating:5 ,
           text:faker.lorem.paragraph(),
           userId:2 ,
-          restaurantId:9,
+          restaurantId:27,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -49,7 +42,7 @@ module.exports = {
           rating:5 ,
           text:faker.lorem.paragraph(),
           userId:2 ,
-          restaurantId:15,
+          restaurantId:28,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -57,7 +50,7 @@ module.exports = {
           rating:5 ,
           text:faker.lorem.paragraph(),
           userId:2 ,
-          restaurantId:12,
+          restaurantId:29,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -65,7 +58,7 @@ module.exports = {
           rating:5 ,
           text:faker.lorem.paragraph(),
           userId:2 ,
-          restaurantId:8,
+          restaurantId:30,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -97,7 +90,7 @@ module.exports = {
           rating:4 ,
           text:faker.lorem.paragraph(),
           userId:3 ,
-          restaurantId:3,
+          restaurantId:26,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -245,10 +238,3 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date()
         },
-      ], {});
-  },
-
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Reviews', null, {truncate: true, cascade: true, restartIdentity: true});
-  }
-};

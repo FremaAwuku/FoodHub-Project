@@ -3,11 +3,18 @@ block content
     table
         thead
             tr
-                th Resteraunt
+                th Restaurant
                 th Has Visited
         tbody
             each list in userList
                 tr
-                    td=list.Restaurant.name
+                    td 
+                        a(href=`/restaurants/${list.Restaurant.id}`)  #{list.Restaurant.name} 
                     td=list.hasVisited
-                    a(name="edit-redirect-list" href=`/lists/${list.Restaurant.id}/edit`) Edit
+
+                    td
+                        a(name="edit-redirect-list" href=`/lists/${list.Restaurant.id}/edit`) Edit
+                    td 
+                        a(name="delete-list-entry" href=`/lists/${list.Restaurant.id}/delete`) Delete
+
+
