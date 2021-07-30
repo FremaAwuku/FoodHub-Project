@@ -18,16 +18,12 @@ const restaurants = await db.Restaurant.findAll()
  }},
     limit:1})
 
-
-
 res.render('restaurants',{
     title:"Restaurants",
     reqSess: req.session.auth,
     admin,
     restaurants,
-
 })
-
 
 }))
 //GET individual restaurant

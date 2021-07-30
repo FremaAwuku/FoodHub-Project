@@ -10,7 +10,7 @@ module.exports = {
       return queryInterface.bulkInsert('Restaurants', [ {
         name: "Papadillo's",
         address: faker.address.streetAddress(),
-        cuisine: " Italian",
+        cuisine: "Italian",
         rating: 0,
         numberOfReviews:0,
         imgURL:"https://lh3.googleusercontent.com/proxy/sseVqMmYNWePEcCpLO7FynyOEnCGgVH8NrWIm_sdyBCBMyy9pHoYANfPSqGF4dSo1ymemNmajBtTTD8MfNn53IFdq_6z88FoKApWCQ28VwPef2LGRhK8KbfMIIAPNDKYjhC560K-ug" ,
@@ -20,7 +20,7 @@ module.exports = {
       {
         name: "Mamma Mia's",
         address: faker.address.streetAddress(),
-        cuisine: " Italian",
+        cuisine: "Italian",
         rating: 0,
         numberOfReviews:0,
         imgURL:"https://www.sheknows.com/wp-content/uploads/2018/08/798103515ba4ca5201a9.jpeg?w=300",
@@ -30,7 +30,7 @@ module.exports = {
       {
         name: "Itsa Pasta",
         address: faker.address.streetAddress(),
-        cuisine: " Italian",
+        cuisine: "Italian",
         rating: 0,
         numberOfReviews:0 ,
         imgURL:"https://www.italian-feelings.com/wp-content/uploads/2016/03/cibo-italiano-estero2-940x625.jpg",
@@ -40,7 +40,7 @@ module.exports = {
       {
         name: "O Mio Bambino",
         address: faker.address.streetAddress(),
-        cuisine: " Italian",
+        cuisine: "Italian",
         rating: 0,
         numberOfReviews:0,
         imgURL:"https://i.pinimg.com/originals/f6/ac/6b/f6ac6bca6d67b9557a9d9bede5f9a3c0.jpg",
@@ -50,7 +50,7 @@ module.exports = {
        {
         name: "Leaning Tower of Pizza Palace",
         address: faker.address.streetAddress(),
-        cuisine: " Italian",
+        cuisine: "Italian",
         rating: 0,
         numberOfReviews:0,
         imgURL:"https://www.sheknows.com/wp-content/uploads/2018/08/798103515ba4ca5201a9.jpeg?w=300",
