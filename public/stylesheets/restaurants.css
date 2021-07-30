@@ -1,0 +1,15 @@
+.header-div {
+display:flex;
+flex-direction: column wrap;
+justify-content: center;
+border: 5px solid pink;
+}
+.main-page-header {
+    border: 5px solid red;
+    align-content: center;
+    color: aqua;
+}
+ #main-page-tagline {
+  border: 5px solid green;
+  align-content: flex-end;
+}

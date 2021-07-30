@@ -6,7 +6,7 @@ append head
 block content
     if errors
         each error in errors
-            p=error
+            p= error
     .form
         form(action=`/restaurants/${restaurantId}/reviews` method='post')
             input(type="hidden", value=csrfToken, name='_csrf')
@@ -19,5 +19,7 @@ block content
                 option(value=5) 5 Stars
             label(id='review-title' for='text') Review
             textarea(name="text" value=review.text)
+
             button Submit
             a(href=`/restaurants/${restaurantId}`) Cancel
+
