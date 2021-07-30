@@ -11,11 +11,34 @@ const users = [...Array(10)].map((user) => (
     updatedAt: new Date()
   }
 ))
+
+const demoUser  =     [{
+    firstName: 'DEMO',
+    lastName: 'USER',
+    email: 'demo@demo.com',
+    hashedPassword: 'DemoPassword',
+    isAdmin: false,
+    createdAt: new Date(),
+    updatedAt: new Date()
+},
+   {
+        firstName: "ADMIN",  
+        lastName: "ADMIN",
+        email: 'BAB@foodHub.io',
+        hashedPassword: 'adminPassword',
+        isAdmin: true,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
+]
+  const data = users.concat(demoUser)
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
 
 
-    return queryInterface.bulkInsert('Users', users, {});
+
+    return queryInterface.bulkInsert('Users', data, {});
 
 
   },
@@ -24,3 +47,4 @@ module.exports = {
     return queryInterface.bulkDelete('Users', null, {truncate: true, cascade: true, restartIdentity: true});
   }
 };
+
