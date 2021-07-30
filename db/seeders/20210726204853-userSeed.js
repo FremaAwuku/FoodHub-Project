@@ -21,15 +21,7 @@ const demoUser  =     [{
     createdAt: new Date(),
     updatedAt: new Date()
 },
-   {
-        firstName: "ADMIN",  
-        lastName: "ADMIN",
-        email: 'BAB@foodHub.io',
-        hashedPassword: 'adminPassword',
-        isAdmin: true,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      }
+ 
 ]
   const data = users.concat(demoUser)
 
@@ -47,4 +39,3 @@ module.exports = {
     return queryInterface.bulkDelete('Users', null, {truncate: true, cascade: true, restartIdentity: true});
   }
 };
-
