@@ -1,14 +1,17 @@
 extends layout.pug
-block content
 
-    h1(id="main-page-header") FOOD HUB
-    h2(id="main-page-tagline") Get your Deets on some Eats
-    div.outer-container
+append head
+    link(rel='stylesheet' href='/stylesheets/restaurants.css')
+block content
+    .header-div
+        h1(class="main-page-header") FOOD HUB
+        h2(id="main-page-tagline") Get your Deets on some Eats
+    div.outer-restaurant-container
         .restaurant-div
     h2(id="cuisine-header") Italian
     each restaurant in restaurants
      .cuisine-div
-        if restaurant.cuisine == "Italian"
+        if restaurant.cuisine === "Italian"
             .restaurant-header-div
                 h3(id="restaurant-header")= restaurant.name
             .restaurant-img-div
