@@ -10,5 +10,10 @@ block content
 
     each restaurant in restaurants
       p=restaurant.name
+      p=restaurant.cuisine
+      p=restaurant.rating
+      p
+        a(href= `/restaurants/${restaurant.id}/reviews`) Reviews For This Restaurant
       p 
-        img(src=`${restaurant.imgURL}`)
+        a(href=`/restaurants/${restaurant.id}`)
+          img(src=`${restaurant.imgURL}`)
