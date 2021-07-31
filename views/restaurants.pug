@@ -1,5 +1,7 @@
 extends layout.pug
 
+include utils.pug
+
 append head
     link(rel='stylesheet' href='/stylesheets/restaurants.css')
 block content
@@ -18,8 +20,7 @@ block content
                         .restaurant-header-div
                             h3(id="restaurant-header")= restaurant.name
                         h4(id="restaurant-address")= restaurant.address
-                        .star-rating-div
-                            h5(id="replace-with-stars")= (restaurant.rating/restaurant.numberOfReviews).toFixed(2)
+                        +starRating(`${restaurant.rating}`,`${restaurant.numberOfReviews}`)
                         .num-of-reviews-div
                             h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
         h2(id="cuisine-header") Indian
@@ -33,8 +34,7 @@ block content
                         .restaurant-header-div
                             h3(id="restaurant-header")= restaurant.name
                         h4(id="restaurant-address")= restaurant.address
-                        .star-rating-div
-                            h5(id="replace-with-stars")= restaurant.rating
+                        +starRating(`${restaurant.rating}`,`${restaurant.numberOfReviews}`)
                         .num-of-reviews-div
                             h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
         h2(id="cuisine-header") Jamaican
@@ -48,8 +48,7 @@ block content
                         .restaurant-header-div
                             h3(id="restaurant-header")= restaurant.name
                         h4(id="restaurant-address")= restaurant.address
-                        .star-rating-div
-                            h5(id="replace-with-stars")= restaurant.rating
+                        +starRating(`${restaurant.rating}`,`${restaurant.numberOfReviews}`)
                         .num-of-reviews-div
                             h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
         h2(id="cuisine-header") American
@@ -63,8 +62,7 @@ block content
                         .restaurant-header-div
                             h3(id="restaurant-header")= restaurant.name
                         h4(id="restaurant-address")= restaurant.address
-                        .star-rating-div
-                            h5(id="replace-with-stars")= restaurant.rating
+                        +starRating(`${restaurant.rating}`,`${restaurant.numberOfReviews}`)
                         .num-of-reviews-div
                             h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
         h2(id="cuisine-header") Mexican
@@ -78,8 +76,7 @@ block content
                         .restaurant-header-div
                             h3(id="restaurant-header")= restaurant.name
                         h4(id="restaurant-address")= restaurant.address
-                        .star-rating-div
-                            h5(id="replace-with-stars")= restaurant.rating
+                        +starRating(restaurant.rating,restaurant.numberOfReviews)
                         .num-of-reviews-div
                             h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
     if locals.user

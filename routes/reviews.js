@@ -64,6 +64,7 @@ router.post('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, 
         rating,
         text,
     } = req.body;
+
     const review = {
         rating,
         text,

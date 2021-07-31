@@ -5,3 +5,18 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', placeholder = 
       textarea(id=fieldName name=fieldName class='form-control' rows='5')= fieldValue
     else
       input(type=fieldType id=fieldName name=fieldName value=fieldValue placeholder=placeholder class='form-control')
+
+
+mixin starRating(rating,reviews)
+  .star-rating-div
+  
+    if (rating/reviews).toFixed(2)  >= 5
+        h3 ⭐⭐⭐⭐⭐
+    else if (rating/reviews).toFixed(2) >=4 && (rating/reviews).toFixed(2) < 5
+        h3 ⭐⭐⭐⭐
+    else if (rating/reviews).toFixed(2) >=3 && (rating/reviews).toFixed(2) < 4
+        h3 ⭐⭐⭐
+    else if (rating/reviews).toFixed(2) >=2 && (rating/reviews).toFixed(2) < 3
+        h3 ⭐⭐
+    else
+        h3 ⭐
