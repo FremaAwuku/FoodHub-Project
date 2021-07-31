@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Corben:wght@700&display=swap');
+
+html, body {
+    /*change opacity of bg color*/
+    background-color: white;
+    padding: 1rem;
+}
+
+body {
+    color: rgb(28,60,60);
+    font-family: 'Corben', cursive;
+}
