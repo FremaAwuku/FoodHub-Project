@@ -20,6 +20,6 @@ block content
                     else 
                         td= '❌'
                     td
-                        a(name="edit-redirect-list" href=`/lists/${list.Restaurant.id}/edit`) Edit
+                        a(class="edit-list" name="edit-redirect-list" href=`/lists/${list.Restaurant.id}/edit`) Edit
                     td 
-                        a(name="delete-list-entry" href=`/lists/${list.Restaurant.id}/delete`) Delete
+                        a(class="delete-list" name="delete-list-entry" href=`/lists/${list.Restaurant.id}/delete`) Delete

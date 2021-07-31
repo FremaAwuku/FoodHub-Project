@@ -10,3 +10,21 @@ body {
     color: rgb(28,60,60);
     font-family: 'Corben', cursive;
 }
+
+.edit-list {
+    border-radius: 2px;
+    border-width: 0;
+    font-size: 6px;
+    padding: 1.5rem;
+    color: white;
+    background-color: rgb(224,92,44);
+}
+
+.delete-list {
+    border-radius: 2px;
+    border-width: 0;
+    font-size: 6px;
+    padding: 1.5rem;
+    color: white;
+    background-color: rgb(224,92,44);
+}
