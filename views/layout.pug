@@ -4,7 +4,7 @@ html
       block head
         title= title
 
-        script(src="/javascript/search.js" type='module') 
+        script(src="/javascripts/search.js" type="module" defer) 
 
         link(rel='stylesheet' href='/stylesheets/nav-bar.css')
 
@@ -25,9 +25,10 @@ html
           li(class='nav-item'): a(class='nav-link' href='/users/login') Login
           li(class='nav-item'): a(class='nav-link' href='/users/register') Register
         span(class='search-bar-span')
-          form.search-form(action="/restaurants" method='post')
+          form.search-form(action="/restaurants" method='post' autocomplete='off')
             label(for='search')
-            input(type='text' id='search-field' name='search' class='search-bar' placeholder='Search For a Restaurant')
+            div.autocomplete(style="width: 300px;")
+              input(type='text' id='search-field' name='search' class='search-bar' placeholder='Search For a Restaurant')
             button(type='submit' class='search-btn') Search
         div.container-fluid
     block content
