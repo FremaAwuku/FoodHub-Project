@@ -2,6 +2,7 @@ extends layout.pug
 
 append head
     link(rel='stylesheet' href='/stylesheets/reviews.css')
+    script(src="/javascripts/review-submit.js" type='module')
 
 block content
     if errors
@@ -9,7 +10,7 @@ block content
             p=error
     div(id="outer-container")
         div(id="review-div")
-            form(class='form-class' action=`/reviews/${review.id}` method='post')
+            form(id="edit-rev-form" class='form-class' action=`/reviews/${review.id}` method='post')
                 input(type="hidden", value=csrfToken, name='_csrf')
                 div(class="rating-div")
                     label(id="rate-label" for='rating') Select a rating:
@@ -23,11 +24,11 @@ block content
                     label(for='text')
                     textarea(name="text" value=review.text)
         div(class="sub-can")
-                button(type='submit') Update Review
-                a(href=`/reviews/${reviewId}`) Cancel
+                    button(id="submit-btn") Update Review
+                    a(href=`/restaurants/${review.Restaurant.id}`) Cancel
         div(id="title-text-div")
             p(id="title-text")=`${review.Restaurant.name}`
             p(id='love')='would love to hear from you'
         div(id="img-div")
-            a(href=`/restaurants/${review.Restaurant.id}`)
-                img(src=`${review.Restaurant.imgURL}`)
+                    a(href=`/restaurants/${review.Restaurant.id}`)
+                        img(src=`${review.Restaurant.imgURL}`)
