@@ -1,4 +1,8 @@
 extends layout.pug
+
+append head
+    link(rel='stylesheet' href='/stylesheets/indv-restaurants.css')
+
 block content
     .restaurant-header-div
         h1(id="restaurant-header")= restaurant.name
@@ -12,13 +16,15 @@ block content
             h6(id="num-of-reviews")= `Number of reviews: ${restaurant.numberOfReviews}`
         .top-reviews-div
             .review-box
-            each review in restaurant.Reviews
-             p(id="review-body") #{review.text}
-            if locals.user
-                if locals.user.isAdmin
-                    form(action=`/restaurants/${restaurantId}/edit` method="get")
-                        button() Edit Restaurant
-            form(action=`/restaurants/${restaurantId}/reviews/new` method="get")
-                button() Add New Review
-            form(action=`/lists/${restaurantId}/add` method="get")
-                button() Add To List
+                each review in restaurant.Reviews
+                    p(id="review-body") #{review.text}
+                .button-div
+                    form(action=`/restaurants/${restaurantId}/reviews/new` method="get")
+                        button(class="new-review-btn") Add New Review
+                    form(action=`/lists/${restaurantId}/add` method="get")
+                        button() Add To List
+                if locals.user
+                    if locals.user.isAdmin
+                        form(action=`/restaurants/${restaurantId}/edit` method="get")
+                            button() Edit Restaurant
+

@@ -3,16 +3,19 @@ html
   head
       block head
         title= title
-        link(rel='stylesheet' href='/stylesheets/reset.css')
+
         script(src="/javascript/search.js" type='module') 
+
+        link(rel='stylesheet' href='/stylesheets/nav-bar.css')
+
   body
     header
       nav(class='navbar')
-        if locals.user 
+        if locals.user
           span(class='navbar-text px-4') Welcome #{user.firstName}!
             li(class='user-logout'): a(href='/users/logout') Logout
             li(class='user-list'): a(href=`/lists/${user.id}`) User List
-        span(class='navbar-welcome-text') Welcome To Food Hub!    
+        span(class='navbar-welcome-text') Welcome To Food Hub!
         ul(class='nav-links')
           li(class='nav-item'): a(class='nav-home' href='/') Home
           li(class='nav-item'): a(class='nav-link' href='/restaurants') Restaurants
@@ -24,6 +27,4 @@ html
             input(type='text' id='search-field' name='search' class='search-bar' placeholder='Search For a Restaurant')
             button(type='submit' class='search-btn') Search
         div.container-fluid
-  p= title
     block content
-    
