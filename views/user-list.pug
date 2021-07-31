@@ -11,7 +11,10 @@ block content
                 tr
                     td 
                         a(href=`/restaurants/${list.Restaurant.id}`)  #{list.Restaurant.name} 
-                    td=list.hasVisited
+                    if (list.hasVisited) 
+                        td= '✅'
+                    else 
+                        td= '❌'
                     td
                         a(name="edit-redirect-list" href=`/lists/${list.Restaurant.id}/edit`) Edit
                     td 
