@@ -11,13 +11,17 @@ block content
     .restaurant-details-div
         h4(id="restaurant-address")= restaurant.address
         .star-rating-div
-            h5(id="replace-with-stars")= restaurant.rating
+            h5(id="replace-with-stars")= (restaurant.rating/restaurant.numberOfReviews).toFixed(2)
         .num-of-reviews-div
             h6(id="num-of-reviews")= `Number of reviews: ${restaurant.numberOfReviews}`
         .top-reviews-div
             .review-box
                 each review in restaurant.Reviews
                     p(id="review-body") #{review.text}
+                    if locals.user
+                        if locals.user.id === review.userId
+                            form(action=`/reviews/${review.id}/edit` method="get")
+                                button() Edit Review
                 .button-div
                     form(action=`/restaurants/${restaurantId}/reviews/new` method="get")
                         button(class="new-review-btn") Add New Review

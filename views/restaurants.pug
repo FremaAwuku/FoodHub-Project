@@ -20,7 +20,7 @@ block content
             .restaurant-details-div
                 h4(id="restaurant-address")
                 .star-rating-div
-                    h5(id="replace-with-stars")= restaurant.rating
+                    h5(id="replace-with-stars")= (restaurant.rating/restaurant.numberOfReviews).toFixed(2)
                 .num-of-reviews-div
                     h6(id="num-of-reviews")= `Number of reviews: ${restaurant.numberOfReviews}`
     h2(id="cuisine-header") Indian
