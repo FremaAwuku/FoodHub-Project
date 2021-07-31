@@ -3,7 +3,11 @@ html
   head
       block head
         title= title
+
+        script(src="/javascript/search.js" type='module') 
+
         link(rel='stylesheet' href='/stylesheets/nav-bar.css')
+
   body
     header
       nav(class='navbar')
@@ -13,14 +17,14 @@ html
             li(class='user-list'): a(href=`/lists/${user.id}`) User List
         span(class='navbar-welcome-text') Welcome To Food Hub!
         ul(class='nav-links')
-          li(class='nav-item'): a(class='nav-link' href='/') Home
+          li(class='nav-item'): a(class='nav-home' href='/') Home
           li(class='nav-item'): a(class='nav-link' href='/restaurants') Restaurants
           li(class='nav-item'): a(class='nav-link' href='/users/login') Login
           li(class='nav-item'): a(class='nav-link' href='/users/register') Register
         span(class='search-bar-span')
           form.search-form(action="/restaurants" method='post')
             label(for='search')
-            input(type='text' name='search' class='search-bar' placeholder='Search For a Restaurant')
+            input(type='text' id='search-field' name='search' class='search-bar' placeholder='Search For a Restaurant')
             button(type='submit' class='search-btn') Search
         div.container-fluid
     block content
