@@ -1,4 +1,8 @@
 extends layout.pug
+
+append head
+    link(rel='stylesheet' href='/stylesheets/lists.css')
+
 block content
     h3 #{user.firstName}'s List 
     table
