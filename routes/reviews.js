@@ -34,7 +34,10 @@ restaurantRouter.get('/:id(\\d+)/reviews', asyncHandler(async (req, res) => {
 //NOTE: different router
 router.get('/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(async (req, res, next) => {
     const reviewId = req.params.id;
-    const review = await db.Review.findByPk(reviewId);
+    //include Restaurant so I can render img
+    const review = await db.Review.findByPk(reviewId,
+        { include: [db.Restaurant]
+    });
     // pull user id from the review
     //if user that made the post is the user editing
     if (review.userId === req.session.auth.userId) {
@@ -43,8 +46,8 @@ router.get('/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(async (r
             review,
             reviewId,
             csrfToken: req.csrfToken()
-        }
-        );
+        } );
+
     }
 }));
 
@@ -61,7 +64,6 @@ router.post('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, 
         rating,
         text,
     } = req.body;
-    console.log(rating + '    <-- peeeeeeeeeeeeeeeee');
     const review = {
         rating,
         text,
@@ -189,16 +191,5 @@ router.post('/:id(\\d+)/delete', asyncHandler(async (req, res) => {
     //TODO where should this redirect
     res.redirect('/')
 }));
-
-
-
-
-
-// pull rating from column
-
-//add or edit the number
-
-// total reviews
-
 
 module.exports = router;
