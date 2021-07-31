@@ -4,18 +4,6 @@ block content
     form(action=`/lists/${restaurantId}/add` method="post")
         input(type="hidden" name="_csrf" value=csrfToken)
         label(for="hasVisited") Have you been here before?
-        input(id="hasVisited" type="checkbox" name="hasVisited" onclick="handleClick()") 
+        input(id="hasVisited" type="checkbox" name="hasVisited" checked=true unchecked=false) 
         button(type="submit") Add to List. 
-        script.
-            const handleClick = () => {
-             const hasVisited = document.getElementById("hasVisited")
-                if (hasVisited.checked) {
-                    hasVisited.removeAttribute("checked")
-                    hasVisited.value = false
-                } else {
-                    hasVisited.setAttribute("checked", true)
-                    hasVisited.value = true
-                }
-                console.log(hasVisited)
-            }
-         
+
