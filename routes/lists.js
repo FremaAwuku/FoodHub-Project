@@ -44,11 +44,13 @@ router.post('/:id(\\d+)/edit', csrfProtection, asyncHandler(async (req, res) => 
         where: { userId, restaurantId }
     })
 
-    const {
+    let {
         hasVisited
     } = req.body
 
-
+    if (hasVisited === undefined) {
+        hasVisited = false
+    }
     const validatorErrors = validationResult(req)
 
     if (validatorErrors.isEmpty()) {
