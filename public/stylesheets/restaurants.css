@@ -1,15 +1,45 @@
+.outer-restaurant-container{
+  box-sizing: border-box;
+}
 .header-div {
-display:flex;
-flex-direction: column wrap;
-justify-content: center;
+position: relative;
 border: 5px solid pink;
+box-sizing: border-box;
 }
 .main-page-header {
-    border: 5px solid red;
-    align-content: center;
-    color: aqua;
+    box-sizing: border-box;
+    font-size: 45px;
+    text-align: center;
 }
  #main-page-tagline {
-  border: 5px solid green;
-  align-content: flex-end;
+  box-sizing: border-box;
+  text-align: center;
+}
+.cuisine-div{
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  border: 2px solid blue;
+  overflow-x: auto;
+}
+#cuisine-header{
+  text-align: center;
+  border: 2px solid green;
+  font-size: 45px;
+  position: relative;
+  justify-self: center;
+}
+.restaurant-details-div{
+position: relative;
+border: 2px solid orange;
+max-width: 500px;
+max-height:  500px;
+}
+.restaurant-img-div{
+  max-height: 350px;
+  width: 350px;
+}
+.restaurant-img{
+  width: 100%;
+  height:auto;
 }
