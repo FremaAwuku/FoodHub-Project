@@ -7,20 +7,27 @@ block content
     if errors
         each error in errors
             p=error
-    form(class='form-class' action=`/reviews/${review.id}` method='post')
-        input(type="hidden", value=csrfToken, name='_csrf')
-        div(class="rating-div")
-            label(id="rate-label" for='rating') Rating
-            select(type="select" name='rating')
-                option(value=1)="⭐️"
-                option(value=2)="⭐️⭐️"
-                option(value=3)="⭐️⭐️⭐️"
-                option(value=4)="⭐️⭐️⭐️⭐️"
-                option(value=5)="⭐️⭐️⭐️⭐️⭐️"
-
-        div(class="text-div")
-            label(for='text') Review
-            textarea(name="text" value=review.text)
-            div(class="sub-can")
+    div(id="outer-container")
+        div(id="review-div")
+            form(class='form-class' action=`/reviews/${review.id}` method='post')
+                input(type="hidden", value=csrfToken, name='_csrf')
+                div(class="rating-div")
+                    label(id="rate-label" for='rating') Select a rating:
+                    select(type="select" name='rating')
+                        option(value=1)="⭐️"
+                        option(value=2)="⭐️⭐️"
+                        option(value=3)="⭐️⭐️⭐️"
+                        option(value=4)="⭐️⭐️⭐️⭐️"
+                        option(value=5)="⭐️⭐️⭐️⭐️⭐️"
+                div(class="review-text-div")
+                    label(for='text')
+                    textarea(name="text" value=review.text)
+        div(class="sub-can")
                 button(type='submit') Update Review
                 a(href=`/reviews/${reviewId}`) Cancel
+        div(id="title-text-div")
+            p(id="title-text")=`${review.Restaurant.name}`
+            p(id='love')='would love to hear from you'
+        div(id="img-div")
+            a(href=`/restaurants/${review.Restaurant.id}`)
+                img(src=`${review.Restaurant.imgURL}`)
