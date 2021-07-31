@@ -3,7 +3,8 @@ const { asyncHandler, csrfProtection } = require("./utils");
 const restaurantRouter = require("./restaurants.js");
 const router = require("./index")
 const { check, validationResult } = require("express-validator");
-const { requireAuth } = require("../auth")
+const { requireAuth } = require("../auth");
+const { lorem } = require("faker");
 
 const reviewValidators = [
     //TODO WRITE REVIEWVALIDATORS
@@ -60,7 +61,7 @@ router.post('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, 
         rating,
         text,
     } = req.body;
-
+    console.log(rating + '    <-- peeeeeeeeeeeeeeeee');
     const review = {
         rating,
         text,
@@ -71,8 +72,6 @@ router.post('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, 
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
-        console.log(reviewrating);
-        /*
         //THIS UPDATES THE RATING
         //decrement total rating by original rating
         let oldRevRate = reviewToUpdate.rating
@@ -82,12 +81,12 @@ router.post('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, 
         await restaurant.decrement('rating', {by: oldRating});
         //increment total rating by new rating
         //turn string of rating into int
-        let newRating = parseInt(review.rating, 10);
+        let newRating = Math.abs(parseInt(review.rating, 10));
         // increment total rating
         await restaurant.increment('rating', {by: newRating})
 
         await reviewToUpdate.update(review);
-        */
+
         res.redirect(`/restaurants/${restaurantId}`);
     } else {
         const errors = validatorErrors.array().map((error) => error.msg);
@@ -99,6 +98,7 @@ router.post('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, 
         });
     }
 }));
+
 
 //GET ADD-FORM
 restaurantRouter.get('/:id(\\d+)/reviews/new', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
@@ -143,7 +143,7 @@ restaurantRouter.post('/:id(\\d+)/reviews', csrfProtection, requireAuth, reviewV
         await restaurant.increment('numberOfReviews', { by: 1 });
 
         //turn string of rating into int
-        let intRating = Math.abs(parseInt(rating, 10))   ;
+        let intRating = Math.abs(parseInt(rating, 10));
        // increment total rating
         await restaurant.increment('rating', {by: intRating});
 
