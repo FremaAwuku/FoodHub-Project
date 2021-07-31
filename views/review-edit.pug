@@ -1,19 +1,26 @@
 extends layout.pug
 
+append head
+    link(rel='stylesheet' href='/stylesheets/reviews.css')
+
 block content
     if errors
         each error in errors
             p=error
-    form(action=`/reviews/${review.id}` method='post')
+    form(class='form-class' action=`/reviews/${review.id}` method='post')
         input(type="hidden", value=csrfToken, name='_csrf')
-        label(for='rating') Rating
-        select(type="select" name='rating')
-            option(value=1)="1 Star"
-            option(value=2)="2 Stars"
-            option(value=3)="3 Stars"
-            option(value=4)="4 Stars"
-            option(value=5)="5 Stars"
-        label(for='text') Review
-        textarea(name="text" value=review.text)
-        button(type='submit') Update Review
-        a(href=`/reviews/${reviewId}`) Cancel
+        div(class="rating-div")
+            label(id="rate-label" for='rating') Rating
+            select(type="select" name='rating')
+                option(value=1)="⭐️"
+                option(value=2)="⭐️⭐️"
+                option(value=3)="⭐️⭐️⭐️"
+                option(value=4)="⭐️⭐️⭐️⭐️"
+                option(value=5)="⭐️⭐️⭐️⭐️⭐️"
+
+        div(class="text-div")
+            label(for='text') Review
+            textarea(name="text" value=review.text)
+            div(class="sub-can")
+                button(type='submit') Update Review
+                a(href=`/reviews/${reviewId}`) Cancel
