@@ -2,18 +2,30 @@ extends layout
 
 append head
   //- add page specific styles by appending to the head
-  link(rel="stylesheet" href="/stylesheets/index.css")
+  link(rel="stylesheet" href="/stylesheets/nav-bar.css")
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
 
+  if locals.user
+    span(class='navbar-text px-4') Welcome #{user.firstName}!
+      each restaurant in restaurants
+        p=restaurant.name
+        p=restaurant.cuisine
+        p=restaurant.rating
+        p
+          a(href= `/restaurants/${restaurant.id}/reviews`) Reviews For This Restaurant
+        p 
+          a(href=`/restaurants/${restaurant.id}`)
+            img(src=`${restaurant.imgURL}`)
+  else
     each restaurant in restaurants
-      p=restaurant.name
-      p=restaurant.cuisine
-      p=restaurant.rating
-      p
-        a(href= `/restaurants/${restaurant.id}/reviews`) Reviews For This Restaurant
-      p 
-        a(href=`/restaurants/${restaurant.id}`)
-          img(src=`${restaurant.imgURL}`)
+        p=restaurant.name
+        p=restaurant.cuisine
+        p=restaurant.rating
+        p
+          a(href= `/restaurants/${restaurant.id}/reviews`) Reviews For This Restaurant
+        p 
+          a(href=`/restaurants/${restaurant.id}`)
+            img(src=`${restaurant.imgURL}`)

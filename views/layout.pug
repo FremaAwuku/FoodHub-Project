@@ -12,11 +12,14 @@ html
     header
       nav(class='navbar')
         if locals.user
-          span(class='navbar-text px-4') Welcome #{user.firstName}!
             li(class='user-logout'): a(href='/users/logout') Logout
             li(class='user-list'): a(href=`/lists/${user.id}`) User List
-        span(class='navbar-welcome-text') Welcome To Food Hub!
+        span(class='navbar-welcome-text') Food Hub
         ul(class='nav-links')
+        if locals.user
+          li(class='nav-item'): a(class='nav-home' href='/') Home
+          li(class='nav-item'): a(class='nav-link' href='/restaurants') Restaurants
+        else
           li(class='nav-item'): a(class='nav-home' href='/') Home
           li(class='nav-item'): a(class='nav-link' href='/restaurants') Restaurants
           li(class='nav-item'): a(class='nav-link' href='/users/login') Login
