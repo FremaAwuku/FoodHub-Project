@@ -1,9 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Corben:wght@700&display=swap');
+*{
+  font-family: 'Corben', cursive;
+}
+a{
+  font-family: 'Corben', cursive;
+}
+body{
+  background-color: rgb(251, 251, 241);
+}
 .outer-restaurant-container{
   box-sizing: border-box;
 }
 .header-div {
 position: relative;
-border: 5px solid pink;
+
 box-sizing: border-box;
 }
 .main-page-header {
@@ -18,28 +28,52 @@ box-sizing: border-box;
 .cuisine-div{
   box-sizing: border-box;
   display: flex;
-  flex-flow: column;
+  justify-content: space-between;
+  flex-flow: row nowrap;
   border: 2px solid blue;
   overflow-x: auto;
+  height: 600px;
 }
 #cuisine-header{
   text-align: center;
-  border: 2px solid green;
   font-size: 45px;
   position: relative;
   justify-self: center;
 }
 .restaurant-details-div{
-position: relative;
-border: 2px solid orange;
-max-width: 500px;
-max-height:  500px;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr 25px 25px 25px;
+    border: 2px solid orange;
+  max-width: 500px;
+  max-height:  500px;
 }
 .restaurant-img-div{
-  max-height: 350px;
-  width: 350px;
+
+  overflow-y: hidden;
 }
 .restaurant-img{
-  width: 100%;
-  height:auto;
+  height: 300px;
+  width: 350px;
+  object-fit: cover;
+
+
 }
+#restaurant-header{
+  text-align: center;
+  height: 50px;
+  margin-bottom: 150px;
+  position: relative;
+  bottom: 50px;
+
+}
+#restaurant-address{
+  text-align: center;
+
+}
+/* #replace-with-stars{
+
+}
+#num-of-reviews{
+
+} */

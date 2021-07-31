@@ -4,84 +4,84 @@ append head
     link(rel='stylesheet' href='/stylesheets/restaurants.css')
 block content
     .header-div
-        h1(class="main-page-header") FOOD HUB
+        h1(class="main-page-header") Food Hub
         h2(id="main-page-tagline") Get your Deets on some Eats
     div.outer-restaurant-container
         h2(id="cuisine-header") Italian
         .cuisine-div
-        each restaurant in restaurants
-            if restaurant.cuisine === "Italian"
-                .restaurant-details-div
-                    .restaurant-header-div
-                        h3(id="restaurant-header")= restaurant.name
-                    .restaurant-img-div
-                        a(href=`/restaurants/${restaurant.id}`)
-                            img(class="restaurant-img" src=`${restaurant.imgURL}`)
-                        h4(id="restaurant-address")
+            each restaurant in restaurants
+                if restaurant.cuisine === "Italian"
+                    .restaurant-details-div
+                        .restaurant-img-div
+                            a(href=`/restaurants/${restaurant.id}`)
+                                img(class="restaurant-img" src=`${restaurant.imgURL}`)
+                        .restaurant-header-div
+                            h3(id="restaurant-header")= restaurant.name
+                        h4(id="restaurant-address")= restaurant.address
                         .star-rating-div
                             h5(id="replace-with-stars")= (restaurant.rating/restaurant.numberOfReviews).toFixed(2)
                         .num-of-reviews-div
-                            h6(id="num-of-reviews")= `Number of reviews: ${restaurant.numberOfReviews}`
+                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
         h2(id="cuisine-header") Indian
         .cuisine-div
-        each restaurant in restaurants
-            if restaurant.cuisine === "Indian"
-                .restaurant-details-div
-                    .restaurant-header-div
-                        h3(id="restaurant-header")= restaurant.name
-                    .restaurant-img-div
-                        a(href=`/restaurants/${restaurant.id}`)
-                            img(class="restaurant-img" src=`${restaurant.imgURL}`)
-                        h4(id="restaurant-address")
+            each restaurant in restaurants
+                if restaurant.cuisine === "Indian"
+                    .restaurant-details-div
+                        .restaurant-img-div
+                            a(href=`/restaurants/${restaurant.id}`)
+                                img(class="restaurant-img" src=`${restaurant.imgURL}`)
+                        .restaurant-header-div
+                            h3(id="restaurant-header")= restaurant.name
+                        h4(id="restaurant-address")= restaurant.address
                         .star-rating-div
                             h5(id="replace-with-stars")= restaurant.rating
                         .num-of-reviews-div
-                            h6(id="num-of-reviews")= `Number of reviews: ${restaurant.numberOfReviews}`
+                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
         h2(id="cuisine-header") Jamaican
         .cuisine-div
-        each restaurant in restaurants
-            if restaurant.cuisine === "Jamaican"
-                .restaurant-details-div
-                    .restaurant-header-div
-                        h3(id="restaurant-header")= restaurant.name
-                    .restaurant-img-div
-                        a(href=`/restaurants/${restaurant.id}`)
-                            img(class="restaurant-img" src=`${restaurant.imgURL}`)
-                        h4(id="restaurant-address")
+            each restaurant in restaurants
+                if restaurant.cuisine === "Jamaican"
+                    .restaurant-details-div
+                        .restaurant-img-div
+                            a(href=`/restaurants/${restaurant.id}`)
+                                img(class="restaurant-img" src=`${restaurant.imgURL}`)
+                        .restaurant-header-div
+                            h3(id="restaurant-header")= restaurant.name
+                        h4(id="restaurant-address")= restaurant.address
                         .star-rating-div
                             h5(id="replace-with-stars")= restaurant.rating
                         .num-of-reviews-div
-                            h6(id="num-of-reviews")= `Number of reviews: ${restaurant.numberOfReviews}`
+                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
         h2(id="cuisine-header") American
         .cuisine-div
-        each restaurant in restaurants
-            if restaurant.cuisine === "American"
-                .restaurant-details-div
-                    .restaurant-header-div
-                        h3(id="restaurant-header")= restaurant.name
-                    .restaurant-img-div
-                        a(href=`/restaurants/${restaurant.id}`)
-                            img(class="restaurant-img" src=`${restaurant.imgURL}`)
-                        h4(id="restaurant-address")
+            each restaurant in restaurants
+                if restaurant.cuisine === "American"
+                    .restaurant-details-div
+                        .restaurant-img-div
+                            a(href=`/restaurants/${restaurant.id}`)
+                                img(class="restaurant-img" src=`${restaurant.imgURL}`)
+                        .restaurant-header-div
+                            h3(id="restaurant-header")= restaurant.name
+                        h4(id="restaurant-address")= restaurant.address
                         .star-rating-div
                             h5(id="replace-with-stars")= restaurant.rating
                         .num-of-reviews-div
-                            h6(id="num-of-reviews")= `Number of reviews: ${restaurant.numberOfReviews}`
+                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
         h2(id="cuisine-header") Mexican
         .cuisine-div
-        each restaurant in restaurants
-            if restaurant.cuisine === "Mexican"
-                .restaurant-details-div
-                    .restaurant-header-div
-                        h3(id="restaurant-header")= restaurant.name
-                    .restaurant-img-div
-                        a(href=`/restaurants/${restaurant.id}`)
-                            img(class="restaurant-img" src=`${restaurant.imgURL}`)
-                        h4(id="restaurant-address")
+            each restaurant in restaurants
+                if restaurant.cuisine === "Mexican"
+                    .restaurant-details-div
+                        .restaurant-img-div
+                            a(href=`/restaurants/${restaurant.id}`)
+                                img(class="restaurant-img" src=`${restaurant.imgURL}`)
+                        .restaurant-header-div
+                            h3(id="restaurant-header")= restaurant.name
+                        h4(id="restaurant-address")= restaurant.address
                         .star-rating-div
                             h5(id="replace-with-stars")= restaurant.rating
                         .num-of-reviews-div
-                            h6(id="num-of-reviews")= `Number of reviews: ${restaurant.numberOfReviews}`
+                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
     if locals.user
         if locals.user.isAdmin
             form(action="/restaurants/new" method="get")
