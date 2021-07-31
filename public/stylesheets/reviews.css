@@ -1,51 +1,81 @@
 html, body, div {
     /*change opacity of bg color*/
-    background-color: rgb(248,244,244);
+    background-color: rgb(251, 251, 241);
 }
 
 body {
-    height: 50em;
     color: rgb(28,60,60);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.form {
- display: grid;
- grid-template-rows: 1em 1fr;
- grid-row-gap: 2em;
- grid-template-columns: 1fr;
+.form-class {
+    padding: 5rem;
+    display: grid;
+    flex-direction: column;
+    grid-template-rows: 5rem 1fr;
+    grid-row-gap: 5rem;
+    grid-template-columns: 1fr;
+    justify-content: space-between;
 }
 
 .rating-div {
     grid-row-start: 1;
     grid-row-end: 2;
+    /* border-style: solid; */
 }
 
 select {
-    justify-self: center;
+    justify-self: start;
     align-self: center;
     border-radius: 5px;
+    font-size: 18px;
+    background-color: white;
 }
 
 .text-div {
     grid-row-start: 2;
     grid-row-end: 3;
+    /* border-style: solid; */
+
 }
 
 textarea {
-    justify-self: center;
-    width: 70%;
+   width: 80%;
+    height: 12rem;
     border-radius: 5px;
+    outline:none;
+
+    font-size: 20px;
+    padding: 1rem;
 }
 
 button {
-    border-radius: 3px;
+    border-radius: 6px;
     border-width: 0;
-    font-size: 6px;
-    padding: .5rem;
+    font-size: 16px;
+    padding: 1.5rem;
     color: white;
     background-color: rgb(224,92,44);
+    /* max-width: 12rem; */
+}
+
+.sub-can {
+
+    width: fit-content;
+    display: flex;
+    justify-content: center;
 }
 
 a {
     text-decoration: none;
+    color: rgb(28,60,60);
 }
+
+select {
+    appearance: none;
+    padding: .5rem;
+    background-color: white;
+    border: none;
+    outline: none;
+}
+
