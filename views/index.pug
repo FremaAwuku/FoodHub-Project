@@ -10,6 +10,7 @@ block content
 
   if locals.user
     span(class='navbar-text px-4') Welcome #{user.firstName}!
+    p(class='top-ten') Top Rated Restaurants!
       each restaurant in restaurants
         p=restaurant.name
         p=restaurant.cuisine
@@ -20,6 +21,7 @@ block content
           a(href=`/restaurants/${restaurant.id}`)
             img(src=`${restaurant.imgURL}`)
   else
+    p(class='top-ten') Top Rated Restaurants!
     each restaurant in restaurants
         p=restaurant.name
         p=restaurant.cuisine
