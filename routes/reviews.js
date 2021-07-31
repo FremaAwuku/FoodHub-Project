@@ -61,7 +61,7 @@ router.post('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, 
         rating,
         text,
     } = req.body;
-    console.log(rating + '    <-- peeeeeeeeeeeeeeeee');
+    // console.log(rating + '    <-- peeeeeeeeeeeeeeeee');
     const review = {
         rating,
         text,
