@@ -106,11 +106,13 @@ router.post('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, 
 //GET ADD-FORM
 restaurantRouter.get('/:id(\\d+)/reviews/new', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
     const restaurantId = req.params.id;
+    const restaurant = await db.Restaurant.findByPk(restaurantId)
     const review = db.Review.build();
     res.render('review-add', {
         title: 'Add Review',
         restaurantId,
         review,
+        restaurant,
         csrfToken: req.csrfToken(),
     });
 }));
