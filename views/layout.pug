@@ -26,8 +26,9 @@ html
         span(class='search-bar-span')
           form.search-form(action="/restaurants" method='post' autocomplete='off')
             label(for='search')
-            div.autocomplete(style="width: 300px;")
-              input(type='text' id='search-field' name='search' class='search-bar' placeholder='Search For a Restaurant')
-            button(type='submit' class='search-btn') Search
+            input(type='text' id='search-field' name='search' class='search-bar' placeholder='Search For a Restaurant')
+            button(id="search-button" type='submit' class='search-btn') Search
+
         div.container-fluid
     block content
+  div(id="footer")
