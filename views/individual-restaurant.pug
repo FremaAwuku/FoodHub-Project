@@ -22,8 +22,18 @@ block content
 
                     each review in restaurant.Reviews
                         .review-box
-                            p(id="written")= `Written by ${CHANGE-THIS}`
+                            p(id="written")= `Written by ${review.User.firstName}`
                             p(id="review-body") #{review.text}
+                            if review.rating >= 5
+                                h6 ⭐⭐⭐⭐⭐
+                            else if review.rating >=4 && review.rating < 5
+                                h6 ⭐⭐⭐⭐
+                            else if review.rating >=3 && review.rating < 4
+                                h6 ⭐⭐⭐
+                            else if review.rating >=2 && review.rating < 3
+                                h6 ⭐⭐
+                            else
+                                h6 ⭐
                         if locals.user
                             if locals.user.id === review.userId
                                 form(action=`/reviews/${review.id}/edit` method="get")
@@ -36,4 +46,3 @@ block content
                         if locals.user.isAdmin
                             form(action=`/restaurants/${restaurantId}/edit` method="get")
                                 button() Edit Restaurant
-
