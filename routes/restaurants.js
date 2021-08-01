@@ -31,8 +31,12 @@ router.get("/:id(\\d+)", asyncHandler(async(req,res)=>{
 
     const restaurantId = req.params.id
 
-    const restaurant = await db.Restaurant.findByPk(restaurantId,{include:[db.Review]})
-
+    const restaurant = await db.Restaurant.findByPk(restaurantId,{
+        include:{
+            model: db.Review,
+            include: db.User
+        }})
+        // res.send(restaurant.Reviews[0].User)
     res.render('individual-restaurant',{
         title: restaurant.name,
         restaurant,
@@ -216,7 +220,7 @@ router.post("/", asyncHandler(async(req, res) => {
 
 router.get("/allrestaurants", asyncHandler(async (req, res) => {
     //const { restaurant } = req.body
-    
+
     const allRestaurants = await db.Restaurant.findAll()
     console.log(allRestaurants, "ooooooooooo")
     res.json({allRestaurants})
