@@ -15,13 +15,13 @@ block content
             .top-reviews-div
                 each review in restaurantReviews
                     .review-box
-                        p(id="written")= `Written by ${CHANGE-THIS}`
+                        p(id="written")= `Written by ${review.User.firstName}`
                         p(id="review-body") #{review.text}
                     if locals.user
                         if locals.user.id === review.userId
                             form(action=`/reviews/${review.id}/edit` method="get")
                                 button(id="edit-rev-btn") Edit this review
                 .button-div
-                    form(action=`/restaurants/${restaurantId}/reviews/new` method="get")
+                    form(action=`restaurants/${review.Restaurant.id}/reviews/new` method="get")
                         button(id="new-review-btn") Add New Review
 

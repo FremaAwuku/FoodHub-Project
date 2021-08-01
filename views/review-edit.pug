@@ -22,7 +22,7 @@ block content
                         option(value=5)="⭐️⭐️⭐️⭐️⭐️"
                 div(class="review-text-div")
                     label(for='text')
-                    textarea(name="text" value=review.text)
+                    textarea(id="review-input" name="text")= review.text
         div(class="sub-can")
                     button(id="submit-btn") Update Review
                     form(action=`/reviews/${review.id}/delete` method="post")

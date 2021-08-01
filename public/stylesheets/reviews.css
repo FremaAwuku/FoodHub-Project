@@ -60,9 +60,12 @@ img {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#review-input{
+    font-size: 8pt;
+}
+
 .sub-can {
     display:flex;
-
     grid-area: buttons;
     box-sizing: border-box;
     justify-self: center;
@@ -74,7 +77,7 @@ textarea {
     width: 100%;
     height: 90%;
     align-self: center;
-    /* height: 12rem; */
+
     border-radius: 5px;
     outline:none;
 
@@ -83,6 +86,7 @@ textarea {
 }
 
 button {
+    /* box-sizing: border-box;
     margin-right: .5rem;
     border-radius: 6px;
     border-width: 0;
@@ -90,7 +94,29 @@ button {
     padding: 1rem;
     color: white;
     background-color: rgb(224,92,44);
-    max-height: 3rem;
+    max-height: 3rem; */
+}
+
+#submit-btn {
+    background-color: rgb(224,92,44);
+    color: white;
+    box-sizing: border-box;
+    border-width: 0;
+    border-radius: 6px ;
+    height: 40px;
+    font-size: 10px;
+}
+
+#delete {
+    background-color: white;
+    color: rgb(28,60,60);
+    box-sizing: border-box;
+    border-width: 0;
+    border-radius: 6px ;
+    height: 40px;
+    font-size: 10px;
+    border: 2px solid rgb(28,60,60);
+    margin-left: .2rem;
 }
 
 a {
@@ -122,11 +148,11 @@ textarea {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#delete {
+/* #delete {
     border-radius: 6px ;
     border: 2px solid rgb(28,60,60);
     font-size: 12px;
     padding: 1rem;
     color: rgb(28,60,60);
     background-color:white;
-}
+} */
