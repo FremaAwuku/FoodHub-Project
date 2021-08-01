@@ -27,6 +27,7 @@ html
           form.search-form(action="/restaurants" method='post')
             label(for='search')
             input(type='text' id='search-field' name='search' class='search-bar' placeholder='Search For a Restaurant')
-            button(type='submit' class='search-btn') Search
+            button(id="search-button" type='submit' class='search-btn') Search
         div.container-fluid
     block content
+  div(id="footer")
