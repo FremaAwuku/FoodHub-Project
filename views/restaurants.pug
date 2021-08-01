@@ -18,13 +18,12 @@ block content
                         .restaurant-img-div
                             a(href=`/restaurants/${restaurant.id}`)
                                 img(class="restaurant-img" src=`${restaurant.imgURL}`)
-                        .restaurant-header-div
+                        .restaurant-name-div
                             h3(id="restaurant-header")= restaurant.name
-                        .restaurant-address-div
                             h4(id="restaurant-address")= restaurant.address
                         +starRating(`${restaurant.rating}`,`${restaurant.numberOfReviews}`)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
-                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
+                            h6(id="num-of-reviews") See #{restaurant.numberOfReviews} for #{restaurant.name}
         h2(id="cuisine-header") Indian
         .cuisine-div
             each restaurant in restaurants
@@ -33,9 +32,8 @@ block content
                         .restaurant-img-div
                             a(href=`/restaurants/${restaurant.id}`)
                                 img(class="restaurant-img" src=`${restaurant.imgURL}`)
-                        .restaurant-header-div
+                        .restaurant-name-div
                             h3(id="restaurant-header")= restaurant.name
-                        .restaurant-address-div
                             h4(id="restaurant-address")= restaurant.address
                         +starRating(`${restaurant.rating}`,`${restaurant.numberOfReviews}`)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
@@ -48,9 +46,8 @@ block content
                         .restaurant-img-div
                             a(href=`/restaurants/${restaurant.id}`)
                                 img(class="restaurant-img" src=`${restaurant.imgURL}`)
-                        .restaurant-header-div
+                        .restaurant-name-div
                             h3(id="restaurant-header")= restaurant.name
-                        .restaurant-address-div
                             h4(id="restaurant-address")= restaurant.address
                         +starRating(`${restaurant.rating}`,`${restaurant.numberOfReviews}`)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
@@ -63,9 +60,8 @@ block content
                         .restaurant-img-div
                             a(href=`/restaurants/${restaurant.id}`)
                                 img(class="restaurant-img" src=`${restaurant.imgURL}`)
-                        .restaurant-header-div
+                        .restaurant-name-div
                             h3(id="restaurant-header")= restaurant.name
-                        .restaurant-address-div
                             h4(id="restaurant-address")= restaurant.address
                         +starRating(`${restaurant.rating}`,`${restaurant.numberOfReviews}`)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
@@ -78,9 +74,8 @@ block content
                         .restaurant-img-div
                             a(href=`/restaurants/${restaurant.id}`)
                                 img(class="restaurant-img" src=`${restaurant.imgURL}`)
-                        .restaurant-header-div
+                        .restaurant-name-div
                             h3(id="restaurant-header")= restaurant.name
-                        .restaurant-address-div
                             h4(id="restaurant-address")= restaurant.address
                         +starRating(restaurant.rating,restaurant.numberOfReviews)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
