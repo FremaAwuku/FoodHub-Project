@@ -191,8 +191,8 @@ router.post('/:id(\\d+)/delete', asyncHandler(async (req, res) => {
 
 
     await review.destroy();
-    //TODO where should this redirect
-    res.redirect('/')
+    
+    res.redirect(`/restaurants/${restaurant.id}`)
 }));
 
 module.exports = router;

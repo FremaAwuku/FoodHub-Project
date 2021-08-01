@@ -1,27 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Corben:wght@700&display=swap');
 
   li > a {
     color: rgb(28,60,60);
     font-size: 14px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
-  /*
-  search: hide search bar change to icon
-  */
+  span {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+  }
 
+  nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "food-hub-span home restaurants user-list logout"
+    ;
+    padding-bottom: 5px;
+  }
+
+  #food-hub {
+    font-family: 'Corben', cursive;
+    font-size: 20px;
+  }
+
+  #food-hub-span{
+    grid-area: food-hub-span;
+     text-decoration: none;
+     color: rgb(28,60,60);
+  }
+
+  #home{
+    grid-area: home;
+  }
+
+  #restaurants {
+    grid-area: restaurants;
+  }
+
+  #user-list {
+    grid-area: user-list;
+  }
+
+  #logout {
+    grid-area: logout;
+  }
   /*the form buttons*/
   form > button {
     color: white
   }
 
   .search-btn {
-      font-size: 8px;
+      font-size: 12px;
       color: white;
       background-color: rgb(224,92,44);
+      height: 40px;
+      width: 60px;
+  }
 
+  #search-field {
+    height: 40px;
+    width: 200px;
+    margin-right: .5rem;
+    padding:0 6px;
   }
 
   form > input {
-    font-size: 8px;
+    font-size: 12px;
   }
 
   .navbar {
