@@ -20,6 +20,8 @@ const reviewValidators = [
 restaurantRouter.get('/:id(\\d+)/reviews', asyncHandler(async (req, res) => {
     //takes the id from the URL
     const restaurantId = req.params.id
+    //pull restaurant for access to img
+    const restaurant = await db.Restaurant.findByPk(restaurantId);
     //find all reviews that have restaurantId as their restaurant_id
     const restaurantReviews = await db.Review.findAll({
         where: {
@@ -27,7 +29,7 @@ restaurantRouter.get('/:id(\\d+)/reviews', asyncHandler(async (req, res) => {
         },
     });
     //render the review.pug page
-    res.render('review', { title: "Reviews", restaurantReviews });
+    res.render('review', { title: "Reviews", restaurantReviews, restaurant });
 }));
 
 // GET EDIT-FORM
@@ -191,7 +193,7 @@ router.post('/:id(\\d+)/delete', asyncHandler(async (req, res) => {
 
 
     await review.destroy();
-    
+
     res.redirect(`/restaurants/${restaurant.id}`)
 }));
 

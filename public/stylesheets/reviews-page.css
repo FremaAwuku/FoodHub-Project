@@ -1,0 +1,161 @@
+html, body, div {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+}
+
+.restaurant-img-div {
+    width: 100%;
+    height: 30rem;
+}
+
+img {
+    width: 87%;
+    height: 450px;
+    object-fit:cover;
+    object-position: 0% 50%;
+    grid-area: img;
+    border-radius: 4px;
+}
+
+/* #restaurant-header {
+    position: absolute;
+    top: 20%;
+    font-size: 2.5rem;
+    font-family: "Corben", cursive;
+    color: white;
+    left: 50%;
+    transform: translate(-50%,0);
+    text-shadow: 0px 0px 6px rgba(0,0,0,.2);
+} */
+
+.container-div{
+    padding-left: 25rem;
+    padding-right: 25rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "img details"
+    ;
+}
+
+.restaurant-img-div{
+    padding-top: 3rem;
+    grid-area: img;
+}
+
+.restaurant-header-div {
+    grid-area: details;
+    width: 50%;
+    box-sizing: border-box;
+    grid-area: details;
+}
+
+#restaurant-header{
+    margin: 0px;
+    font-family: "Corben", cursive;
+    color: rgb(28,60,60);
+    font-size: 18pt;
+    width: 100%;
+}
+
+#browse-btn {
+    /* position: absolute;
+    top: 33%;
+    left: 50%;
+    transform: translate(-50%,0); */
+    font-size: 9pt;
+    height: 50px;
+    width: 136px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#edit-rev-btn {
+    box-sizing: border-box;
+    border-radius: 4px ;
+    border: 1.5px solid rgb(28,60,60);
+    font-size: 12px;
+    padding: .4rem;
+    color: rgb(28,60,60);
+    background-color:white;
+    margin: .2rem;
+}
+
+#new-review-btn {
+    font-size: 12px;
+    box-sizing: border-box;
+    margin: .2rem;
+}
+
+.top-reviews-div {
+    /*need creamier white*/
+    background-color: white;
+    height: 50rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.restaurant-details-div {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 3rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    grid-area: details;
+}
+
+/*add image div*/
+#restaurant-address {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 10pt;
+}
+
+#num-of-reviews {
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: 100;
+    font-style: normal;
+    font-size: 10pt;
+}
+
+.review-box {
+    padding-top: .4rem;
+    border-top: 1px solid rgb(28,60,60);
+    color: rgb(28,60,60, .8);
+    font-size: 11pt;
+}
+
+#review-body{
+    padding-left: .5rem;
+}
+
+#written {
+    font-size: 7pt;
+}
+
+
+form > button {
+    border-radius: 3px;
+    border-width: 0;
+    font-size: 8pt;
+    padding: .5rem;
+    color: white;
+    background-color: rgb(224,92,44);
+}
+#add-to-list-btn {
+    padding: 1rem;
+}
+
+#title-text {
+    font-family: 'Corben', cursive;
+    font-size: 20pt;
+    margin: 0px;
+    color: rgb(28,60,60);
+}
+
+#love {
+    margin: 0px;
+    color:rgb(28,60,60, .8);
+    padding-bottom: 8px;
+}
