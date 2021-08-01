@@ -4,12 +4,12 @@ append head
     link(rel='stylesheet' href='/stylesheets/indv-restaurants.css')
 
 block content
+    .restaurant-img-div
+            img(src=`${restaurant.imgURL}`)
     .restaurant-header-div
         h1(id="restaurant-header")= restaurant.name
     form(action="/restaurants" method="get")
         button() Browse More Restaurants
-    .restaurant-img-div
-        img(src=`${restaurant.imgURL}`)
     .restaurant-details-div
         h4(id="restaurant-address")= restaurant.address
         +starRating(restaurant.rating, restaurant.numberOfReviews)
@@ -32,3 +32,4 @@ block content
                     if locals.user.isAdmin
                         form(action=`/restaurants/${restaurantId}/edit` method="get")
                             button() Edit Restaurant
+

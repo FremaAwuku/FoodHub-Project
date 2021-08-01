@@ -6,7 +6,8 @@ append head
     link(rel='stylesheet' href='/stylesheets/restaurants.css')
 block content
     .header-div
-        h1(class="main-page-header") Food Hub
+        a(href="/")
+            h1(class="main-page-header") Food Hub
         h2(id="main-page-tagline") Get your Deets on some Eats
     div.outer-restaurant-container
         h2(id="cuisine-header") Italian
@@ -19,9 +20,10 @@ block content
                                 img(class="restaurant-img" src=`${restaurant.imgURL}`)
                         .restaurant-header-div
                             h3(id="restaurant-header")= restaurant.name
-                        h4(id="restaurant-address")= restaurant.address
+                        .restaurant-address-div
+                            h4(id="restaurant-address")= restaurant.address
                         +starRating(`${restaurant.rating}`,`${restaurant.numberOfReviews}`)
-                        .num-of-reviews-div
+                        a(href=`/restaurants/${restaurant.id}/reviews`)
                             h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
         h2(id="cuisine-header") Indian
         .cuisine-div
@@ -33,9 +35,10 @@ block content
                                 img(class="restaurant-img" src=`${restaurant.imgURL}`)
                         .restaurant-header-div
                             h3(id="restaurant-header")= restaurant.name
-                        h4(id="restaurant-address")= restaurant.address
+                        .restaurant-address-div
+                            h4(id="restaurant-address")= restaurant.address
                         +starRating(`${restaurant.rating}`,`${restaurant.numberOfReviews}`)
-                        .num-of-reviews-div
+                        a(href=`/restaurants/${restaurant.id}/reviews`)
                             h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
         h2(id="cuisine-header") Jamaican
         .cuisine-div
@@ -47,9 +50,10 @@ block content
                                 img(class="restaurant-img" src=`${restaurant.imgURL}`)
                         .restaurant-header-div
                             h3(id="restaurant-header")= restaurant.name
-                        h4(id="restaurant-address")= restaurant.address
+                        .restaurant-address-div
+                            h4(id="restaurant-address")= restaurant.address
                         +starRating(`${restaurant.rating}`,`${restaurant.numberOfReviews}`)
-                        .num-of-reviews-div
+                        a(href=`/restaurants/${restaurant.id}/reviews`)
                             h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
         h2(id="cuisine-header") American
         .cuisine-div
@@ -61,9 +65,10 @@ block content
                                 img(class="restaurant-img" src=`${restaurant.imgURL}`)
                         .restaurant-header-div
                             h3(id="restaurant-header")= restaurant.name
-                        h4(id="restaurant-address")= restaurant.address
+                        .restaurant-address-div
+                            h4(id="restaurant-address")= restaurant.address
                         +starRating(`${restaurant.rating}`,`${restaurant.numberOfReviews}`)
-                        .num-of-reviews-div
+                        a(href=`/restaurants/${restaurant.id}/reviews`)
                             h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
         h2(id="cuisine-header") Mexican
         .cuisine-div
@@ -75,9 +80,10 @@ block content
                                 img(class="restaurant-img" src=`${restaurant.imgURL}`)
                         .restaurant-header-div
                             h3(id="restaurant-header")= restaurant.name
-                        h4(id="restaurant-address")= restaurant.address
+                        .restaurant-address-div
+                            h4(id="restaurant-address")= restaurant.address
                         +starRating(restaurant.rating,restaurant.numberOfReviews)
-                        .num-of-reviews-div
+                        a(href=`/restaurants/${restaurant.id}/reviews`)
                             h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
     if locals.user
         if locals.user.isAdmin

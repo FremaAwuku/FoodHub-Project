@@ -214,5 +214,12 @@ router.post("/", asyncHandler(async(req, res) => {
 
 
 
+router.get("/allrestaurants", asyncHandler(async (req, res) => {
+    //const { restaurant } = req.body
+    
+    const allRestaurants = await db.Restaurant.findAll()
+    console.log(allRestaurants, "ooooooooooo")
+    res.json({allRestaurants})
+}))
 
 module.exports=router

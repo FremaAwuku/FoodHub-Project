@@ -14,6 +14,7 @@ block content
     span(id="welcome" class='navbar-text px-4') Welcome #{user.firstName}!
     img(id="cover-photo" src="../photos/cover.jpeg")
     div(id="container-div")
+
       each restaurant in restaurants
         div(class="restaurant-container-div")
           div(id="restaurant-text")
@@ -27,6 +28,7 @@ block content
             a(href=`/restaurants/${restaurant.id}`)
               img(src=`${restaurant.imgURL}`)
   else
+    p(class='top-ten') Top Rated Restaurants!
     each restaurant in restaurants
       div(class="restaurant-container-div")
         div(id="restaurant-text")

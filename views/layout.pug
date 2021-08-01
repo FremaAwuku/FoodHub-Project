@@ -24,10 +24,11 @@ html
           li(id="login" class='nav-item'): a(class='nav-link' href='/users/login') Login
           li(id="register" class='nav-item'): a(class='nav-link' href='/users/register') Register
         span(class='search-bar-span')
-          form.search-form(action="/restaurants" method='post')
+          form.search-form(action="/restaurants" method='post' autocomplete='off')
             label(for='search')
             input(type='text' id='search-field' name='search' class='search-bar' placeholder='Search For a Restaurant')
             button(id="search-button" type='submit' class='search-btn') Search
+
         div.container-fluid
     block content
   div(id="footer")

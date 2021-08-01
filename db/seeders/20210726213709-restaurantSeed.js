@@ -13,7 +13,7 @@ module.exports = {
         cuisine: "Italian",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://lh3.googleusercontent.com/proxy/sseVqMmYNWePEcCpLO7FynyOEnCGgVH8NrWIm_sdyBCBMyy9pHoYANfPSqGF4dSo1ymemNmajBtTTD8MfNn53IFdq_6z88FoKApWCQ28VwPef2LGRhK8KbfMIIAPNDKYjhC560K-ug" ,
+        imgURL:"https://tul.imgix.net/content/article/mould-cheese-festival.png?auto=format,compress&w=1200&h=630&fit=crop" ,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -23,7 +23,7 @@ module.exports = {
         cuisine: "Italian",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://www.sheknows.com/wp-content/uploads/2018/08/798103515ba4ca5201a9.jpeg?w=300",
+        imgURL:"https://viewfinder.expedia.com/wp-content/uploads/2020/05/Roman-grandma-cooking-pasta-1140x641.jpg",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -53,7 +53,7 @@ module.exports = {
         cuisine: "Italian",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://www.sheknows.com/wp-content/uploads/2018/08/798103515ba4ca5201a9.jpeg?w=300",
+        imgURL:"https://wallpaper.csplague.com/wp-content/uploads/2020/03/Flat-lay-with-Italian-pizza-by-Grafvision-photography-on-Creative.jpg",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -153,7 +153,7 @@ module.exports = {
         cuisine: "Mexican",
         rating: 0,
         numberOfReviews:0,
-        imgURL:"https://lh3.googleusercontent.com/proxy/nbCxIfr4lv7uo9gFBSyc1BdpRRtTy3d2VQCXZyGGBNN-cqtZSri9nW85i6vaGAo3PG2PsZP1DNsjaPfzNcOdaKSDX9kblymMt5MOEslO2ImEKPJMLL7fXZs9TjRr3_uZkyA",
+        imgURL:"https://img.sunset02.com/sunsetm/wp-content-uploads/2019-03-28UTC09/holiday-classics-turkey-mole-poblano-sun-1118-1200x900.jpg",
         createdAt: new Date(),
         updatedAt: new Date()
       },
