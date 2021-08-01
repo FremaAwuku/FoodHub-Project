@@ -1,18 +1,32 @@
-extends layout.pug 
+extends layout.pug
+append head
+    link(rel='stylesheet' href='/stylesheets/user-login.css')
 block content 
     if errors 
         each error in errors
             p=error
-    form(action="/users/register" method="post")
-        input(type="hidden" name="_csrf" value=csrfToken)
-        label(for="firstName") First Name
-        input(type="text" name="firstName" value=newUser.firstName  required)
-        label(for="lastName") Last Name
-        input(type="text" name="lastName" value=newUser.lastName required)
-        label(for="email") Email
-        input(type="email" name="email" value=newUser.email required)
-        label(for="password") Password
-        input(type="password" name="password" required)
-        label(for="confirmPassword") Confirm Password
-        input(type="password" name="confirmPassword" required)
-        button(type="submit" value="Submit") Register
+    div(class="front")
+        h1 Register
+        form(action="/users/register" method="post")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            div(class="text")
+                input(type="text" name="firstName" value=newUser.firstName  required)
+                span
+                label(for="firstName") First Name
+            div(class="text")
+                input(type="text" name="lastName" value=newUser.lastName required)
+                span
+                label(for="lastName") Last Name
+            div(class="text")
+                input(type="email" name="email" value=newUser.email required)
+                span
+                label(for="email") Email
+            div(class="text")
+                input(type="password" name="password" required)
+                span
+                label(for="password") Password
+            div(class="text")
+                input(type="password" name="confirmPassword" required)
+                span 
+                label(for="confirmPassword") Confirm Password
+            button(type="submit" class="register" value="Submit") Register
