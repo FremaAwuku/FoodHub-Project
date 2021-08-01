@@ -23,11 +23,14 @@ restaurantRouter.get('/:id(\\d+)/reviews', asyncHandler(async (req, res) => {
     //pull restaurant for access to img
     const restaurant = await db.Restaurant.findByPk(restaurantId);
     //find all reviews that have restaurantId as their restaurant_id
+    //include user model for written by
     const restaurantReviews = await db.Review.findAll({
         where: {
             restaurantId,
         },
+        include: db.User,
     });
+
     //render the review.pug page
     res.render('review', { title: "Reviews", restaurantReviews, restaurant });
 }));

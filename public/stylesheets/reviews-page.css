@@ -17,17 +17,6 @@ img {
     border-radius: 4px;
 }
 
-/* #restaurant-header {
-    position: absolute;
-    top: 20%;
-    font-size: 2.5rem;
-    font-family: "Corben", cursive;
-    color: white;
-    left: 50%;
-    transform: translate(-50%,0);
-    text-shadow: 0px 0px 6px rgba(0,0,0,.2);
-} */
-
 .container-div{
     padding-left: 25rem;
     padding-right: 25rem;
@@ -59,10 +48,6 @@ img {
 }
 
 #browse-btn {
-    /* position: absolute;
-    top: 33%;
-    left: 50%;
-    transform: translate(-50%,0); */
     font-size: 9pt;
     height: 50px;
     width: 136px;
@@ -78,21 +63,13 @@ img {
     padding: .4rem;
     color: rgb(28,60,60);
     background-color:white;
-    margin: .2rem;
+    margin: .2rem .2rem .4rem .2rem;
 }
 
 #new-review-btn {
     font-size: 12px;
     box-sizing: border-box;
     margin: .2rem;
-}
-
-.top-reviews-div {
-    /*need creamier white*/
-    background-color: white;
-    height: 50rem;
-    display: flex;
-    flex-direction: column;
 }
 
 .restaurant-details-div {
@@ -105,12 +82,6 @@ img {
     grid-area: details;
 }
 
-/*add image div*/
-#restaurant-address {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 100;
-    font-size: 10pt;
-}
 
 #num-of-reviews {
     font-family: Arial, Helvetica, sans-serif;
