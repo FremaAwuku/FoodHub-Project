@@ -4,26 +4,25 @@ html
       block head
         title= title
 
-        script(src="/javascript/search.js" type='module') 
+        script(src="/javascript/search.js" type='module')
 
         link(rel='stylesheet' href='/stylesheets/nav-bar.css')
 
   body
     header
       nav(class='navbar')
+        a(id="food-hub-span" href="/"): span(id="food-hub" class='navbar-welcome-text') Food Hub
+        ul(id="ul" class='nav-links')
         if locals.user
-            li(class='user-logout'): a(href='/users/logout') Logout
-            li(class='user-list'): a(href=`/lists/${user.id}`) User List
-        span(class='navbar-welcome-text') Food Hub
-        ul(class='nav-links')
-        if locals.user
-          li(class='nav-item'): a(class='nav-home' href='/') Home
-          li(class='nav-item'): a(class='nav-link' href='/restaurants') Restaurants
+          li(id="home" class='nav-item'): a(class='nav-home' href='/') Home
+          li(id="restaurants" class='nav-item'): a(class='nav-link' href='/restaurants') Restaurants
+          li(id='user-list' class='user-list'): a(href=`/lists/${user.id}`) User List
+          li(id="logout" class='user-logout'): a(href='/users/logout') Logout
         else
-          li(class='nav-item'): a(class='nav-home' href='/') Home
-          li(class='nav-item'): a(class='nav-link' href='/restaurants') Restaurants
-          li(class='nav-item'): a(class='nav-link' href='/users/login') Login
-          li(class='nav-item'): a(class='nav-link' href='/users/register') Register
+          li(id="home" class='nav-item'): a(class='nav-home' href='/') Home
+          li(id="restaurants" class='nav-item'): a(class='nav-link' href='/restaurants') Restaurants
+          li(id="login" class='nav-item'): a(class='nav-link' href='/users/login') Login
+          li(id="register" class='nav-item'): a(class='nav-link' href='/users/register') Register
         span(class='search-bar-span')
           form.search-form(action="/restaurants" method='post')
             label(for='search')

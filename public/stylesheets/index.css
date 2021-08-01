@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Corben:wght@700&display=swap');
+
+#welcome {
+    position: absolute;
+    top: 30%;
+    font-size: 3rem;
+    font-family: "Corben", cursive;
+    /* width: fit-content;
+    margin: 0 auto; */
+    color: white;
+    left: 50%;
+    transform: translate(-50%,0);
+    text-shadow: 0px 0px 6px rgba(0,0,0,.2);
+}
+
+html {
+    padding: 0;
+    margin: 0;
+}

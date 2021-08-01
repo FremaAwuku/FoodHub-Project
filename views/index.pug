@@ -3,29 +3,39 @@ extends layout
 append head
   //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/nav-bar.css")
+  link(rel="stylesheet" href="/stylesheets/splash.css")
+  link(rel="stylesheet" href="/stylesheets/index.css")
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
 
   if locals.user
-    span(class='navbar-text px-4') Welcome #{user.firstName}!
+    span(id="welcome" class='navbar-text px-4') Welcome #{user.firstName}!
+    img(id="cover-photo" src="../photos/cover.jpeg")
+    div(id="container-div")
       each restaurant in restaurants
-        p=restaurant.name
-        p=restaurant.cuisine
-        p=(restaurant.rating/restaurant.numberOfReviews).toFixed(2)
-        p
-          a(href= `/restaurants/${restaurant.id}/reviews`) Reviews For This Restaurant
-        p 
-          a(href=`/restaurants/${restaurant.id}`)
-            img(src=`${restaurant.imgURL}`)
+        div(class="restaurant-container-div")
+          div(id="restaurant-text")
+            p(id="name")=restaurant.name
+            p(id="cuisine")=`Cuisine: ${restaurant.cuisine}`
+            p(id="rating")=`Average rating: ${(restaurant.rating/restaurant.numberOfReviews).toFixed(2)}`
+            div(id="btn-div")
+              a(href= `/restaurants/${restaurant.id}/reviews`)
+                button() Reviews For This Restaurant
+          div(id="img-div")
+            a(href=`/restaurants/${restaurant.id}`)
+              img(src=`${restaurant.imgURL}`)
   else
     each restaurant in restaurants
-        p=restaurant.name
-        p=restaurant.cuisine
-        p=restaurant.rating
-        p
-          a(href= `/restaurants/${restaurant.id}/reviews`) Reviews For This Restaurant
-        p 
+      div(class="restaurant-container-div")
+        div(id="restaurant-text")
+          p(id="name")=restaurant.name
+          p(id="cuisine")=`Cuisine: ${restaurant.cuisine}`
+          p(id="rating")=`Average rating: ${(restaurant.rating/restaurant.numberOfReviews).toFixed(2)}`
+          div(id="btn-div")
+            a(href= `/restaurants/${restaurant.id}/reviews`)
+              button() Reviews For This Restaurant
+        div(id="img-div")
           a(href=`/restaurants/${restaurant.id}`)
             img(src=`${restaurant.imgURL}`)

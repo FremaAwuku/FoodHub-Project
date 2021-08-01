@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Corben:wght@700&display=swap');
+
+#cover-photo {
+    width: 100%;
+    object-fit:cover;
+    object-position: 0% 0%;
+}
+img {
+    height: 350px;
+    width: 350px;
+    object-fit: cover;
+}
+
+.restaurant-container-div {
+    padding: 5rem 15% 0rem 15%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10rem;
+    grid-template-areas:
+    "img text"
+    ;
+    justify-items: center;
+}
+
+.restaurant-container-div.flipped {
+    padding: 5rem 20% 0rem 20%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 8rem;
+    grid-template-areas:
+    "text img"
+    ;
+}
+
+#restaurant-text {
+    grid-area: text;
+    justify-items: center;
+    min-width: 50%;
+    align-items: baseline;
+}
+
+#img-div {
+    grid-area: img;
+}
+
+#name {
+    font-family: "Corben", cursive;
+    font-size: 22pt;
+    color: rgb(28,60,60);
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+#cuisine {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(28,60,60, .8);
+    font-size: 14pt;
+    text-align: center;
+    margin-bottom: 0px;
+    font-weight: 100;
+}
+
+#rating {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(28,60,60, .8);
+    font-size: 14pt;
+    text-align: center;
+    margin-top: 0px;
+    font-weight: 100;
+}
+
+#btn-div {
+    display: grid;
+    justify-items: center;
+}
+
+button {
+    border-radius: 6px;
+    border-width: 0;
+    font-size: 12px;
+    box-sizing: border-box;
+    height: 46px;
+    width: 200px;
+    color: white;
+    background-color: rgb(224,92,44);
+    text-align: center;
+}
