@@ -2,6 +2,18 @@
 *{
   font-family: 'Corben', cursive;
 }
+
+#food-hub {
+  font-family: 'Corben', cursive;
+  font-size: 20px;
+}
+
+#food-hub-span{
+  grid-area: food-hub-span;
+   text-decoration: none;
+   color: rgb(28,60,60);
+}
+
 a{
   box-sizing: border-box;
   font-family: 'Corben', cursive;

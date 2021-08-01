@@ -6,6 +6,17 @@ html, body {
     padding: 1rem;
 }
 
+#food-hub {
+    font-family: 'Corben', cursive;
+    font-size: 20px;
+  }
+
+  #food-hub-span{
+    grid-area: food-hub-span;
+     text-decoration: none;
+     color: rgb(28,60,60);
+  }
+
 body {
     color: rgb(28,60,60);
     font-family: 'Corben', cursive;

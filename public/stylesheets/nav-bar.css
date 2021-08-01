@@ -19,6 +19,10 @@
     "food-hub-span home restaurants user-list logout"
     ;
     padding-bottom: 5px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 2;
   }
 
   #food-hub {
