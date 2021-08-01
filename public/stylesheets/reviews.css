@@ -32,9 +32,7 @@ body {
 
 img {
     height: 400px;
-
     object-fit: cover;
-
 }
 
 #title-text-div {

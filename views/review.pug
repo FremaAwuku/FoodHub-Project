@@ -1,13 +1,27 @@
 extends layout.pug
 
+append head
+    link(rel='stylesheet' href='/stylesheets/reviews-page.css')
+    script(src="/javascripts/review-submit.js" type='module')
+
 block content
-    table
-        thead
-            tr
-                th Rating
-                th Review
-        tbody
-            each review in restaurantReviews
-                tr
-                    td=review.rating
-                    td=review.text
+    .container-div
+        .restaurant-img-div
+            img(src=`${restaurant.imgURL}`)
+        .restaurant-details-div
+            #title-text-div
+                p(id="title-text")=`${restaurant.name}`
+                p(id="love")= `would love to hear from you!`
+            .top-reviews-div
+                each review in restaurantReviews
+                    .review-box
+                        p(id="written")= `Written by ${CHANGE-THIS}`
+                        p(id="review-body") #{review.text}
+                    if locals.user
+                        if locals.user.id === review.userId
+                            form(action=`/reviews/${review.id}/edit` method="get")
+                                button(id="edit-rev-btn") Edit this review
+                .button-div
+                    form(action=`/restaurants/${restaurantId}/reviews/new` method="get")
+                        button(id="new-review-btn") Add New Review
+
