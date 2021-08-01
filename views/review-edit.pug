@@ -25,6 +25,8 @@ block content
                     textarea(name="text" value=review.text)
         div(class="sub-can")
                     button(id="submit-btn") Update Review
+                    form(action=`/reviews/${review.id}/delete` method="post")
+                        button(id="delete") Delete Review
                     a(href=`/restaurants/${review.Restaurant.id}`) Cancel
         div(id="title-text-div")
             p(id="title-text")=`${review.Restaurant.name}`

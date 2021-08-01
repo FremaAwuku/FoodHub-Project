@@ -1,8 +1,11 @@
 extends layout.pug
 
+append head
+    link(rel='stylesheet' href='/stylesheets/reviews.css')
+
 block content
-    div
-        p Delete this review?
+    div(id="title-text-div")
+        p(id="title-text")= `Delete this review?`
     div
         p Rating: #{review.rating}
         p Review: #{review.text}
