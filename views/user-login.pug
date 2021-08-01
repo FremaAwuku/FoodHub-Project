@@ -1,21 +1,30 @@
 extends layout.pug 
+append head
+    link(rel='stylesheet' href='/stylesheets/user-login.css')
 block content 
     if errors 
       each error in errors 
         p=error
-    form(action="/users/login" method="post")
-      input(type="hidden" name="_csrf" value=csrfToken)
-      label(for="email") Email
-      input(type="email" name="email" user.email required)
-      label(for="password") Password
-      input(type="password" name="password" required)
-      div(class='py-4')
-        button(type='submit' class='btn btn-primary') Login
-        a(href='/' class='btn btn-warning ml-2') Cancel
-    form(action="/users/login", method="post")
-      input(type="hidden" name='_csrf' value=csrfToken)
-      input(type="hidden", name='email', value='demo@demo.com')
-      input(type="hidden", name='password', value='demoPassword')
-      button(type='submit' class='demo-login-btn') Demo Login
-    div
-        p: a(href='/users/register') Don't have an account?
+    div(class="front")
+      h1 Login
+      form(action="/users/login" method="post")
+        input(type="hidden" name="_csrf" value=csrfToken)
+        div(class="text")
+          input(type="email" name="email" user.email required)
+          span
+          label(for="email" class="label") Email
+        div(class="text")
+          input(type="password" name="password" required)
+          span
+          label(for="password") Password
+        div(class='py-4')
+          button(type='submit' class='login-btn') Login
+          button(type='button' class='btn-cancel')
+            a(href='/' class='cancel-btn') Cancel
+      form(action="/users/login", method="post")
+        input(type="hidden" name='_csrf' value=csrfToken)
+        input(type="hidden", name='email', value='demo@demo.com')
+        input(type="hidden", name='password', value='demoPassword')
+        button(type='submit' class='demo-login-btn') Demo Login
+      div
+          p: a(href='/users/register') Don't have an account?
