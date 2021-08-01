@@ -75,6 +75,7 @@ block content
                                 img(class="restaurant-img" src=`${restaurant.imgURL}`)
                         .restaurant-header-div
                             h3(id="restaurant-header")= restaurant.name
+                        .restaurant-address-div
                         h4(id="restaurant-address")= restaurant.address
                         +starRating(restaurant.rating,restaurant.numberOfReviews)
                         .num-of-reviews-div

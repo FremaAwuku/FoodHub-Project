@@ -6,10 +6,12 @@ a{
   font-family: 'Corben', cursive;
 }
 body{
-  background-color: rgb(251, 251, 241);
+  background-color: #fbfbf1;
 }
 .outer-restaurant-container{
   box-sizing: border-box;
+  padding-left: 300px;
+  padding-right: 300px;
 }
 .header-div {
 position: relative;
@@ -44,29 +46,39 @@ box-sizing: border-box;
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: 1fr 25px 25px 25px;
-    border: 2px solid orange;
   max-width: 500px;
   max-height:  500px;
+  border: springgreen;
 }
 .restaurant-img-div{
-
+  box-sizing: border-box;
+  grid-column: auto;
+  grid-row: 0/1;
   overflow-y: hidden;
 }
 .restaurant-img{
   height: 300px;
   width: 350px;
+  align-self:end;
   object-fit: cover;
 }
 #restaurant-header{
-  text-align: center;
+  text-align: left;
   height: 50px;
-  margin-bottom: 150px;
-  position: relative;
+  margin-bottom: 200px;
   bottom: 50px;
 
+
+}
+.restaurant-address-div{
+  grid-column: auto;
+  grid-row-start: 1;
 }
 #restaurant-address{
-  text-align: center;
+
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
 
 }
 /* #replace-with-stars{
