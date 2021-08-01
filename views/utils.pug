@@ -9,14 +9,14 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', placeholder = 
 
 mixin starRating(rating,reviews)
   .star-rating-div
-  
+
     if (rating/reviews).toFixed(2)  >= 5
-        h3 ⭐⭐⭐⭐⭐
+        h5 ⭐⭐⭐⭐⭐
     else if (rating/reviews).toFixed(2) >=4 && (rating/reviews).toFixed(2) < 5
-        h3 ⭐⭐⭐⭐
+        h5 ⭐⭐⭐⭐
     else if (rating/reviews).toFixed(2) >=3 && (rating/reviews).toFixed(2) < 4
-        h3 ⭐⭐⭐
+        h5 ⭐⭐⭐
     else if (rating/reviews).toFixed(2) >=2 && (rating/reviews).toFixed(2) < 3
-        h3 ⭐⭐
+        h5 ⭐⭐
     else
-        h3 ⭐
+        h5 ⭐
