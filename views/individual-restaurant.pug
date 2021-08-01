@@ -4,32 +4,36 @@ append head
     link(rel='stylesheet' href='/stylesheets/indv-restaurants.css')
 
 block content
-    .restaurant-img-div
-            img(src=`${restaurant.imgURL}`)
-    .restaurant-header-div
-        h1(id="restaurant-header")= restaurant.name
-    form(action="/restaurants" method="get")
-        button() Browse More Restaurants
-    .restaurant-details-div
-        h4(id="restaurant-address")= restaurant.address
-        +starRating(restaurant.rating, restaurant.numberOfReviews)
-        .num-of-reviews-div
-            h6(id="num-of-reviews")= `Number of reviews: ${restaurant.numberOfReviews}`
-        .top-reviews-div
-            .review-box
-                each review in restaurant.Reviews
-                    p(id="review-body") #{review.text}
+    .container-div
+        .restaurant-img-div
+                img(src=`${restaurant.imgURL}`)
+        //- .restaurant-header-div
+        .restaurant-details-div
+            h1(id="restaurant-header")= restaurant.name
+            //- form(action="/restaurants" method="get")
+            //-     button(id="browse-btn") Browse More Restaurants
+            h4(id="restaurant-address")= restaurant.address
+            form(action=`/lists/${restaurantId}/add` method="get")
+                button(id='add-to-list-btn')= `Add ${restaurant.name} to your list`
+            +starRating(restaurant.rating, restaurant.numberOfReviews)
+            .num-of-reviews-div
+                h6(id="num-of-reviews")= `${restaurant.numberOfReviews} people have reviewed this restaurant`
+            .top-reviews-div
+
+                    each review in restaurant.Reviews
+                        .review-box
+                            p(id="written")= `Written by ${CHANGE-THIS}`
+                            p(id="review-body") #{review.text}
+                        if locals.user
+                            if locals.user.id === review.userId
+                                form(action=`/reviews/${review.id}/edit` method="get")
+                                    button(id="edit-rev-btn") Edit this review
+                    .button-div
+                        form(action=`/restaurants/${restaurantId}/reviews/new` method="get")
+                            button(id="new-review-btn") Add New Review
+
                     if locals.user
-                        if locals.user.id === review.userId
-                            form(action=`/reviews/${review.id}/edit` method="get")
-                                button() Edit Review
-                .button-div
-                    form(action=`/restaurants/${restaurantId}/reviews/new` method="get")
-                        button(class="new-review-btn") Add New Review
-                    form(action=`/lists/${restaurantId}/add` method="get")
-                        button() Add To List
-                if locals.user
-                    if locals.user.isAdmin
-                        form(action=`/restaurants/${restaurantId}/edit` method="get")
-                            button() Edit Restaurant
+                        if locals.user.isAdmin
+                            form(action=`/restaurants/${restaurantId}/edit` method="get")
+                                button() Edit Restaurant
 
