@@ -33,7 +33,9 @@ box-sizing: border-box;
   box-sizing: border-box;
   position: relative;
   text-align: center;
-  color: rgb(224,92,44);
+  color: rgb(28,60,60);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 100;
   bottom: 36px;
 }
 .cuisine-div{
@@ -43,17 +45,15 @@ box-sizing: border-box;
   flex-flow: row nowrap;
   overflow-x: auto;
   height: 500px;
-border-bottom: 10px dotted rgb(28,60,60);
+border-bottom: 1px solid rgb(28,60,60);
 }
 #cuisine-header{
   box-sizing: border-box;
-  text-align: center;
-  font-size: 45px;
+  text-align: left;
+  font-size: 35px;
   position: relative;
   justify-self: center;
   color: rgb(28,60,60);
-  border: 1px solid rgb(224,92,44);
-  border-radius: 25px;
   max-width: 300px;
 }
 .restaurant-details-div{
