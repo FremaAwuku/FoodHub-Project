@@ -1,41 +1,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Corben:wght@700&display=swap');
 
 html, body {
-    /*change opacity of bg color*/
     background-color: white;
-    padding: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-#food-hub {
-    font-family: 'Corben', cursive;
-    font-size: 20px;
-  }
-
-  #food-hub-span{
-    grid-area: food-hub-span;
-     text-decoration: none;
-     color: rgb(28,60,60);
-  }
+h3 {
+    font-family: "Corben", cursive;
+}
 
 body {
     color: rgb(28,60,60);
-    font-family: 'Corben', cursive;
+    padding: 10rem 20rem 5rem 20rem;
+    display: flex;
+    flex-direction: column;
+}
+
+table {
+   justify-self: center;
+}
+
+td {
+    text-align: center;
 }
 
 .edit-list {
-    border-radius: 2px;
+    box-sizing: border-box;
+    border-radius: 3px;
     border-width: 0;
-    font-size: 6px;
-    padding: 1.5rem;
+    font-size: 10px;
+    height: 80px;
+    width: 120px;
     color: white;
     background-color: rgb(224,92,44);
+    padding: 1rem 2rem 1rem 2rem;
+    text-decoration: none;
 }
 
 .delete-list {
-    border-radius: 2px;
-    border-width: 0;
-    font-size: 6px;
-    padding: 1.5rem;
-    color: white;
-    background-color: rgb(224,92,44);
+    box-sizing: border-box;
+    border: 2px solid  rgb(28,60,60);
+    border-radius: 3px;
+    font-size: 10px;
+    height: 80px;
+    width: 120px;
+    color:  rgb(28,60,60);
+    background-color:white ;
+    padding: 1rem 2rem 1rem 2rem;
+}
+
+a {
+    text-decoration: none;
+    color:  rgb(28,60,60);
+}
+
+th {
+    padding-bottom: 15px;
+}
+
+td {
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgb(28,60,60);
 }
