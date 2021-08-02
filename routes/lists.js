@@ -72,12 +72,13 @@ router.post('/:id(\\d+)/edit', csrfProtection, asyncHandler(async (req, res) => 
 
 // Gets add to list form for a specific restaurant 
 router.get('/:id(\\d+)/add', csrfProtection, asyncHandler(async (req, res) => {
+    console.log('IM GETTING TO THE ADD ROUTE')
     const restaurantId = req.params.id
-    const {hasVisited} =req.body
+    // const {hasVisited} =req.body
       res.render('add-to-list', {
       title: "Personal Restaurant List Add",
         restaurantId,
-        hasVisited,
+        // hasVisited,
         csrfToken: req.csrfToken()
     })
 }))

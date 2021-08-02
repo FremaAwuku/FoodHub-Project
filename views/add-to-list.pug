@@ -1,7 +1,10 @@
 extends layout.pug 
+
+append head
+    link(rel="stylesheet" href="/stylesheets/add-to-list.css")
 block content 
 
-    form(action=`/lists/${restaurantId}/add` method="post")
+    form(class="add-to-list" action=`/lists/${restaurantId}/add` method="post")
         input(type="hidden" name="_csrf" value=csrfToken)
         label(for="hasVisited") Have you been here before?
         input(id="hasVisited" type="checkbox" name="hasVisited" checked=true unchecked=false) 
