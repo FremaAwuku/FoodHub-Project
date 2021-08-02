@@ -41,11 +41,12 @@ app.use(
 // create Session table if it doesn't already exist
 store.sync();
 app.use(restoreUser)
+app.use('/lists', listRouter)
 app.use('/', indexRouter);
 app.use('/users', userRouter);
 app.use('/restaurants', restaurantRouter)
 app.use('/reviews', reviewRouter)
-app.use('/lists', listRouter)
+
 
 
 // catch 404 and forward to error handler
