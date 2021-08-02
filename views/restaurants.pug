@@ -9,6 +9,10 @@ block content
         a(href="/")
             h1(class="main-page-header") Food Hub
         h2(id="main-page-tagline") Get your Deets on some Eats
+        if locals.user
+            if locals.user.isAdmin
+                form(action="/restaurants/new" method="get")
+                    button(id="add-new-rest") Add New Restaurant
     div.outer-restaurant-container
         h2(id="cuisine-header") Italian
         .cuisine-div
@@ -80,7 +84,3 @@ block content
                         +starRating(restaurant.rating,restaurant.numberOfReviews)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
                             h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
-    if locals.user
-        if locals.user.isAdmin
-            form(action="/restaurants/new" method="get")
-                button() Add New Restaurant

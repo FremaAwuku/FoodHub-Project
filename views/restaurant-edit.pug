@@ -1,19 +1,25 @@
 extends layout.pug
+append head
+    link(rel='stylesheet' href='/stylesheets/restaurant-forms.css')
 include utils.pug
 block content
     if errors
         each error in errors
             p=error
-    form(action=`/restaurants/${restaurantId}/edit` method="post")
-        input(type="hidden" name="_csrf" value=csrfToken)
-        +field('Edit Restaurant',"name", restaurant.name)
-        +field('Edit Address',"address", restaurant.address)
-        select(type="select" name="cuisine")
-            option(value="Italian") Italian
-            option(value="Mexican") Mexican
-            option(value="Indian") Indian
-            option(value="American") American
-            option(value="Jamaican") Jamaican
-        +field('Edit Image URL',"imgURL",restaurant.imgURL , "textarea" )
-    form(action=`/restaurants/${restaurantId}/delete` method="post")
-        button  Delete #{restaurant.name}
+    h1 Update #{restaurant.name}
+    .container
+        form(action=`/restaurants/${restaurantId}/edit` method="post" class="new-rest-form")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            +field('Update Restaurant',"name", restaurant.name)
+            +field('Update Address',"address", restaurant.address)
+            label(for="cuisine") Update Cuisine Type:
+            select(type="select" name="cuisine")
+                option(value="Italian") Italian
+                option(value="Mexican") Mexican
+                option(value="Indian") Indian
+                option(value="American") American
+                option(value="Jamaican") Jamaican
+            +field('Update Image URL',"imgURL",restaurant.imgURL , "textarea" )
+            button(class="new-rest-btn") Update Restaurant
+                form(action=`/restaurants/${restaurantId}/delete` method="post")
+                    button(class="del-rest-btn")  Delete #{restaurant.name}

@@ -1,18 +1,23 @@
 extends layout.pug
+append head
+    link(rel='stylesheet' href='/stylesheets/restaurant-forms.css')
 include utils.pug
 block content
     if errors
         each error in errors
             p=error
-    form(action="/restaurants/new" method="post")
-        input(type="hidden" name="_csrf" value=csrfToken)
-        +field('Restaurant Name:',"name", restaurant.name)
-        +field('Address:',"address", restaurant.address)
-        select(type="select" name="cuisine")
-            option(value="Italian") Italian
-            option(value="Mexican") Mexican
-            option(value="Indian") Indian
-            option(value="American") American
-            option(value="Jamaican") Jamaican
-        +field('Add Image URL:',"imgURL",restaurant.imgURL , "textarea" )
-        button() Submit New Restaurant
+    h1 Add A Restaurant to FoodHub's Directory
+    .container
+        form(action="/restaurants/new" method="post" class="new-rest-form")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            +field('New Restaurant Name:',"name", restaurant.name)
+            +field('Address:',"address", restaurant.address)
+            label(for="cuisine") Select Cuisine Type:
+            select(type="select" name="cuisine")
+                option(value="Italian") Italian
+                option(value="Mexican") Mexican
+                option(value="Indian") Indian
+                option(value="American") American
+                option(value="Jamaican") Jamaican
+            +field('Add Image URL:',"imgURL",restaurant.imgURL , "textarea" )
+            button(class="new-rest-btn") Submit New Restaurant
