@@ -4,7 +4,7 @@ html
       block head
         title= title
 
-        script(src="/javascript/search.js" type='module')
+        script(src="/javascripts/search.js" type='module')
         link(rel='stylesheet' href='/stylesheets/nav-bar.css')
 
   body
@@ -25,7 +25,8 @@ html
         span(class='search-bar-span')
           form.search-form(action="/restaurants" method='post' autocomplete='off')
             label(for='search')
-            input(type='text' id='search-field' name='search' class='search-bar' placeholder='Search For a Restaurant')
+            div(class="autocomplete")
+              input(type='text' id='search-field' name='search'  placeholder='Search For a Restaurant')
             button(id="search-button" type='submit') Search
 
         div.container-fluid

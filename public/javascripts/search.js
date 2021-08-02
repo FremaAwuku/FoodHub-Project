@@ -24,7 +24,7 @@
         let parseRestaurant = JSON.parse(string)
         restaurantsArr.push([parseRestaurant.name, parseRestaurant.id] );
       }
-      console.log(restaurantsArr);
+      
 
 
 
@@ -45,7 +45,6 @@
     for (let i = 0; i < restaurantsArr.length; i++) {
       const element = restaurantsArr[i][0];
       if (element.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-        console.log(element)
         let foundResult = document.createElement("a")
         foundResult.setAttribute('href', `/restaurants/${restaurantsArr[i][1]}`)
         foundResult.setAttribute('class', 'input-res')

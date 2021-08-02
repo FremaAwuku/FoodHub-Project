@@ -69,7 +69,7 @@
 
   #search-field {
     height: 40px;
-    width: 200px;
+    width: 220px;
     margin-right: .5rem;
     padding:0 6px;
     font-family: Arial, Helvetica, sans-serif
@@ -139,17 +139,22 @@
 .input-res{
   display: block;
   text-decoration: none;
+  padding: 1rem 2rem 1rem 2rem;
+  color: black;
+  cursor: pointer;
+  
 }
 
 
   .autocomplete{
     position: relative;
     display: inline-block;
+    
   }
 
   #search-id{
-    position: absolute;
-  border: 1px solid #d4d4d4;
+  position: absolute;
+  border: 1px solid whitesmoke;
   border-bottom: none;
   border-top: none;
   z-index: 99;
@@ -157,5 +162,7 @@
   top: 100%;
   left: 0;
   right: 0;
-
+  background-color: whitesmoke;
+  width: 100%;
+  opacity: 85%;
   }
