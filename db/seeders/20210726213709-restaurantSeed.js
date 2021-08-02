@@ -71,7 +71,7 @@ module.exports = {
         name: "Taste of New Delhi",
         address: faker.address.streetAddress(),
         cuisine: "Indian",
-        rating: 11
+        rating: 11,
         numberOfReviews:3,
         imgURL:"https://tampamagazines.com/wp-content/uploads/2020/12/Spice-Kitchen_6578-copy.jpg",
         createdAt: new Date(),
