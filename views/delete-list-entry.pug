@@ -1,7 +1,12 @@
 extends layout.pug
-block content 
-    form(action=`/lists/${restaurantId}/delete` method="post")
-        input(type="hidden" name="_csrf" value=csrfToken)
-        label(for="deleteEntry") Are you sure you want to delete? 
-        input(id="deleteEntry" type="checkbox" name="deleteEntry" checked=true unchecked=false)
-        button(type="submit") Submit 
+
+append head
+    link(rel='stylesheet' href='/stylesheets/add-edit-lists.css')
+
+block content
+    div(id="container")
+        form(id="page-form" action=`/lists/${restaurantId}/delete` method="post")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            label(for="deleteEntry") Are you sure you want to delete?
+            input(id="deleteEntry" type="checkbox" name="deleteEntry" checked=true unchecked=false)
+            button(id="page-btn" type="submit") Submit
