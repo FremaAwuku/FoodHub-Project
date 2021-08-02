@@ -1,12 +1,14 @@
-extends layout.pug 
+
+extends layout.pug
 
 append head
-    link(rel="stylesheet" href="/stylesheets/add-to-list.css")
-block content 
+    link(rel='stylesheet' href='/stylesheets/add-edit-lists.css')
 
-    form(class="add-to-list" action=`/lists/${restaurantId}/add` method="post")
-        input(type="hidden" name="_csrf" value=csrfToken)
-        label(for="hasVisited") Have you been here before?
-        input(id="hasVisited" type="checkbox" name="hasVisited" checked=true unchecked=false) 
-        button(type="submit") Add to List. 
+    div(id="container")
+        form(id= "page-form" action=`/lists/${restaurantId}/add` method="post")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            label(for="hasVisited") Have you been here before?
+            input(id="hasVisited" type="checkbox" name="hasVisited" checked=true unchecked=false)
+            button(id="page-btn" type="submit") Add to List.
+
 

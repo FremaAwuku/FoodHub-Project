@@ -1,0 +1,28 @@
+#container {
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+}
+
+#page-form {
+    margin-top: 60px;
+    box-sizing: border-box;
+    border: 2px solid  rgb(28,60,60);
+    width: 50%;
+    text-align: center;
+    padding: 9rem 2rem;
+    border-radius: 6px;
+}
+
+#page-btn {
+    background-color: rgb(224,92,44);
+    color: white;
+    box-sizing: border-box;
+    border-width: 0;
+    border-radius: 4px ;
+    height: 30px;
+    font-size: 10px;
+    margin-left: 15px;
+}
