@@ -17,11 +17,11 @@ const demoUser  =     [{
     lastName: 'USER',
     email: 'demo@demo.com',
     hashedPassword: 'DemoPassword',
-    isAdmin: false,
+    isAdmin: true,
     createdAt: new Date(),
     updatedAt: new Date()
 },
- 
+
 ]
   const data = users.concat(demoUser)
 

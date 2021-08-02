@@ -71,7 +71,7 @@ router.get("/:id(\\d+)", asyncHandler(async(req,res)=>{
           .withMessage('Cuisine Type must not be more than 30 characters long'),
         check('imgURL')
           .exists({ checkFalsy: true })
-          .withMessage('Please Submit Image'),
+          .withMessage('Please provide valid URL'),
       ];
 
 

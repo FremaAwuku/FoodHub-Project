@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Corben:wght@700&display=swap');
+body{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    max-height: 100%;
+    padding: 0px;
+
+}
+.container{
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: ". form .";
+    padding-right: 15px;
+    padding-left: 100px;
+
+}
+
+.new-rest-form{
+    box-sizing: border-box;
+    padding: 15px;
+
+    width: 450px;
+    height: 350px;
+    margin: 0px;
+    justify-self: center;
+    display: grid;
+    grid-area: form;
+    border-radius: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    grid-template-rows: auto 1fr 1fr 1fr 1fr;
+    border: 2.5px solid rgb(28,60,60);
+    border-radius: 10px;
+
+}
+select{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    height: 25px;
+    max-width: 175px;
+    position: relative;
+    left: 115px;
+}
+h1{
+
+    text-align: center;
+    font-family: "Corben";
+    color: rgb(28,60,60);
+    margin-left: 75px;
+}
+label{
+    height: 10px;
+    float: left;
+    text-align: center;
+
+}
+.new-rest-btn{
+    box-sizing: border-box;
+    border-radius: 3px;
+    border-width: 0;
+    font-size: 8pt;
+    padding: .5rem;
+    color: white;
+    background-color: rgb(224,92,44);
+    max-width: 150px;
+    text-align: center;
+    margin-left: 135px;
+    margin-bottom: 5px;
+
+}
+.del-rest-btn{
+box-sizing: border-box;
+border-radius: 3px ;
+border: 1.5px solid rgb(28,60,60);
+font-size: 8pt;
+color: rgb(28,60,60);
+background-color:white;
+margin-left: 135px;
+max-width: 150px;
+padding: .5rem;
+
+}
+.form-group{
+    height: 25px;
+    padding: 10px;
+
+}
+.form-control{
+    max-height: 35px;
+}
+#imgURL.form-control{
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.form-control:focus{
+    border: 1px solid rgb(224,92,44);
+}
+p{
+    top: 300px;
+    right:350px;
+    position: relative;
+    color: rgb(224,92,44);
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
