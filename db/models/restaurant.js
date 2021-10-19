@@ -4,8 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     address: DataTypes.STRING,
     cuisine: DataTypes.STRING,
-    rating: DataTypes.INTEGER,
-    numberOfReviews: DataTypes.INTEGER,
+    // rating: DataTypes.INTEGER,
+    // numberOfReviews: DataTypes.INTEGER,
     imgURL: DataTypes.STRING
 
   }, {});
