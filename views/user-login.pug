@@ -1,9 +1,9 @@
-extends layout.pug 
+extends layout.pug
 append head
     link(rel='stylesheet' href='/stylesheets/user-login.css')
-block content 
-    if errors 
-      each error in errors 
+block content
+    if errors
+      each error in errors
         p=error
     div(class="front")
       h1 Login
@@ -21,10 +21,5 @@ block content
           button(type='submit' class='login-btn') Login
           button(type='button' class='btn-cancel')
             a(href='/' class='cancel-btn') Cancel
-      form(action="/users/login", method="post")
-        input(type="hidden" name='_csrf' value=csrfToken)
-        input(type="hidden", name='email', value='demo@demo.com')
-        input(type="hidden", name='password', value='demoPassword')
-        button(type='submit' class='demo-login-btn') Demo
       div
           p: a(href='/users/register') Don't have an account?

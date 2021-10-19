@@ -41,7 +41,6 @@ userRouter.post('/register', csrfProtection, userValidators, asyncHandler(async(
     await newUser.save();
     loginUser(req, res, newUser);
     // TODO CHANGE REDIRECT TO INDIV USER LIST PAGE
-    console.log("we are hitting the if")
     res.redirect('/');
 
 } else {
@@ -64,6 +63,8 @@ userRouter.get('/login', csrfProtection, (req, res) => {
     csrfToken: req.csrfToken()
   })
 })
+
+
 
 const loginValidators = [
   check('email')
@@ -103,6 +104,12 @@ userRouter.post('/login', csrfProtection, loginValidators, asyncHandler(async (r
     })
   }
 }))
+
+userRouter.get('/demo', csrfProtection, loginValidators, asyncHandler(async (req, res) => {
+    const demoUser = await db.User.findOne({ where: { email: 'demo@demo.com' }})
+    loginUser(req, res, demoUser)
+  }
+))
 
 
 userRouter.get('/logout', (req, res) => {
