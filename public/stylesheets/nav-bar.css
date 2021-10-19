@@ -63,12 +63,12 @@
       font-size: 12px;
       color: white;
       background-color: rgb(224,92,44);
-      height: 40px;
+      height: 30px;
       width: 60px;
   }
 
   #search-field {
-    height: 40px;
+    height: 25px;
     width: 220px;
     margin-right: .5rem;
     padding:0 6px;
@@ -82,7 +82,7 @@
   .navbar {
     background-color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
   }
 
@@ -142,14 +142,14 @@
   padding: 1rem 2rem 1rem 2rem;
   color: black;
   cursor: pointer;
-  
+
 }
 
 
   .autocomplete{
     position: relative;
     display: inline-block;
-    
+
   }
 
   #search-id{
