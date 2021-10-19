@@ -27,9 +27,8 @@ router.get('/', asyncHandler(async (req, res) => {
 
   const restaurants = await db.Restaurant.findAll({
     include: Review,
-  })
+  });
 
-  console.log(restaurants[0].Reviews.Review)
   res.render('index', {
     restaurants,
   });

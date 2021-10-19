@@ -25,9 +25,9 @@ block content
                         .restaurant-name-div
                             h3(id="restaurant-header")= restaurant.name
                             h4(id="restaurant-address")= restaurant.address
-                        +starRating(`${restaurant.rating}`,`${restaurant.numberOfReviews}`)
+                        +starRating(`${restaurant.rating}`,`${restaurant.Reviews.length}`)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
-                            h6(id="num-of-reviews") See #{restaurant.numberOfReviews} for #{restaurant.name}
+                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.Reviews.length}`
         h2(id="cuisine-header") Indian
         .cuisine-div
             each restaurant in restaurants
@@ -39,9 +39,9 @@ block content
                         .restaurant-name-div
                             h3(id="restaurant-header")= restaurant.name
                             h4(id="restaurant-address")= restaurant.address
-                        +starRating(`${restaurant.rating}`,`${restaurant.numberOfReviews}`)
+                        +starRating(`${restaurant.rating}`,`${restaurant.Reviews.length}`)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
-                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
+                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.Reviews.length}`
         h2(id="cuisine-header") Jamaican
         .cuisine-div
             each restaurant in restaurants
@@ -53,9 +53,9 @@ block content
                         .restaurant-name-div
                             h3(id="restaurant-header")= restaurant.name
                             h4(id="restaurant-address")= restaurant.address
-                        +starRating(`${restaurant.rating}`,`${restaurant.numberOfReviews}`)
+                        +starRating(`${restaurant.rating}`,`${restaurant.Reviews.length}`)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
-                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
+                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.Reviews.length}`
         h2(id="cuisine-header") American
         .cuisine-div
             each restaurant in restaurants
@@ -67,9 +67,9 @@ block content
                         .restaurant-name-div
                             h3(id="restaurant-header")= restaurant.name
                             h4(id="restaurant-address")= restaurant.address
-                        +starRating(`${restaurant.rating}`,`${restaurant.numberOfReviews}`)
+                        +starRating(`${restaurant.rating}`,`${restaurant.Reviews.length}`)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
-                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
+                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.Reviews.length}`
         h2(id="cuisine-header") Mexican
         .cuisine-div
             each restaurant in restaurants
@@ -81,6 +81,6 @@ block content
                         .restaurant-name-div
                             h3(id="restaurant-header")= restaurant.name
                             h4(id="restaurant-address")= restaurant.address
-                        +starRating(restaurant.rating,restaurant.numberOfReviews)
+                        +starRating(restaurant.rating,restaurant.Reviews.length)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
-                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.numberOfReviews}`
+                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.Reviews.length}`

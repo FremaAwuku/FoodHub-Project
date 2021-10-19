@@ -6,10 +6,13 @@ const { Op } = require('sequelize')
 const { csrfProtection, asyncHandler } = require('./utils');
 const db = require('../db/models');
 const { requireAuth,requireAdminAuth  } = require('../auth')
+const { Review } = require('../db/models')
 
 //GET all restaurant
 router.get("/", asyncHandler(async(req,res)=>{
-const restaurants = await db.Restaurant.findAll()
+const restaurants = await db.Restaurant.findAll({
+    include: Review,
+});
 
  const admin = await db.User.findAll({
      where:{
