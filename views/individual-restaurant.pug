@@ -32,8 +32,10 @@ block content
                                 h6 ⭐⭐⭐
                             else if review.rating >=2 && review.rating < 3
                                 h6 ⭐⭐
-                            else
+                            else if review.rating >=1 && review.rating < 2
                                 h6 ⭐
+                            else
+                                h6
                         if locals.user
                             if locals.user.id === review.userId
                                 form(action=`/reviews/${review.id}/edit` method="get")
