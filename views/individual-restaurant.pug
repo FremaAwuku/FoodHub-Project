@@ -15,9 +15,9 @@ block content
             h4(id="restaurant-address")= restaurant.address
             form(action=`/lists/${restaurantId}/add` method="get")
                 button(id='add-to-list-btn')= `Add ${restaurant.name} to your list`
-            +starRating(restaurant.rating, restaurant.numberOfReviews)
+            +starRating(restaurant.Reviews.reduce(function(accum, review) {return accum + review.rating}, 0), restaurant.Reviews.length)
             .num-of-reviews-div
-                h6(id="num-of-reviews")= `${restaurant.numberOfReviews} people have reviewed this restaurant`
+                h6(id="num-of-reviews")= `${restaurant.Reviews.length} people have reviewed this restaurant`
             .top-reviews-div
 
                     each review in restaurant.Reviews
