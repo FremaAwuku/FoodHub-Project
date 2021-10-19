@@ -25,7 +25,7 @@ block content
                         .restaurant-name-div
                             h3(id="restaurant-header")= restaurant.name
                             h4(id="restaurant-address")= restaurant.address
-                        +starRating(`${restaurant.rating}`,`${restaurant.Reviews.length}`)
+                        +starRating(`${restaurant.Reviews.reduce(function(accum, review) {return accum + review.rating}, 0)}`,`${restaurant.Reviews.length}`)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
                             h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.Reviews.length}`
         h2(id="cuisine-header") Indian
@@ -39,7 +39,7 @@ block content
                         .restaurant-name-div
                             h3(id="restaurant-header")= restaurant.name
                             h4(id="restaurant-address")= restaurant.address
-                        +starRating(`${restaurant.rating}`,`${restaurant.Reviews.length}`)
+                        +starRating(`${restaurant.Reviews.reduce(function(accum, review) {return accum + review.rating}, 0)}`,`${restaurant.Reviews.length}`)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
                             h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.Reviews.length}`
         h2(id="cuisine-header") Jamaican
@@ -53,7 +53,7 @@ block content
                         .restaurant-name-div
                             h3(id="restaurant-header")= restaurant.name
                             h4(id="restaurant-address")= restaurant.address
-                        +starRating(`${restaurant.rating}`,`${restaurant.Reviews.length}`)
+                        +starRating(`${restaurant.Reviews.reduce(function(accum, review) {return accum + review.rating}, 0)}`,`${restaurant.Reviews.length}`)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
                             h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.Reviews.length}`
         h2(id="cuisine-header") American
@@ -67,7 +67,7 @@ block content
                         .restaurant-name-div
                             h3(id="restaurant-header")= restaurant.name
                             h4(id="restaurant-address")= restaurant.address
-                        +starRating(`${restaurant.rating}`,`${restaurant.Reviews.length}`)
+                        +starRating(`${restaurant.Reviews.reduce(function(accum, review) {return accum + review.rating}, 0)}`,`${restaurant.Reviews.length}`)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
                             h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.Reviews.length}`
         h2(id="cuisine-header") Mexican
@@ -81,6 +81,6 @@ block content
                         .restaurant-name-div
                             h3(id="restaurant-header")= restaurant.name
                             h4(id="restaurant-address")= restaurant.address
-                        +starRating(restaurant.rating,restaurant.Reviews.length)
+                        +starRating(restaurant.Reviews.reduce(function(accum, review) {return accum + review.rating}, 0),restaurant.Reviews.length)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
                             h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.Reviews.length}`
