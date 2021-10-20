@@ -27,7 +27,7 @@ html
         else
           li(id="home" class='nav-item'): a(class='nav-home' href='/') Home
           li(id="restaurants" class='nav-item'): a(class='nav-link' href='/restaurants') Restaurants
-          li
+          li(class='nav-item')
             span(class='search-bar-span')
                 form.search-form(action="/restaurants" method='post' autocomplete='off')
                   label(for='search')
