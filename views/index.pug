@@ -18,7 +18,8 @@ block content
       each restaurant in restaurants
         div(class="restaurant-container-div")
           div(id="restaurant-text")
-            p(id="name")=restaurant.name
+            a(href=`/restaurants/${restaurant.id}`)
+              p(id="name")=restaurant.name
             p(id="cuisine")=`Cuisine: ${restaurant.cuisine}`
             if restaurant.Reviews.length
               p(id="rating")=`Average rating: ${(restaurant.Reviews.reduce(function(accum, review) {return accum + review.rating}, 0)/restaurant.Reviews.length).toFixed(2)}`
