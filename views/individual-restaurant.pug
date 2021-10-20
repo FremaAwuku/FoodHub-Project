@@ -26,8 +26,9 @@ block content
                 else
                     h6(id="num-of-reviews")= `${restaurant.Reviews.length} people have reviewed ${restaurant.name}`
             .button-div
-                form(action=`/restaurants/${restaurantId}/reviews/new` method="get")
-                    button(id="new-review-btn") Add New Review
+                if !hasReviewed
+                    form(action=`/restaurants/${restaurantId}/reviews/new` method="get")
+                        button(id="new-review-btn") Add New Review
             .top-reviews-div
                     each review in restaurant.Reviews
                         .review-box
