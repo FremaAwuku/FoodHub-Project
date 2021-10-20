@@ -46,7 +46,6 @@ userRouter.post('/register', csrfProtection, userValidators, asyncHandler(async(
 } else {
     const errorArray = validatorErrors.array()
       .map(error => error.msg)
-    console.log("we are hitting the else")
     res.render('user-register', {
         title: "Register",
         user: newUser,
