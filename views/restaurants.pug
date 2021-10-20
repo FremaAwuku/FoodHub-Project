@@ -22,8 +22,9 @@ block content
                         .restaurant-img-div
                             a(href=`/restaurants/${restaurant.id}`)
                                 img(class="restaurant-img" src=`${restaurant.imgURL}`)
-                        h3(id="restaurant-header")= restaurant.name
-                        h4(id="restaurant-address")= restaurant.address
+                        a(href=`/restaurants/${restaurant.id}`)
+                            h3(id="restaurant-header")= restaurant.name
+                            h4(id="restaurant-address")= restaurant.address
                         +starRating(`${restaurant.Reviews.reduce(function(accum, review) {return accum + review.rating}, 0)}`,`${restaurant.Reviews.length}`)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
                         if restaurant.Reviews.length === 1
