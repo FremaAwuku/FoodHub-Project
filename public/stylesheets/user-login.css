@@ -153,12 +153,14 @@ p:hover{
 
 
 .register[type="submit"]{
-  font-size: 14px;
+  font-size: 12px;
   color: white;
-  background-color: #1c3c3c;
-  height: 50px;
-  width: 100%;
-  border: 1px solid;
-  border-radius: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(224,92,44);
+  height: 30px;
+  width: 60px;
+  border: none;
+  border-radius: 5px;
+  margin: .2rem;
   cursor: pointer;
 }

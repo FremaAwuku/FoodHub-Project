@@ -1,8 +1,8 @@
 extends layout.pug
 append head
     link(rel='stylesheet' href='/stylesheets/user-login.css')
-block content 
-    if errors 
+block content
+    if errors
         each error in errors
             p=error
     div(class="front")
@@ -10,23 +10,15 @@ block content
         form(action="/users/register" method="post")
             input(type="hidden" name="_csrf" value=csrfToken)
             div(class="text")
-                input(type="text" name="firstName" value=newUser.firstName  required)
-                span
-                label(for="firstName") First Name
+                input(type="text" name="firstName" placeholder='First Name' value=newUser.firstName  required)
             div(class="text")
-                input(type="text" name="lastName" value=newUser.lastName required)
-                span
-                label(for="lastName") Last Name
+                input(type="text" name="lastName" placeholder='Last Name' value=newUser.lastName required)
             div(class="text")
-                input(type="email" name="email" value=newUser.email required)
-                span
-                label(for="email") Email
+                input(type="email" name="email" placeholder='Email' value=newUser.email required)
             div(class="text")
-                input(type="password" name="password" required)
-                span
-                label(for="password") Password
+                input(type="password" name="password" placeholder='Password' required)
             div(class="text")
-                input(type="password" name="confirmPassword" required)
-                span 
-                label(for="confirmPassword") Confirm Password
+                input(type="password" name="confirmPassword" placeholder='Confirm Password' required)
             button(type="submit" class="register" value="Submit") Register
+            button(type='button' class='btn-cancel')
+                a(href='/' class='cancel-btn') Cancel
