@@ -11,9 +11,13 @@ h3 {
 
 body {
     color: rgb(28,60,60);
-    padding: 10rem 20rem 5rem 20rem;
+}
+
+.user-list-container {
+    padding: 40px 15%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 table {

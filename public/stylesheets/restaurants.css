@@ -1,7 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Corben:wght@700&display=swap');
-*{
-  font-family: 'Corben', cursive;
-}
 
 #food-hub {
   font-family: 'Corben', cursive;
@@ -14,9 +11,13 @@
    color: rgb(28,60,60);
 }
 
+h1, h2, h3 {
+  font-family: 'Corben', cursive;
+}
+
 a{
   box-sizing: border-box;
-  font-family: 'Corben', cursive;
+  /* font-family: 'Corben', cursive; */
   text-decoration: none;
   color: rgb(28,60,60,.7);
   /* max-height: 0px */

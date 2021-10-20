@@ -4,22 +4,23 @@ append head
     link(rel='stylesheet' href='/stylesheets/lists.css')
 
 block content
-    h3 #{user.firstName}'s List 
-    table
-        thead
-            tr
-                th Restaurant
-                th Has Visited
-        tbody
-            each list in userList
+    div(class='user-list-container')
+        h3 #{user.firstName}'s List
+        table
+            thead
                 tr
-                    td 
-                        a(href=`/restaurants/${list.Restaurant.id}`)  #{list.Restaurant.name} 
-                    if (list.hasVisited) 
-                        td= '✅'
-                    else 
-                        td= '❌'
-                    td
-                        a(class="edit-list" name="edit-redirect-list" href=`/lists/${list.Restaurant.id}/edit`) Edit
-                    td 
-                        a(class="delete-list" name="delete-list-entry" href=`/lists/${list.Restaurant.id}/delete`) Delete
+                    th Restaurant
+                    th Has Visited
+            tbody
+                each list in userList
+                    tr
+                        td
+                            a(href=`/restaurants/${list.Restaurant.id}`)  #{list.Restaurant.name}
+                        if (list.hasVisited)
+                            td= '✅'
+                        else
+                            td= '❌'
+                        td
+                            a(class="edit-list" name="edit-redirect-list" href=`/lists/${list.Restaurant.id}/edit`) Edit
+                        td
+                            a(class="delete-list" name="delete-list-entry" href=`/lists/${list.Restaurant.id}/delete`) Delete
