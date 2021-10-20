@@ -18,5 +18,7 @@ mixin starRating(rating,reviews)
         h5 ⭐⭐⭐
     else if (rating/reviews).toFixed(2) >=2 && (rating/reviews).toFixed(2) < 3
         h5 ⭐⭐
-    else
+    else if (rating/reviews).toFixed(2) >=1 && (rating/reviews).toFixed(2) < 2
         h5 ⭐
+    else
+        h5 

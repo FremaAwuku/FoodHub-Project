@@ -6,6 +6,7 @@ html
 
         script(src="/javascripts/search.js" type='module')
         link(rel='stylesheet' href='/stylesheets/nav-bar.css')
+        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous")
 
   body
     header
@@ -16,18 +17,27 @@ html
           li(id="home" class='nav-item'): a(class='nav-home' href='/') Home
           li(id="restaurants" class='nav-item'): a(class='nav-link' href='/restaurants') Restaurants
           li(id='user-list' class='user-list'): a(href=`/lists/${user.id}`) User List
+          li(class='nav-item')
+            span(class='search-bar-span')
+                form.search-form(action="/restaurants" method='post' autocomplete='off')
+                  label(for='search')
+                  div(class="autocomplete")
+                    input(type='text' id='search-field' name='search'  placeholder='Search For a Restaurant')
+                  button(id="search-button" type='submit') Search
           li(id="logout" class='user-logout'): a(href='/users/logout') Logout
         else
           li(id="home" class='nav-item'): a(class='nav-home' href='/') Home
           li(id="restaurants" class='nav-item'): a(class='nav-link' href='/restaurants') Restaurants
+          li(class='nav-item')
+            span(class='search-bar-span')
+                form.search-form(action="/restaurants" method='post' autocomplete='off')
+                  label(for='search')
+                  div(class="autocomplete")
+                    input(type='text' id='search-field' name='search'  placeholder='Search For a Restaurant')
+                  button(id="search-button" type='submit') Search
           li(id="login" class='nav-item'): a(class='nav-link' href='/users/login') Login
           li(id="register" class='nav-item'): a(class='nav-link' href='/users/register') Register
-        span(class='search-bar-span')
-          form.search-form(action="/restaurants" method='post' autocomplete='off')
-            label(for='search')
-            div(class="autocomplete")
-              input(type='text' id='search-field' name='search'  placeholder='Search For a Restaurant')
-            button(id="search-button" type='submit') Search
+          li(class='nav-item'): a(class='nav-link' href='/users/demo') Demo
 
         div.container-fluid
     block content

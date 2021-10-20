@@ -6,10 +6,13 @@ const { Op } = require('sequelize')
 const { csrfProtection, asyncHandler } = require('./utils');
 const db = require('../db/models');
 const { requireAuth,requireAdminAuth  } = require('../auth')
+const { Review } = require('../db/models')
 
 //GET all restaurant
 router.get("/", asyncHandler(async(req,res)=>{
-const restaurants = await db.Restaurant.findAll()
+const restaurants = await db.Restaurant.findAll({
+    include: Review,
+});
 
  const admin = await db.User.findAll({
      where:{
@@ -30,6 +33,9 @@ res.render('restaurants',{
 router.get("/:id(\\d+)", asyncHandler(async(req,res)=>{
 
     const restaurantId = req.params.id
+    const { userId } = req.session.auth
+
+
 
     const restaurant = await db.Restaurant.findByPk(restaurantId,{
         include:{
@@ -37,10 +43,13 @@ router.get("/:id(\\d+)", asyncHandler(async(req,res)=>{
             include: db.User
         }})
         // res.send(restaurant.Reviews[0].User)
+    const hasReviewed = restaurant.Reviews.find(review => review.userId === userId) ? true : false
+    console.log(hasReviewed)
     res.render('individual-restaurant',{
         title: restaurant.name,
         restaurant,
-        restaurantId
+        restaurantId,
+        hasReviewed
     })
     }))
 

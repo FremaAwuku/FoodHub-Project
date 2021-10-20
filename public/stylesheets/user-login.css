@@ -11,47 +11,55 @@ body{
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
-  background: whitesmoke;
+  /* background: whitesmoke; */
   border-radius: 10px;
 }
 
 .login-btn {
   font-size: 12px;
   color: white;
-  background-color: #1c3c3c;
-  height: 20px;
-  width: 40%;
-  border-radius: 15px;
-  margin: -5px 0 20px 5px;
-  padding-right: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(224,92,44);
+  height: 30px;
+  width: 60px;
+  border: none;
+  border-radius: 5px;
+  margin: .2rem;
   cursor: pointer;
 }
 
 .btn-cancel{
   grid-area: Cancel;
-  text-decoration: none;
-  font-size: 12px;
-  color: white;
-  background-color: #1c3c3c;
-  height: 20px;
-  width: 40%;
-  border-radius: 15px;
-  align-self: center;
+
+  height: 30px;
+  width: 60px;
+  /* border: none; */
+  border-radius: 5px;
+  margin: .2rem;
   cursor: pointer;
+  background-color: white;
+   box-sizing: border-box;
+  /* border-width: 0; */
+  border: 2px solid rgb(28,60,60);
+  margin-left: .2rem;
 }
 
-.cancel-btn{
+a.cancel-btn{
   grid-area: Cancel;
   text-decoration: none;
   font-size: 12px;
-  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(28,60,60);
   cursor: pointer;
 }
 
 .front h1{
   text-align: center;
-  padding: 0 0 20p 0;
-  
+  /* padding: 0 0 20p 0; */
+  font-family: 'Corben', cursive;
+  font-size: 20px;
+  color: rgb(28,60,60);
+
 }
 
 .front form{
@@ -59,20 +67,24 @@ body{
   box-sizing: border-box;
 }
 
-form .text{
+/* form .text{
   position: relative;
   border-bottom: 2px solid #adadad;
   margin:  30px 0;
-}
+} */
 
 .text input{
   width:  100%;
-  padding: 0 5px;
-  height: 50px;
+  padding: 1rem 1rem;
+  margin: .5rem;
+  /* height: 50px; */
   font-size: 14px;
-  border: none;
+  border:none;
+  border-bottom: 1px solid rgb(28,60,60);
   background: none;
   outline: none;
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -82,12 +94,13 @@ form .text{
   color: #adadad;
   font-size: 16px;
   pointer-events: none;
-  transform: translateY(-50%);
-  transition: .5s;
+  /* transform: translateY(-50%);
+  transition: .5s; */
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 
-.text span::before{
+/* .text span::before{
   content: '';
   position: absolute;
   top: 40px;
@@ -95,37 +108,24 @@ form .text{
   height: 2px;
   color: #2691d9;
   transition: .5s;
-}
+} */
 
-.text input:focus ~ label,
+/* .text input:focus ~ label,
 .text input:valid ~ label{
   top:-5px;
   color: #1c3c3c;
-}
+} */
 
-
+/*
 .text input:focus ~ span::before,
 .text input:valid ~ span::before{
   width: 100%;
 
-}
-
-
-.demo-login-btn{
-  font-size: 12px;
-  color: white;
-  background-color: #1c3c3c;
-  height: 25px;
-  width: 30%;
-  border-radius: 10px;
-  margin: -5px 0 20px 5px;
-  padding-right: 10px;
-  cursor: pointer;
-}
-
+} */
 
 p {
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -133,13 +133,14 @@ a{
   text-align: center;
   color: #1c3c3c;
   text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 p:hover{
   text-decoration: underline;
 }
 
-#search-button {
+/* #search-button {
   font-size: 12px;
   color: white;
   background-color: #1c3c3c;
@@ -147,17 +148,19 @@ p:hover{
   width: 60px;
   border-radius: 15px;
   cursor: pointer;
-}
+} */
 
 
 
 .register[type="submit"]{
-  font-size: 14px;
+  font-size: 12px;
   color: white;
-  background-color: #1c3c3c;
-  height: 50px;
-  width: 100%;
-  border: 1px solid;
-  border-radius: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(224,92,44);
+  height: 30px;
+  width: 60px;
+  border: none;
+  border-radius: 5px;
+  margin: .2rem;
   cursor: pointer;
 }

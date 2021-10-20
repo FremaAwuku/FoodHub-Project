@@ -2,7 +2,7 @@
 
 #welcome {
     position: absolute;
-    top: 30%;
+    top: 15%;
     font-size: 3rem;
     font-family: "Corben", cursive;
     /* width: fit-content;
@@ -11,6 +11,7 @@
     left: 50%;
     transform: translate(-50%,0);
     text-shadow: 0px 0px 6px rgba(0,0,0,.2);
+    margin-top: 1%;
 }
 
 html {
@@ -18,3 +19,6 @@ html {
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+}

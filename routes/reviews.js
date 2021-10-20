@@ -150,12 +150,12 @@ restaurantRouter.post('/:id(\\d+)/reviews', csrfProtection, requireAuth, reviewV
     if (validatorErrors.isEmpty()) {
         await review.save();
         //increment number of reviews
-        await restaurant.increment('numberOfReviews', { by: 1 });
+        // await restaurant.increment('numberOfReviews', { by: 1 });
 
         //turn string of rating into int
-        let intRating = Math.abs(parseInt(rating, 10));
+        // let intRating = Math.abs(parseInt(rating, 10));
        // increment total rating
-        await restaurant.increment('rating', {by: intRating});
+        // await restaurant.increment('rating', {by: intRating});
 
         res.redirect(`/restaurants/${restaurantId}`);
     } else {
@@ -187,12 +187,12 @@ router.post('/:id(\\d+)/delete', asyncHandler(async (req, res) => {
     const reviewId = req.params.id;
     const review = await db.Review.findByPk(reviewId);
     const restaurant = await db.Restaurant.findByPk(review.restaurantId)
-    await restaurant.decrement('numberOfReviews', { by: 1 })
+    // await restaurant.decrement('numberOfReviews', { by: 1 })
 
     //grabbing rating from the individual review
-    let intRating = parseInt(review.rating, 10);
+    // let intRating = parseInt(review.rating, 10);
     // decrement total rating
-    await restaurant.decrement('rating', {by: intRating});
+    // await restaurant.decrement('rating', {by: intRating});
 
 
     await review.destroy();

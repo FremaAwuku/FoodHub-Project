@@ -21,12 +21,12 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(30)
       },
-      rating: {
-        type: Sequelize.INTEGER
-      },
-      numberOfReviews: {
-        type: Sequelize.INTEGER
-      },
+      // rating: {
+      //   type: Sequelize.INTEGER
+      // },
+      // numberOfReviews: {
+      //   type: Sequelize.INTEGER
+      // },
       imgURL: {
         allowNull: false,
         type: Sequelize.TEXT
