@@ -7,6 +7,10 @@ block content
     .container-div
         .restaurant-img-div
                 img(src=`${restaurant.imgURL}`)
+                if locals.user
+                    if locals.user.isAdmin
+                        form(action=`/restaurants/${restaurantId}/edit` method="get")
+                            button() Edit Restaurant
         //- .restaurant-header-div
         .restaurant-details-div
             h1(id="restaurant-header")= restaurant.name
@@ -21,33 +25,29 @@ block content
                     h6(id="num-of-reviews")= `${restaurant.Reviews.length} person has reviewed ${restaurant.name}`
                 else
                     h6(id="num-of-reviews")= `${restaurant.Reviews.length} people have reviewed ${restaurant.name}`
+            .button-div
+                form(action=`/restaurants/${restaurantId}/reviews/new` method="get")
+                    button(id="new-review-btn") Add New Review
             .top-reviews-div
-
                     each review in restaurant.Reviews
                         .review-box
-                            p(id="written")= `Written by ${review.User.firstName}`
-                            p(id="review-body") #{review.text}
-                            if review.rating >= 5
-                                h6 ⭐⭐⭐⭐⭐
-                            else if review.rating >=4 && review.rating < 5
-                                h6 ⭐⭐⭐⭐
-                            else if review.rating >=3 && review.rating < 4
-                                h6 ⭐⭐⭐
-                            else if review.rating >=2 && review.rating < 3
-                                h6 ⭐⭐
-                            else if review.rating >=1 && review.rating < 2
-                                h6 ⭐
-                            else
-                                h6
-                        if locals.user
-                            if locals.user.id === review.userId
-                                form(action=`/reviews/${review.id}/edit` method="get")
-                                    button(id="edit-rev-btn") Edit this review
-                    .button-div
-                        form(action=`/restaurants/${restaurantId}/reviews/new` method="get")
-                            button(id="new-review-btn") Add New Review
+                            .review
+                                p(id="written")= `Written by ${review.User.firstName}`
+                                if review.rating >= 5
+                                    h6 ⭐⭐⭐⭐⭐
+                                else if review.rating >=4 && review.rating < 5
+                                    h6 ⭐⭐⭐⭐
+                                else if review.rating >=3 && review.rating < 4
+                                    h6 ⭐⭐⭐
+                                else if review.rating >=2 && review.rating < 3
+                                    h6 ⭐⭐
+                                else if review.rating >=1 && review.rating < 2
+                                    h6 ⭐
+                                else
+                                    h6
+                                p(id="review-body") #{review.text}
+                            if locals.user
+                                if locals.user.id === review.userId
+                                    form(action=`/reviews/${review.id}/edit` method="get")
+                                        button(id="edit-rev-btn") Edit this review
 
-                    if locals.user
-                        if locals.user.isAdmin
-                            form(action=`/restaurants/${restaurantId}/edit` method="get")
-                                button() Edit Restaurant
