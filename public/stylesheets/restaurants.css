@@ -19,7 +19,7 @@ a{
   font-family: 'Corben', cursive;
   text-decoration: none;
   color: rgb(28,60,60,.7);
-  max-height: 0px
+  /* max-height: 0px */
 }
 body{
   background-color: white;
@@ -72,7 +72,25 @@ box-sizing: border-box;
   min-height: fit-content;
   border-bottom: 1px solid rgb(28,60,60);
   gap: 2%;
+  scrollbar-width: thin;
+  scrollbar-color:rgb(224,92,44);
+  padding-bottom: 1%;
 }
+
+.cuisine-div::-webkit-scrollbar {
+  width: 15px;
+  border: 1px solid rgb(28,60,60);
+}
+
+.cuisine-div::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+.cuisine-div::-webkit-scrollbar-thumb {
+  background-color: rgb(28,60,60);
+  border-radius: 4px;
+}
+
 #cuisine-header{
   box-sizing: border-box;
   text-align: left;
@@ -159,3 +177,5 @@ h5{
 #num-of-reviews:hover{
     text-decoration: underline;
 }
+
+
