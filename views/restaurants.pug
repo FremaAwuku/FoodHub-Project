@@ -22,12 +22,14 @@ block content
                         .restaurant-img-div
                             a(href=`/restaurants/${restaurant.id}`)
                                 img(class="restaurant-img" src=`${restaurant.imgURL}`)
-                        .restaurant-name-div
-                            h3(id="restaurant-header")= restaurant.name
-                            h4(id="restaurant-address")= restaurant.address
+                        h3(id="restaurant-header")= restaurant.name
+                        h4(id="restaurant-address")= restaurant.address
                         +starRating(`${restaurant.Reviews.reduce(function(accum, review) {return accum + review.rating}, 0)}`,`${restaurant.Reviews.length}`)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
-                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.Reviews.length}`
+                        if restaurant.Reviews.length === 1
+                            h6(id="num-of-reviews")= `${restaurant.Reviews.length} person has reviewed ${restaurant.name}`
+                        else
+                            h6(id="num-of-reviews")= `${restaurant.Reviews.length} people have reviewed ${restaurant.name}`
         h2(id="cuisine-header") Indian
         .cuisine-div
             each restaurant in restaurants
@@ -36,12 +38,14 @@ block content
                         .restaurant-img-div
                             a(href=`/restaurants/${restaurant.id}`)
                                 img(class="restaurant-img" src=`${restaurant.imgURL}`)
-                        .restaurant-name-div
-                            h3(id="restaurant-header")= restaurant.name
-                            h4(id="restaurant-address")= restaurant.address
+                        h3(id="restaurant-header")= restaurant.name
+                        h4(id="restaurant-address")= restaurant.address
                         +starRating(`${restaurant.Reviews.reduce(function(accum, review) {return accum + review.rating}, 0)}`,`${restaurant.Reviews.length}`)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
-                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.Reviews.length}`
+                        if restaurant.Reviews.length === 1
+                            h6(id="num-of-reviews")= `${restaurant.Reviews.length} person has reviewed ${restaurant.name}`
+                        else
+                            h6(id="num-of-reviews")= `${restaurant.Reviews.length} people have reviewed ${restaurant.name}`
         h2(id="cuisine-header") Jamaican
         .cuisine-div
             each restaurant in restaurants
@@ -50,12 +54,14 @@ block content
                         .restaurant-img-div
                             a(href=`/restaurants/${restaurant.id}`)
                                 img(class="restaurant-img" src=`${restaurant.imgURL}`)
-                        .restaurant-name-div
-                            h3(id="restaurant-header")= restaurant.name
-                            h4(id="restaurant-address")= restaurant.address
+                        h3(id="restaurant-header")= restaurant.name
+                        h4(id="restaurant-address")= restaurant.address
                         +starRating(`${restaurant.Reviews.reduce(function(accum, review) {return accum + review.rating}, 0)}`,`${restaurant.Reviews.length}`)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
-                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.Reviews.length}`
+                        if restaurant.Reviews.length === 1
+                            h6(id="num-of-reviews")= `${restaurant.Reviews.length} person has reviewed ${restaurant.name}`
+                        else
+                            h6(id="num-of-reviews")= `${restaurant.Reviews.length} people have reviewed ${restaurant.name}`
         h2(id="cuisine-header") American
         .cuisine-div
             each restaurant in restaurants
@@ -64,12 +70,14 @@ block content
                         .restaurant-img-div
                             a(href=`/restaurants/${restaurant.id}`)
                                 img(class="restaurant-img" src=`${restaurant.imgURL}`)
-                        .restaurant-name-div
-                            h3(id="restaurant-header")= restaurant.name
-                            h4(id="restaurant-address")= restaurant.address
+                        h3(id="restaurant-header")= restaurant.name
+                        h4(id="restaurant-address")= restaurant.address
                         +starRating(`${restaurant.Reviews.reduce(function(accum, review) {return accum + review.rating}, 0)}`,`${restaurant.Reviews.length}`)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
-                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.Reviews.length}`
+                        if restaurant.Reviews.length === 1
+                            h6(id="num-of-reviews")= `${restaurant.Reviews.length} person has reviewed ${restaurant.name}`
+                        else
+                            h6(id="num-of-reviews")= `${restaurant.Reviews.length} people have reviewed ${restaurant.name}`
         h2(id="cuisine-header") Mexican
         .cuisine-div
             each restaurant in restaurants
@@ -78,9 +86,11 @@ block content
                         .restaurant-img-div
                             a(href=`/restaurants/${restaurant.id}`)
                                 img(class="restaurant-img" src=`${restaurant.imgURL}`)
-                        .restaurant-name-div
-                            h3(id="restaurant-header")= restaurant.name
-                            h4(id="restaurant-address")= restaurant.address
-                        +starRating(restaurant.Reviews.reduce(function(accum, review) {return accum + review.rating}, 0),restaurant.Reviews.length)
+                        h3(id="restaurant-header")= restaurant.name
+                        h4(id="restaurant-address")= restaurant.address
+                        +starRating(`${restaurant.Reviews.reduce(function(accum, review) {return accum + review.rating}, 0)}`,`${restaurant.Reviews.length}`)
                         a(href=`/restaurants/${restaurant.id}/reviews`)
-                            h6(id="num-of-reviews")= `Reviews for ${restaurant.name} : ${restaurant.Reviews.length}`
+                        if restaurant.Reviews.length === 1
+                            h6(id="num-of-reviews")= `${restaurant.Reviews.length} person has reviewed ${restaurant.name}`
+                        else
+                            h6(id="num-of-reviews")= `${restaurant.Reviews.length} people have reviewed ${restaurant.name}`
