@@ -8,8 +8,6 @@ const loginUser = (req, res, user) => {
     };
     res.locals.user = true
     res.locals.user = user.id
-    console.log(req.session)
-    console.log(req.session.auth)
     req.session.save(() => {
         res.redirect('/')
     });
@@ -19,7 +17,6 @@ const loginUser = (req, res, user) => {
 const restoreUser = async (req, res, next) => {
     // Log the session object to the console
     // to assist with debugging.
-    console.log(req.session);
 
     if (req.session.auth) {
         const { userId } = req.session.auth;
@@ -48,7 +45,6 @@ const logoutUser = (req, res) => {
     res.locals.user = false
     res.locals.userId = -1
 
-    console.log('OOOOOOO', req.session.auth)
     req.session.save( () => { res.redirect('/users/login') })
 
 };

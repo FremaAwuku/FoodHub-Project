@@ -70,9 +70,8 @@ router.post('/:id(\\d+)/edit', csrfProtection, asyncHandler(async (req, res) => 
 
 }))
 
-// Gets add to list form for a specific restaurant 
+// Gets add to list form for a specific restaurant
 router.get('/:id(\\d+)/add', csrfProtection, asyncHandler(async (req, res) => {
-    console.log('IM GETTING TO THE ADD ROUTE')
     const restaurantId = req.params.id
     // const {hasVisited} =req.body
       res.render('add-to-list', {
@@ -82,7 +81,7 @@ router.get('/:id(\\d+)/add', csrfProtection, asyncHandler(async (req, res) => {
         csrfToken: req.csrfToken()
     })
 }))
-// Adds thats that resaurant to the list with the userId and restaurantId 
+// Adds thats that resaurant to the list with the userId and restaurantId
 router.post('/:id(\\d+)/add', requireAuth, asyncHandler(async (req, res) => {
     const restaurantId = req.params.id
     const userId = req.session.auth.userId
@@ -116,7 +115,6 @@ router.get('/:id(\\d+)/delete', csrfProtection, asyncHandler(async (req, res) =>
 }))
 
 router.post('/:id(\\d+)/delete', requireAuth, asyncHandler(async (req, res) => {
-    console.log('in post route')
     const restaurantId = req.params.id
     const userId = req.session.auth.userId
     const listEntry = await db.UserRestaurantList.findOne({
@@ -129,7 +127,7 @@ router.post('/:id(\\d+)/delete', requireAuth, asyncHandler(async (req, res) => {
     if (deleteEntry) {
         await listEntry.destroy()
     } else if (deleteEntry === undefined) {
-        deleteEntry = false 
+        deleteEntry = false
     }
 
     res.redirect(`/lists/${userId}`)

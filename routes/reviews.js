@@ -63,7 +63,7 @@ router.post('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, 
     const reviewToUpdate = await db.Review.findByPk(reviewId);
     const userId = reviewToUpdate.userId;
     const restaurantId = reviewToUpdate.restaurantId;
-    const restaurant = await db.Restaurant.findByPk(restaurantId);
+    // const restaurant = await db.Restaurant.findByPk(restaurantId);
 
     const {
         rating,
@@ -82,16 +82,16 @@ router.post('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, 
     if (validatorErrors.isEmpty()) {
         //THIS UPDATES THE RATING
         //decrement total rating by original rating
-        let oldRevRate = reviewToUpdate.rating
-        //grabbing rating from the individual review
-        let oldRating = Math.abs(parseInt(oldRevRate, 10));
-        // decrement total rating
-        await restaurant.decrement('rating', {by: oldRating});
-        //increment total rating by new rating
-        //turn string of rating into int
-        let newRating = Math.abs(parseInt(review.rating, 10));
-        // increment total rating
-        await restaurant.increment('rating', {by: newRating})
+        // let oldRevRate = reviewToUpdate.rating
+        // //grabbing rating from the individual review
+        // let oldRating = Math.abs(parseInt(oldRevRate, 10));
+        // // decrement total rating
+        // await restaurant.decrement('rating', {by: oldRating});
+        // //increment total rating by new rating
+        // //turn string of rating into int
+        // let newRating = Math.abs(parseInt(review.rating, 10));
+        // // increment total rating
+        // // await restaurant.increment('rating', {by: newRating})
 
         await reviewToUpdate.update(review);
 

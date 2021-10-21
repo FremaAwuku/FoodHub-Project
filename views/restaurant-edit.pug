@@ -12,14 +12,15 @@ block content
             input(type="hidden" name="_csrf" value=csrfToken)
             +field('Update Restaurant',"name", restaurant.name)
             +field('Update Address',"address", restaurant.address)
-            label(for="cuisine") Update Cuisine Type:
-            select(type="select" name="cuisine")
-                option(value="Italian") Italian
-                option(value="Mexican") Mexican
-                option(value="Indian") Indian
-                option(value="American") American
-                option(value="Jamaican") Jamaican
+            div(class='form-group')
+                label(for="cuisine") Update Cuisine Type:
+                select(type="select" name="cuisine")
+                    option(value="Italian") Italian
+                    option(value="Mexican") Mexican
+                    option(value="Indian") Indian
+                    option(value="American") American
+                    option(value="Jamaican") Jamaican
             +field('Update Image URL',"imgURL",restaurant.imgURL , "textarea" )
-            button(class="new-rest-btn") Update Restaurant
-                form(action=`/restaurants/${restaurantId}/delete` method="post")
-                    button(class="del-rest-btn")  Delete #{restaurant.name}
+            button(class="new-rest-btn") Update #{restaurant.name}
+        form(action=`/restaurants/${restaurantId}/delete` method="post")
+            button(type='submit' class="del-rest-btn")  Delete #{restaurant.name}

@@ -44,7 +44,6 @@ router.get("/:id(\\d+)", asyncHandler(async(req,res)=>{
         }})
         // res.send(restaurant.Reviews[0].User)
     const hasReviewed = restaurant.Reviews.find(review => review.userId === userId) ? true : false
-    console.log(hasReviewed)
     res.render('individual-restaurant',{
         title: restaurant.name,
         restaurant,
@@ -210,7 +209,6 @@ router.post("/:id(\\d+)/delete", asyncHandler(async (req,res)=>{
 
 router.post("/", asyncHandler(async(req, res) => {
     const {search} = req.body;
-    console.log(search)
    const restaurants = await db.Restaurant.findAll({
        where: {
            name: {
@@ -231,7 +229,6 @@ router.get("/allrestaurants", asyncHandler(async (req, res) => {
     //const { restaurant } = req.body
 
     const allRestaurants = await db.Restaurant.findAll()
-    console.log(allRestaurants, "ooooooooooo")
     res.json({allRestaurants})
 }))
 

@@ -1,10 +1,10 @@
 extends layout.pug
-
+append head
+    link(rel='stylesheet' href='/stylesheets/search-page.css')
 block content
-  
-    each restaurant in restaurants 
+  div(id='results-container')
+    each restaurant in restaurants
       a(href=`/restaurants/${restaurant.id}`)
-        p=restaurant.name
-        p 
-          a(href=`/restaurants/${restaurant.id}`)
-            img(src=`${restaurant.imgURL}`)
+        div(class='search-results-divs')
+          img(src=`${restaurant.imgURL}`)
+          p=restaurant.name

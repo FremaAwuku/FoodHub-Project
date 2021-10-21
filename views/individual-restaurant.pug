@@ -6,11 +6,11 @@ append head
 block content
     .container-div
         .restaurant-img-div
-                img(src=`${restaurant.imgURL}`)
-                if locals.user
-                    if locals.user.isAdmin
-                        form(action=`/restaurants/${restaurantId}/edit` method="get")
-                            button() Edit Restaurant
+            img(src=`${restaurant.imgURL}`)
+            if locals.user
+                if locals.user.isAdmin
+                    form(action=`/restaurants/${restaurantId}/edit` method="get")
+                        button() Edit Restaurant
         //- .restaurant-header-div
         .restaurant-details-div
             h1(id="restaurant-header")= restaurant.name
