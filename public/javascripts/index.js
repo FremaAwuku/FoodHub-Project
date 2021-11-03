@@ -7,4 +7,16 @@ window.addEventListener("DOMContentLoaded", () => {
         restDiv[i].classList.add("flipped");
     }
 
+    document.querySelector('html').addEventListener('click', () => {
+        let searchDiv = document.getElementById('search-id')
+        let searchField = document.getElementById('search-field')
+        if (searchDiv) {
+        searchDiv.remove()
+        searchField.value = ''
+        }
+
+    })
+
 })
+
+
