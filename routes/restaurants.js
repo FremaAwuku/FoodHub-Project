@@ -33,7 +33,10 @@ res.render('restaurants',{
 router.get("/:id(\\d+)", asyncHandler(async(req,res)=>{
 
     const restaurantId = req.params.id
-    const { userId } = req.session.auth
+    let userId;
+    if(req.session.auth) {
+        userId = req.session.auth.userId
+    }
 
 
 
