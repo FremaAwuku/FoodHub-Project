@@ -1,5 +1,7 @@
 extends layout
 
+include utils.pug
+
 append head
   //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/nav-bar.css")
@@ -21,8 +23,7 @@ block content
             a(href=`/restaurants/${restaurant.id}`)
               p(id="name")=restaurant.name
             p(id="cuisine")=`Cuisine: ${restaurant.cuisine}`
-            if restaurant.Reviews.length
-              p(id="rating")=`Average rating: ${(restaurant.Reviews.reduce(function(accum, review) {return accum + review.rating}, 0)/restaurant.Reviews.length).toFixed(2)}`
+            +starRating(`${restaurant.Reviews.reduce(function(accum, review) {return accum + review.rating}, 0)}`,`${restaurant.Reviews.length}`)
             div(id="btn-div")
               a(href= `/restaurants/${restaurant.id}/reviews`)
                 button() Reviews For This Restaurant
@@ -40,7 +41,9 @@ block content
           p(id="name")=restaurant.name
           p(id="cuisine")=`Cuisine: ${restaurant.cuisine}`
           if restaurant.Reviews.length
+
               p(id="rating")=`Average rating: ${(restaurant.Reviews.reduce(function(accum, review) {return accum + review.rating}, 0)/restaurant.Reviews.length).toFixed(2)}`
+              +starRating(`${restaurant.Reviews.reduce(function(accum, review) {return accum + review.rating}, 0)}`,`${restaurant.Reviews.length}`)
           div(id="btn-div")
             a(href= `/restaurants/${restaurant.id}/reviews`)
               button() Reviews For This Restaurant
