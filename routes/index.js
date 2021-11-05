@@ -22,12 +22,13 @@ router.get('/', asyncHandler(async (req, res) => {
   // const restaurants = await db.Restaurant.findAll({
   //     rating: { min: 1, max: 5 },
   //     order: [["rating", "DESC"]],
-  //     limit: 10
+  //
   // })
 
   const restaurants = await db.Restaurant.findAll({
     include: Review,
   });
+
 
   res.render('index', {
     restaurants,

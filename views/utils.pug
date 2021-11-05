@@ -11,14 +11,14 @@ mixin starRating(rating,reviews)
   .star-rating-div
 
     if (rating/reviews).toFixed(2)  >= 5
-        h5 ⭐⭐⭐⭐⭐
+        h5(id="star") ⭐⭐⭐⭐⭐
     else if (rating/reviews).toFixed(2) >=4 && (rating/reviews).toFixed(2) < 5
-        h5 ⭐⭐⭐⭐
+        h5(id="star") ⭐⭐⭐⭐
     else if (rating/reviews).toFixed(2) >=3 && (rating/reviews).toFixed(2) < 4
-        h5 ⭐⭐⭐
+        h5(id="star") ⭐⭐⭐
     else if (rating/reviews).toFixed(2) >=2 && (rating/reviews).toFixed(2) < 3
-        h5 ⭐⭐
+        h5(id="star") ⭐⭐
     else if (rating/reviews).toFixed(2) >=1 && (rating/reviews).toFixed(2) < 2
-        h5 ⭐
+        h5(id="star") ⭐
     else
-        h5 
+        h5
